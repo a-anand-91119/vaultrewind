@@ -1,0 +1,198 @@
+{
+  "provider": "google_drive",
+  "scope": "drive.file",
+  "synthetic_only": true,
+  "dedicated_test_account_acknowledged": true,
+  "google_account_identity_independently_verified": false,
+  "recorded_at": "2026-10-26T18:15:25.791509+00:00",
+  "run_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "destination_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "result": "roundtrip_restore_reconnect_proven",
+  "AC14_release_verified": false,
+  "retention_live_proven": false,
+  "note": "Retention is not part of this drill; full AC14 release verification requires its separate evidence.",
+  "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+  "drive_copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+  "jobs": {
+    "backup": {
+      "job_id": "8f4c7bd2-9997-4fd7-9067-9ba0ab05d492",
+      "source_running_during_cloud": true,
+      "job": {
+        "id": "8f4c7bd2-9997-4fd7-9067-9ba0ab05d492",
+        "kind": "backup",
+        "instance_id": "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2",
+        "state": "succeeded",
+        "phase": "finalizing",
+        "error_code": null,
+        "content_commit": "complete",
+        "required_copy_outcome": "complete",
+        "source_service_outcome": "running",
+        "target_activation_outcome": "not_started"
+      },
+      "result": {
+        "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a"
+      }
+    },
+    "restore": {
+      "job_id": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+      "job": {
+        "id": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+        "kind": "restore",
+        "instance_id": "b05f7958-3d3b-48d6-a8f2-8eb900533149",
+        "state": "succeeded",
+        "phase": "finalizing",
+        "error_code": null,
+        "content_commit": "complete",
+        "required_copy_outcome": "unknown",
+        "source_service_outcome": "running",
+        "target_activation_outcome": "complete"
+      },
+      "result": {
+        "safety_snapshot_id": "65877313-744a-4be8-9d5a-d7f499672b68",
+        "candidate_validated": true,
+        "activation_started": true,
+        "active_generation": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+        "restored_bytes_verified": true,
+        "application_started": true,
+        "user_login_tested": false
+      }
+    },
+    "reconnect_probe": {
+      "job_id": "a89de677-7281-4eb2-8050-2012f1f42840",
+      "job": {
+        "id": "a89de677-7281-4eb2-8050-2012f1f42840",
+        "kind": "storage_test",
+        "instance_id": null,
+        "state": "succeeded",
+        "phase": "testing_storage",
+        "error_code": null,
+        "content_commit": "unknown",
+        "required_copy_outcome": "unknown",
+        "source_service_outcome": "unknown",
+        "target_activation_outcome": "not_started"
+      },
+      "result": {}
+    }
+  },
+  "refresh": {
+    "real_rclone_access_token_refresh_persisted_in_encrypted_sql": true,
+    "generation_and_grant_preserved": true,
+    "revision_advanced": true,
+    "access_token_changed": true,
+    "expiry_future": true
+  },
+  "source_recovery": {
+    "resumed_before_normalization_transfer_cloud": true,
+    "history": [
+      {
+        "phase": "quiescing",
+        "at": 1793033571.053826
+      },
+      {
+        "phase": "capturing",
+        "at": 1793033584.916148
+      },
+      {
+        "phase": "resuming_source",
+        "at": 1793033585.3148117
+      },
+      {
+        "phase": "validating",
+        "at": 1793033597.9123428
+      },
+      {
+        "phase": "captured",
+        "at": 1793033611.7665014
+      }
+    ]
+  },
+  "drive_readback": {
+    "complete": true,
+    "backend": "drive",
+    "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+    "copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+    "repository_id": "71538b89-092f-45f1-8dfe-13ec2518aebd",
+    "manifest_hash": "cd1e60076ff62e8c415e32dabbb06c2b3299ef6986c08053e37d0fb08e4f8955",
+    "whole_file_map_sha256": "4d82ebae45e2f866c9f8fd7fa070ca753fcc446409f15fba022d845d52ac4cfd",
+    "grant_sha256": null,
+    "file_count": 9,
+    "logical_bytes": 320123297,
+    "restic_restore_verify_and_manifest_seconds": 73.003343,
+    "restored_bytes_verified": true,
+    "saved_image_inventory_verified": true,
+    "sqlite_integrity": "ok",
+    "application_started": false,
+    "user_login_tested": false
+  },
+  "local_readback": {
+    "complete": true,
+    "backend": "local",
+    "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+    "copy_id": "6eb76d58-4163-4520-88e6-69216f6ef30a",
+    "repository_id": "bca96f46-ee00-4d2e-9d51-776763c18c55",
+    "manifest_hash": "cd1e60076ff62e8c415e32dabbb06c2b3299ef6986c08053e37d0fb08e4f8955",
+    "whole_file_map_sha256": "4d82ebae45e2f866c9f8fd7fa070ca753fcc446409f15fba022d845d52ac4cfd",
+    "grant_sha256": null,
+    "file_count": 9,
+    "logical_bytes": 320123297,
+    "restic_restore_verify_and_manifest_seconds": 21.456502,
+    "restored_bytes_verified": true,
+    "saved_image_inventory_verified": true,
+    "sqlite_integrity": "ok",
+    "application_started": false,
+    "user_login_tested": false
+  },
+  "alternate_restore": {
+    "complete": true,
+    "job_id": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+    "target_id": "b05f7958-3d3b-48d6-a8f2-8eb900533149",
+    "selected_drive_copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+    "safety_snapshot_id": "65877313-744a-4be8-9d5a-d7f499672b68",
+    "pinned_complete_local_safety": true,
+    "source_started_at_and_whole_hash_unchanged": true,
+    "public_alive_config_200": true,
+    "application_started": true,
+    "user_login_tested": false
+  },
+  "reconnect": {
+    "complete": true,
+    "fresh_grant": true,
+    "same_historical_snapshot": true,
+    "same_repository_and_copy": true
+  },
+  "reconnect_historical_readback": {
+    "complete": true,
+    "backend": "drive",
+    "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+    "copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+    "repository_id": "71538b89-092f-45f1-8dfe-13ec2518aebd",
+    "manifest_hash": "cd1e60076ff62e8c415e32dabbb06c2b3299ef6986c08053e37d0fb08e4f8955",
+    "whole_file_map_sha256": "4d82ebae45e2f866c9f8fd7fa070ca753fcc446409f15fba022d845d52ac4cfd",
+    "grant_sha256": "2e18c18163bae591ae4761365f138ea3cb1d7f4b0a51942622df0d09cb3c70f5",
+    "file_count": 9,
+    "logical_bytes": 320123297,
+    "restic_restore_verify_and_manifest_seconds": 62.246765,
+    "restored_bytes_verified": true,
+    "saved_image_inventory_verified": true,
+    "sqlite_integrity": "ok",
+    "application_started": false,
+    "user_login_tested": false
+  },
+  "optional_revocation": {
+    "locally_invalidated": true,
+    "google_revoke_acknowledged": true,
+    "actual_google_refresh_error": "STORAGE_AUTH_EXPIRED",
+    "source_unchanged_and_local_copy_verified": true
+  },
+  "original_policy_restored": true,
+  "previous_reconnect_attempts": [],
+  "failures": [
+    {
+      "phase": "roundtrip",
+      "code": "HTTP_401_AUTH_REQUIRED",
+      "at": "2026-10-26T16:50:50.669381+00:00"
+    }
+  ],
+  "user_login_tested": false,
+  "awaiting_private_ui_reconnect": false
+}

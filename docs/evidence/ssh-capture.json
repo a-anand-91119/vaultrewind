@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "real_ssh": true,
+  "pinned_host_key": true,
+  "helper_protocol": 1,
+  "source_service_outcome": "running",
+  "phase": "captured",
+  "transfer_bytes": 303400960,
+  "stored_copy_verified": true,
+  "restored_bytes_verified": true,
+  "full_data_verified": true,
+  "total_seconds": 73.24,
+  "cleanup_verified": true
+}

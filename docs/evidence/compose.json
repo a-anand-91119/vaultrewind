@@ -1,0 +1,25 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "supplied_production_compose": true,
+  "fresh_project_database_and_keys": true,
+  "initial_readiness_http": 200,
+  "frontend_http": 200,
+  "api_container_recreated": true,
+  "encrypted_local_snapshot_survived": true,
+  "full_data_verified_after_recreation": true,
+  "provider_credential_state_survived": true,
+  "restic_snapshot_id": "c30b6d1bdd90fb42e20732fc482f0782eed0199081e1fb98648c49e55920f1dd",
+  "uid": 10001,
+  "read_only_root": true,
+  "cap_drop_all": true,
+  "docker_socket_mounted": false,
+  "image_id": "sha256:a1eb72ff5a0eee83e53cbef9ac5e692999a6b8f8a32ac1cf420a85b1c5f1125a",
+  "total_seconds": 248.805,
+  "limits": [
+    "Loopback runtime in the disposable build host; no production deployment.",
+    "TLS termination requires the operator's existing reverse proxy.",
+    "Persistent restic fixture tests storage survival, not application replacement."
+  ],
+  "previous_installation_evidence": "compose-before-dashboard.json"
+}

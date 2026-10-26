@@ -1,0 +1,105 @@
+{
+  "activation": {
+    "job_id": "72300973-e579-4720-a1c8-71905de02deb",
+    "plan_job_id": "fd83ba59-d6f8-455a-9d58-921ba7f3885f",
+    "state": "succeeded"
+  },
+  "admin_bootstrap": {
+    "fixed_provisioner_command": true,
+    "passed": true,
+    "pinned_asyncssh": true,
+    "seconds": 7.37
+  },
+  "alternate": {
+    "discovery_job_id": "165747ff-7805-48b9-a18f-7ee267e2eff3",
+    "enrolled": true,
+    "instance_id": "b05f7958-3d3b-48d6-a8f2-8eb900533149",
+    "is_runner": false,
+    "name": "VM synthetic alternate vault",
+    "readiness": "ready",
+    "source_state": "absent"
+  },
+  "diagnostics": {
+    "interrupted_activation": {
+      "activate_helper_step": "complete",
+      "attempts": 2,
+      "cause": "worker restarted after separate host-ready/revision commit and before job success; resumed handler rejected its own revision change",
+      "code": "TARGET_CHANGED",
+      "host_revision": 2,
+      "installed_bundle_verified": true,
+      "job_id": "6f9fabed-0649-4541-8427-243c43dc318a",
+      "plan_host_revision": 1,
+      "root_fix_reported": "make host/policy updates and terminal finish atomic",
+      "terminal_state": "failed"
+    },
+    "normal_reviewed_activation": {
+      "job_id": "72300973-e579-4720-a1c8-71905de02deb",
+      "state": "succeeded"
+    },
+    "original_plan_failure": {
+      "authentication_failures_observed": 0,
+      "cause": "post-login exception unavailable; generic bootstrap handler discarded it; not reproduced",
+      "code": "HELPER_ACTIVATION_FAILED",
+      "elapsed_seconds": 44.189149,
+      "job_id": "faecc381-42a7-4546-bf26-eee8526ec8ec",
+      "root_publickey_accepted": true
+    },
+    "server_files_changed_by_remote_agent": false
+  },
+  "finished_at": "2026-10-25T16:38:47.896305+00:00",
+  "installed_policy_instances": 4,
+  "native_disposable_public_regression": {
+    "engine_version": "26.1.5+dfsg1",
+    "internal_actual_ports_present": false,
+    "internal_public_error": "PUBLIC_PORTS_UNAVAILABLE",
+    "nat_public_verified": true,
+    "native_source_mutated": false,
+    "passed": true,
+    "postactivation_failure_preserved_generation": true,
+    "reconciled_only_after_public_verification": true,
+    "seconds": 155.65,
+    "systemd_substituted": true,
+    "test": "tests/unit/test_remote_public_docker.py",
+    "test_resources_cleaned": true,
+    "vm_apps_mutated": false
+  },
+  "native_source_operations": false,
+  "preserved_reboot_journals": true,
+  "public_fourth_prepared": {
+    "armed_journals": 0,
+    "attached_containers": 0,
+    "boot_id": "eaa17f94-6d57-4a9d-bc12-d3c512411ce9",
+    "bundle_sha256": "1ba90b4a54c4d2e460fe7772877025eec55aeb5221e3446d9ed8ddf8be46bf33",
+    "data_empty": true,
+    "descriptor_mode": "0600",
+    "descriptor_path": ".runtime/vm/controller-loss-target-fourth.json",
+    "loopback_port": 18103,
+    "network_internal": false,
+    "policy_installed": false,
+    "preserved_installed_profiles": 4,
+    "remote_instance_id": "02b09a69-7c5f-4695-85f5-8514364ca6f5",
+    "third_actual_ports": {},
+    "third_container_id": "63a2ca6973bbe8a53e509b3195f76bc34cff24e65375b7baf0651cfd94090b58",
+    "third_running": true
+  },
+  "recovery_target": {
+    "descriptor_private_mode": "0o600",
+    "instance_id": "3269177e-9c84-4143-abc6-8658e4f0a766",
+    "loopback_port": 18102,
+    "native_enrolled": false
+  },
+  "runner": {
+    "discovery_job_id": "7e5a6bdc-9fac-4e92-8ff8-1f138ff37c86",
+    "enrolled": true,
+    "instance_id": "7902cb54-9b17-4e59-ace0-143236c03c87",
+    "is_runner": true,
+    "name": "VM isolated verification runner",
+    "readiness": "ready",
+    "source_state": "absent"
+  },
+  "scope": "VM host activation, empty-target discovery/enrollment; no application restore",
+  "started_at": "2026-10-25T16:34:17.660135+00:00",
+  "status": "passed",
+  "synthetic_only": true,
+  "vm_host_id": "56159034-4928-4b47-9ca8-f88cc4fff507"
+}

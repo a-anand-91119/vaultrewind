@@ -1,0 +1,107 @@
+{
+  "boundaries": {
+    "backup_witness_seeded_catalog_only": true,
+    "dns_fixture_port_redirect": true,
+    "encrypted_channel_configuration": true,
+    "ephemeral_certificates_minutes": 15,
+    "external_mail_delivery_verified": false,
+    "host_trust_modified": false,
+    "loopback_only": true,
+    "native_controller_calls": 0,
+    "postgresql_concurrency_verified": false,
+    "processes_killed": 0,
+    "product_tls_modified": false,
+    "real_https": true,
+    "real_smtp_starttls": true,
+    "real_sqlite_queue_worker": true,
+    "shared_fixture_calls": 0
+  },
+  "checks": {
+    "destination_guards": {
+      "allowlist_required": true,
+      "blocked_configurations": 9,
+      "code": "WEBHOOK_DESTINATION_BLOCKED",
+      "mixed_dns_answers_blocked": true,
+      "private_network_blocked": true,
+      "requests_sent": 0
+    },
+    "lifecycle": {
+      "delivered_rows": 6,
+      "disabled_channel_deliveries": 0,
+      "hmac_verified": true,
+      "https_signed_requests": 3,
+      "logical_incidents": 2,
+      "new_incident_has_new_identity": true,
+      "recovery_events_per_channel": 1,
+      "repeated_alert_deduplicated": true,
+      "repeated_clear_deduplicated": true,
+      "smtp_authenticated_sessions": 3,
+      "smtp_starttls_messages": 3,
+      "sni_verified": true,
+      "status_only_payloads": true
+    },
+    "lost_acknowledgement": {
+      "at_least_once_reconciliation": true,
+      "delivery_rows": 1,
+      "fence_advanced": true,
+      "https_requests": 2,
+      "same_event_status": true
+    },
+    "retry": {
+      "attempts": 2,
+      "backoff_enforced": true,
+      "backup_catalog_unchanged": true,
+      "delivery_error_cleared": true,
+      "http_status_codes": [
+        503,
+        204
+      ],
+      "retry_survives_worker_recreation": true,
+      "same_event_on_retry": true
+    },
+    "smtp_hostname_mismatch": {
+      "auth_before_valid_tls": 0,
+      "code": "NOTIFICATION_FAILED",
+      "messages_sent": 0
+    },
+    "smtp_terminal_failure": {
+      "attempts": 2,
+      "backup_catalog_unchanged": true,
+      "delivery_failed_separately": true,
+      "leases_released": true,
+      "recursive_alerts": 0,
+      "terminal_code": "NOTIFICATION_FAILED"
+    },
+    "smtp_untrusted_ca": {
+      "auth_before_valid_tls": 0,
+      "code": "NOTIFICATION_FAILED",
+      "messages_sent": 0
+    },
+    "starttls_required": {
+      "code": "NOTIFICATION_FAILED",
+      "plaintext_authentication": 0,
+      "plaintext_messages": 0
+    },
+    "webhook_hostname_mismatch": {
+      "auth_before_valid_tls": 0,
+      "code": "NOTIFICATION_FAILED",
+      "messages_sent": 0
+    },
+    "webhook_terminal_failure": {
+      "attempts": 2,
+      "backup_catalog_unchanged": true,
+      "delivery_failed_separately": true,
+      "leases_released": true,
+      "recursive_alerts": 0,
+      "terminal_code": "NOTIFICATION_FAILED"
+    },
+    "webhook_untrusted_ca": {
+      "auth_before_valid_tls": 0,
+      "code": "NOTIFICATION_FAILED",
+      "messages_sent": 0
+    }
+  },
+  "result_code": "PASS",
+  "scenario_count": 11,
+  "schema_version": 1
+}

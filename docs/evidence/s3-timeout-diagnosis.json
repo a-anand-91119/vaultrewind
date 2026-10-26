@@ -1,0 +1,41 @@
+{
+  "result": "precise_provider_code_unavailable",
+  "recorded_at": "2026-10-26T17:10:37.431053+00:00",
+  "synthetic_only": true,
+  "restic_version": "0.19.1",
+  "scope": "Independent loopback-only S3 lock-create probes; temporary files and receiver cleaned; no shared MinIO, cloud, SSH or Docker calls.",
+  "probe_seconds_total": 13.04,
+  "observations": [
+    {
+      "provider_code": "QuotaExceeded",
+      "message": "documented quota wording",
+      "deadline_seconds": 3,
+      "result": "retried_until_deadline",
+      "message_retained": true,
+      "explicit_code_retained": false
+    },
+    {
+      "provider_code": "QuotaExceeded",
+      "message": "neutral fixture wording",
+      "deadline_seconds": 3,
+      "result": "retried_until_deadline",
+      "message_retained": true,
+      "explicit_code_retained": false
+    },
+    {
+      "provider_code": "AccessDenied",
+      "message": "same neutral fixture wording",
+      "result": "prompt_nonzero_exit",
+      "exit_status": 1,
+      "message_retained": true,
+      "explicit_code_retained": false
+    }
+  ],
+  "decision": "Preserve STORAGE_TIMEOUT, retryability and outcome_ambiguous. Do not infer a definitive quota/auth code from generic HTTP403, message text or retry timing.",
+  "existing_copy_preservation_evidence_unchanged": true,
+  "product_changes": false,
+  "limits": [
+    "Research concerns information preserved by this restic release, not a real provider quota exhaustion.",
+    "Structured SDK exceptions are handled independently; a later diagnostic request would not establish the earlier command outcome."
+  ]
+}

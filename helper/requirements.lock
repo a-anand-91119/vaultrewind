@@ -1,0 +1,4 @@
+# Build dependency; vendored pure-Python YAML parser in the helper bundle.
+PyYAML==6.0.3
+# Controller-only transport (the helper has no network listener or SSH library).
+asyncssh==2.24.1

@@ -1,0 +1,122 @@
+{
+  "AC03": {
+    "after_capture": {
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": "f4d1b1e7f7ac8d253619197faf777a61c5ee9b86dc3c27d8cd7271f30176eec8",
+      "uid": 0
+    },
+    "after_restore": {
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": "f4d1b1e7f7ac8d253619197faf777a61c5ee9b86dc3c27d8cd7271f30176eec8",
+      "uid": 0
+    },
+    "before": {
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": "f4d1b1e7f7ac8d253619197faf777a61c5ee9b86dc3c27d8cd7271f30176eec8",
+      "uid": 0
+    },
+    "captured": {
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": "f4d1b1e7f7ac8d253619197faf777a61c5ee9b86dc3c27d8cd7271f30176eec8",
+      "uid": 0
+    },
+    "config_before": {
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": "b8a9c45c218f7c888841b166634ddcb6f31ce36ba190d3ba845a10cf9a9162c3",
+      "uid": 0
+    },
+    "config_snapshot_unchanged": true,
+    "passed": true
+  },
+  "AC06": {
+    "compose_labels_present": false,
+    "manually_created": true,
+    "passed": true,
+    "restored_from_normalized_definition": true
+  },
+  "AC10": {
+    "captured_source_stayed_stopped": true,
+    "data_only_final_phase": "data_restored_service_stopped",
+    "final_restart_policy": {
+      "MaximumRetryCount": 0,
+      "Name": "no"
+    },
+    "final_stopped": true,
+    "original_still_stopped": true,
+    "passed": true
+  },
+  "AC11": {
+    "actual_image_id": "sha256:6c7f666f6bf15531659962786168a257f17829da0d25f5455e54ea91086645f7",
+    "image_absent_before_restore": true,
+    "image_restored_from_saved_archive": true,
+    "passed": true,
+    "pull_attempts": 0,
+    "recorded_image_id": "sha256:6c7f666f6bf15531659962786168a257f17829da0d25f5455e54ea91086645f7",
+    "wrong_architecture_rejected_before_downtime": true
+  },
+  "AC26": {
+    "data_sha256": "39e8625832e0887659eda95f6087975c3763fa9922b05df88b6405529a2567b5",
+    "docker_mutations": 0,
+    "method": "policy reserve greater than actual filesystem free bytes; disk not filled",
+    "passed": true,
+    "state_and_started_at_unchanged": true,
+    "watchdog_arms": 0
+  },
+  "bundle_sha256": "9955c8646d521b7bbec50db93b9416b327265b33d3c366d7004dc2b5560c5883",
+  "capture": {
+    "archive_sha256": "0f804e77980d47e636e54a52e5c3bcb1528f7dbd122d8d0821f9f30ccb96ca10",
+    "image_id": "sha256:6c7f666f6bf15531659962786168a257f17829da0d25f5455e54ea91086645f7",
+    "manifest_hash": "9906052652165038cbc95e00c18626b42a1ab591d9e40a2c47c0d70513db4897",
+    "saved_image_sha256": "af4e58edd6fd0e02923c76a6ba5949e5ae24c6cef54b74a5611cf803360af8a7",
+    "snapshot_uuid": "1421812c-536c-4c0a-a6d1-9aa7a50eca3b"
+  },
+  "config_overlay": {
+    "original_snapshot_config_unchanged": true,
+    "passed": true,
+    "real_api_config_url_matches_approved_overlay": true
+  },
+  "elapsed_seconds": 408.39,
+  "final_bundle_delta": "Only completed_readiness legacy zero-endpoint receipt guard was added after this real run; covered by test_remote_review03.py and final 158-test unit suite.",
+  "final_bundle_sha256": "8e7775f757002f07f67d6d3616f5288186f75291c352ab19409f44e09a51bf0d",
+  "final_unit_tests": {
+    "opt_in_skipped": 10,
+    "passed": 158,
+    "seconds": 6.77
+  },
+  "finished_at": "2026-10-25T18:25:39.960339+00:00",
+  "fixture_cleaned": true,
+  "limits": [
+    "systemd adapter substituted; no new watchdog/reboot claim",
+    "controller pin/ack is private fsynced fixture record, not worker database",
+    "registry unavailable enforced by rejecting Docker pull/build APIs; host network not disabled",
+    "foreign architecture uses a synthetic saved-image configuration; foreign binaries are not executed",
+    "Shared base image layers remain cached; unique recorded image identity was removed and reloaded from the saved archive."
+  ],
+  "passed": true,
+  "public_failure_regression": {
+    "passed": 1,
+    "scope": "unique local real Docker; test-only postpublication probe fault; systemd adapter substituted",
+    "seconds": 45.07,
+    "test": "tests/unit/test_remote_public_docker.py"
+  },
+  "safety": {
+    "ack_fsynced": true,
+    "full_readback_verified": true,
+    "manifest_hash": "73bb1d4b984aa6d30eb480f187febd73a06fceddeb24e83287f656f46596ea45",
+    "restic_snapshot_id": "77c47ff490b95784bce667053a3e50c79903fc51d04bab6450327bc0140019bd"
+  },
+  "scope": "unique local Docker fixture; no VM, primary source, helper install, daemon change or worker",
+  "started_at": "2026-10-25T18:18:51.847641+00:00",
+  "wrong_architecture": {
+    "code": "UNSUPPORTED_ARCHITECTURE",
+    "declared_platform": "linux/arm64",
+    "docker_mutations_before_rejection": 0,
+    "new_watchdog_arms": 0,
+    "source_running_and_started_at_unchanged": true
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "acceptance": "AC26",
+  "synthetic_only": true,
+  "run_id": "vr-capacity-03bk_twl",
+  "recorded_at": "2026-10-25T18:49:07.272079+00:00",
+  "source_scope": "application-shaped SQLite files plus new inert Docker source-state sentinel",
+  "workflow_scope": "real Context.reserve/extract, Worker.failure, provider and restic boundaries; no full SSH backup job",
+  "cloud_scope": "loopback synthetic S3 HTTP; no live Google/MinIO quota",
+  "cases": {
+    "per_job_reserve": {
+      "result": "passed",
+      "fault": "logical_quota",
+      "physical_ENOSPC": false,
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "INSUFFICIENT_SPACE",
+          "errno": null
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "INSUFFICIENT_SPACE",
+        "active_job_count": 0,
+        "allocation_state": "never_allocated"
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "global_reserve": {
+      "result": "passed",
+      "fault": "logical_quota",
+      "physical_ENOSPC": false,
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "INSUFFICIENT_SPACE",
+          "errno": null
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "INSUFFICIENT_SPACE",
+        "active_job_count": 0,
+        "allocation_state": "never_allocated"
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "archive_expansion": {
+      "result": "passed",
+      "fault": "logical_quota",
+      "physical_ENOSPC": false,
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "STAGING_QUOTA_EXCEEDED",
+          "errno": null
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "STAGING_QUOTA_EXCEEDED",
+        "active_job_count": 0,
+        "allocation_state": "released"
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "controller_full_extract": {
+      "result": "passed",
+      "fault": "physical_ENOSPC",
+      "filesystem": "private_tmpfs",
+      "limit_bytes": 8388608,
+      "filler_bytes": 8388608,
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "TRANSFER_INVALID",
+          "errno": null
+        },
+        {
+          "type": "OSError",
+          "code": null,
+          "errno": 28
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "TRANSFER_INVALID",
+        "active_job_count": 0,
+        "allocation_state": "released"
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "controller_full_reserve": {
+      "result": "passed",
+      "fault": "physical_free_space_guard",
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "INSUFFICIENT_SPACE",
+          "errno": null
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "INSUFFICIENT_SPACE",
+        "active_job_count": 0,
+        "allocation_state": "never_allocated"
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "missing_local_mount": {
+      "result": "passed",
+      "fault": "physical_dedicated_self_bind_removed",
+      "filesystem": "zfs",
+      "real_mountinfo": true,
+      "marker_retained": true,
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "LOCAL_MOUNT_MISSING",
+          "errno": null
+        }
+      ],
+      "read_only_error": [
+        {
+          "type": "VaultRewindError",
+          "code": "STORAGE_READ_ONLY",
+          "errno": null
+        }
+      ],
+      "no_empty_replacement": true,
+      "active_job_count": 0,
+      "mounted_older_repository_bytes_unchanged": true,
+      "older_readonly_restore": {
+        "restic_snapshot_id": "ec86310b331c23a31699edbaa2eab41ea4193893040a4a0318614965a0a0cc02",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "caa21f56ce625772f460744f3c41ca256ee08726cfc5c4dfd6029dd996a261aa",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      },
+      "older_restore_after_umount": {
+        "restic_snapshot_id": "ec86310b331c23a31699edbaa2eab41ea4193893040a4a0318614965a0a0cc02",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "caa21f56ce625772f460744f3c41ca256ee08726cfc5c4dfd6029dd996a261aa",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      },
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    },
+    "cloud_quota": {
+      "result": "preservation_passed_with_adapter_timeout",
+      "fault": "synthetic_S3_HTTP_403_QuotaExceeded",
+      "real_restic": true,
+      "quota_rejections": [
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        },
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        },
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        },
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        },
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        },
+        {
+          "method": "PUT",
+          "status": 403,
+          "code": "QuotaExceeded"
+        }
+      ],
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "STORAGE_TIMEOUT",
+          "errno": null
+        }
+      ],
+      "job": {
+        "state": "failed",
+        "error_code": "STORAGE_TIMEOUT",
+        "active_job_count": 0,
+        "allocation_state": "never_allocated"
+      },
+      "older_S3_objects_sha256": "db0ea7698c6e23707ef4f6b7df94a39e8a446e5938706df349c31013a677c6e5",
+      "older_S3_objects_unchanged": true,
+      "older_S3_backup": {
+        "restic_snapshot_id": "b0b9461e5c5155752d9d1ebe908900cac5532e324d04c1c1cc6dbe92d25598d5",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": null,
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      },
+      "live_provider_quota": false,
+      "quota_error_classification_verified": false,
+      "source_state_and_bytes_unchanged": true,
+      "source_stop_calls": 0,
+      "older_backup": {
+        "restic_snapshot_id": "a98c498ef438f28badd974ea30e29bcf105fadef72d05e5d514619cacb9d995d",
+        "manifest_sha256": "ee4de76fa6a3194bf4bc22c24c2dac337887529c9d6b7b0106144e09ec2d3331",
+        "repository_bytes_sha256": "b2c52350ea268a23db812e7b5871c5f543b423643cc52059eac2b129efe9c4b4",
+        "snapshot_set_unchanged": true,
+        "full_data_verified": true,
+        "restored_bytes_verified": true
+      }
+    }
+  },
+  "limitations": [
+    "Real S3 QuotaExceeded responses were received by restic, but its write retries reached the adapter deadline: STORAGE_TIMEOUT. Quota classification was not verified.",
+    "Source free-reserve/full-disk is a separate agent drill and is not tested here.",
+    "No expired real Google Drive credentials tested; user deferred that evidence.",
+    "Snapshot image member is an explicit synthetic placeholder, not a recoverable Docker image; no application restore claim.",
+    "Controller jobs are focused capacity-boundary jobs, not API/SSH full backup workflow jobs."
+  ],
+  "source_initial": {
+    "tree_sha256": "30def06d79cdb9c7f943eb944b9702e98ac5051fa0e9463dea48fe45f82c33c1",
+    "container_id": "0c16a51f4f9f46b4c80b23ae0a595bf43eeba9e8fc84d9c19b273469ae7e80aa",
+    "running": true,
+    "started_at": "2026-10-25T18:49:08.468586236Z",
+    "restart_count": 0
+  },
+  "source_final_before_cleanup": {
+    "tree_sha256": "30def06d79cdb9c7f943eb944b9702e98ac5051fa0e9463dea48fe45f82c33c1",
+    "container_id": "0c16a51f4f9f46b4c80b23ae0a595bf43eeba9e8fc84d9c19b273469ae7e80aa",
+    "running": true,
+    "started_at": "2026-10-25T18:49:08.468586236Z",
+    "restart_count": 0
+  },
+  "restic_version": "0.19.1",
+  "result": "partial",
+  "cleanup": {
+    "private_mounts_remaining": 0,
+    "new_container_removed": true,
+    "controller_engine_disposed": true
+  }
+}

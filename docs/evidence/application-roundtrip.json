@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "vaultwarden_version": "1.37.4",
+  "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+  "registry_digest": "sha256:efb3cde962015fcc036b2ea625242248611943b27212ebf4392841fb30fad055",
+  "saved_image_sha256": "422b7e8a8df2c0342cc0b71c2d1faeb7f2202746dd8e67ba8c25636691e38af1",
+  "application_started": true,
+  "candidate_no_public_ports": true,
+  "candidate_network_none": true,
+  "authenticated_user_login_tested": false,
+  "source_resumed_before_normalize_upload": true,
+  "capture_outage_seconds": 2.086,
+  "later_source_change_absent": true,
+  "source_running_during_restore": true,
+  "logical_bytes": 303350989,
+  "inventory_members": 21,
+  "total_seconds": 29.222,
+  "scope": "manual engineering pipeline; product helper transactional restore tested separately"
+}

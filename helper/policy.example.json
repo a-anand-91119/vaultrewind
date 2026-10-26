@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "machine_id": "00000000000000000000000000000000",
+  "daemon_id": "replace-with-docker-info-ID",
+  "instances": {
+    "00000000-0000-4000-8000-000000000001": {
+      "revision": 1,
+      "container_id": "0000000000000000000000000000000000000000000000000000000000000000",
+      "container_name": "synthetic-vaultwarden",
+      "allowed_operations": ["discover", "preflight", "capture", "export", "stage_restore", "commit_restore", "rollback", "status", "cancel", "cleanup"],
+      "allowed_image_ids": ["sha256:0000000000000000000000000000000000000000000000000000000000000000"],
+      "allowed_networks": ["bridge"],
+      "port_bindings": {"80/tcp": [{"HostIp": "127.0.0.1", "HostPort": "18080"}]},
+      "mounts": [{"type": "bind", "source": "/srv/synthetic-vaultwarden/data", "target": "/data", "read_only": false, "snapshot_path": "data"}],
+      "additional_files": {},
+      "dependency_inventory": [],
+      "external_dependencies_ready": true,
+      "ownership": "exclusive",
+      "capture_budget": 300,
+      "restore_budget": 900,
+      "validation_window": 180,
+      "max_archive_bytes": 1099511627776,
+      "max_members": 1000000,
+      "free_space_reserve": 1073741824,
+      "recovery_profile": {"revision": 1}
+    }
+  }
+}

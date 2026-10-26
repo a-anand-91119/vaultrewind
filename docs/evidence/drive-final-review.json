@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "review_id": "vr-live-drive-final-release-ac26-review-01",
+  "recorded_at": "2026-10-26T18:39:23.887094+00:00",
+  "result": "passed_with_documented_limits",
+  "review_mode": "Read-only public source/document/evidence review; no live retest.",
+  "scope": "Completed live Drive evidence, release aggregate cross-binding, and literal AC14/AC26 assessment. Previously closed broad product reviews were not reopened.",
+  "constraints_observed": {
+    "handoff_and_spec_read_completely": true,
+    "private_or_runtime_files_read": false,
+    "network_API_SQL_SSH_Docker_provider_calls": 0,
+    "tests_run": 0,
+    "delegation": false,
+    "only_write": "NEW docs/evidence/drive-final-review.json"
+  },
+  "findings": [],
+  "new_severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "acceptance": {
+    "AC14": {
+      "suggested_status": "PASS",
+      "qualification": "Matched dedicated-account real-provider evidence; aggregate AC14 flag is supported. This is not an all-requirements product-release approval.",
+      "contract_refs": [
+        "VAULTREWIND-SPEC.md:490",
+        "VAULTREWIND-SPEC.md:467",
+        "AGENT-HANDOFF.md:45"
+      ],
+      "reason": "Recorded real OAuth authorization, rclone refresh persisted in encrypted controller storage, complete backup, selected Drive-copy application restore, fresh UI reconnect and historical readback satisfy AC14. Separate live exact-ID retention/prune/full-data/readback and actual revocation/refresh refusal also satisfy the additional live-provider evidence gate in section 22.",
+      "evidence_refs": [
+        "docs/evidence/drive-release.json:18",
+        "docs/evidence/drive.json:77",
+        "docs/evidence/drive.json:109",
+        "docs/evidence/drive.json:145",
+        "docs/evidence/drive.json:157",
+        "docs/evidence/drive.json:181",
+        "docs/evidence/drive-application.json:19",
+        "docs/evidence/drive-retention.json:82",
+        "docs/evidence/drive-retention.json:284",
+        "docs/evidence/drive-auth-failure.json:261",
+        "docs/evidence/drive-secret-scan.json:6"
+      ],
+      "component_false_flags": "Component AC14_release_verified=false values describe their narrower scope and do not contradict the matched aggregate. Do not rewrite them solely to make every file green."
+    },
+    "AC26": {
+      "suggested_status": "PASS",
+      "qualification": "Preservation boundary demonstrated by combined physical source/controller/mount drills, actual revoked-Drive worker fault, and real restic against synthetic S3 quota responses. Preserve every fixture and diagnostic limitation.",
+      "contract_ref": "VAULTREWIND-SPEC.md:502",
+      "literal_requirement": "Source full disk, controller full disk, missing local mount, expired cloud credentials and cloud quota failure preserve the live instance and older backups.",
+      "reason": "All five preservation fault categories now have recorded evidence. The literal criterion does not require a specific quota error code, natural seven-day expiry, or real Google account quota exhaustion. Controlled revocation with actual refresh refusal and worker STORAGE_AUTH_EXPIRED covers the rejected-cloud-authorization boundary without claiming natural expiry. A generic quota timeout must remain qualified, but does not negate the recorded preservation result.",
+      "faults": {
+        "source_full": {
+          "status": "preservation_passed",
+          "refs": [
+            "docs/evidence/source-capacity.json:9",
+            "docs/evidence/source-capacity.json:295",
+            "docs/evidence/source-capacity.json:363",
+            "docs/evidence/source-capacity.json:756",
+            "docs/evidence/source-capacity.json:871"
+          ],
+          "boundary": "Three physical source-staging ENOSPC cases plus live-data filesystem at zero free on operation entry. Real frozen helper and Vaultwarden; one graceful stop, no forced kill, coherent capture and recovered HTTP health. Logical SQLite/non-database metadata and older verified recovery point preserved; continuous fullness and real systemd failure recovery in these drills are not claimed."
+        },
+        "controller_full": {
+          "status": "preservation_passed",
+          "refs": [
+            "docs/evidence/capacity-faults.json:94",
+            "docs/evidence/capacity-faults.json:129"
+          ],
+          "boundary": "Physical private-tmpfs ENOSPC/extraction and free-space admission guards, source sentinel unchanged, older repository bytes/set/full-data check/restore preserved. Focused controller boundaries, not a full API/SSH backup."
+        },
+        "missing_local_mount": {
+          "status": "preservation_passed",
+          "refs": [
+            "docs/evidence/capacity-faults.json:156"
+          ],
+          "boundary": "Actual read-only and removed dedicated mount, LOCAL_MOUNT_MISSING/STORAGE_READ_ONLY, no empty replacement, older repository/readback and source sentinel preserved."
+        },
+        "expired_or_revoked_cloud_credentials": {
+          "status": "preservation_passed",
+          "refs": [
+            "docs/evidence/drive.json:181",
+            "docs/evidence/drive-auth-failure.json:21",
+            "docs/evidence/drive-auth-failure.json:151",
+            "docs/evidence/drive-auth-failure.json:203",
+            "docs/evidence/drive-auth-failure.json:261"
+          ],
+          "boundary": "Actual Google revocation/refresh refusal and actual required-Drive worker fault: partial original job, complete local copy, new/older full readbacks, source running and logical data/metadata preserved, original disabled policy restored. Fresh-grant same-copy/same-snapshot retry succeeds without recapture; original partial job remains partial."
+        },
+        "cloud_quota": {
+          "status": "preservation_passed_with_diagnostic_limit",
+          "refs": [
+            "docs/evidence/capacity-faults.json:206",
+            "docs/evidence/capacity-faults.json:255",
+            "docs/evidence/s3-timeout-diagnosis.json:34",
+            "src/vaultrewind/storage/restic.py:355"
+          ],
+          "boundary": "Real restic receives synthetic S3 HTTP403 QuotaExceeded responses. Prior S3 objects and snapshot set remain unchanged and full-data/restore checks pass; source sentinel and older local recovery point are preserved. No live Google/AWS/MinIO quota exhaustion or full worker/application restore under quota is claimed. Preserve STORAGE_TIMEOUT, retryability and outcome_ambiguous; do not infer quota/auth from HTTP403 or timing."
+        }
+      },
+      "separate_contract_limit": "Sections 14.1/14.4 still require actionable failures and recoverable provider states. Precise coded quota diagnosis is not proven for this restic path and must remain a documented limitation; this AC26 preservation PASS does not close that diagnostic gap or establish unconditional whole-spec completion.",
+      "separate_contract_refs": [
+        "VAULTREWIND-SPEC.md:291",
+        "VAULTREWIND-SPEC.md:315"
+      ]
+    }
+  },
+  "cross_binding": {
+    "release_sha256": "74d4a1d4186c768979e1c61d2abbbdec0c140df54e3f725a3e64c44054aefb8c",
+    "components": {
+      "drive": {
+        "path": "docs/evidence/drive.json",
+        "sha256": "dcdf77c7b6f2e6e36e7772f2e2530beb60c4c9cc7edc874b128232356f5f3050",
+        "matches_release": true
+      },
+      "drive-application": {
+        "path": "docs/evidence/drive-application.json",
+        "sha256": "51509400ee2d3ac04b721c34aab50f817e96fff1d3080d5559d9b421709fe811",
+        "matches_release": true
+      },
+      "drive-retention": {
+        "path": "docs/evidence/drive-retention.json",
+        "sha256": "da99c8658e83ecb86fd379269171591052c545a999b910c5813384b442a9f0b0",
+        "matches_release": true
+      },
+      "drive-auth-failure": {
+        "path": "docs/evidence/drive-auth-failure.json",
+        "sha256": "6380b3526dded245130817a47e36579d6b5e1af48bb03eda2ecab79f04f652d2",
+        "matches_release": true
+      },
+      "drive-secret-scan": {
+        "path": "docs/evidence/drive-secret-scan.json",
+        "sha256": "7547b200acebb6834dfb0cb316f470e73aa4591eaa3cea3071fd868cffec83f0",
+        "matches_release": true
+      }
+    },
+    "run_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+    "destination_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+    "all_five_component_runs_and_destinations_match": true,
+    "baseline_snapshot_copy_restore_job_and_manifest_match": true,
+    "retention_input_snapshot_manifest_and_auth_base_configuration_fingerprint_match": true,
+    "fault_snapshot_failed_copy_fault_job_and_retry_job_match": true,
+    "fault_local_and_retry_Drive_manifest_and_complete_byte_maps_match": true,
+    "historical_readback_manifests_and_maps_match": true,
+    "retry_source_start_inventory_and_all_journal_witnesses_exactly_match": true,
+    "original_fault_job_remains_partial": true,
+    "retention_exact_forget_sets_both_full_data_checks_five_then_two_readbacks_and_other_instance_witness_consistent": true,
+    "fresh_grant_hash_differs_from_revoked_baseline": true,
+    "binding_code_refs": [
+      "scripts/prove_drive_auth_failure.py:84",
+      "scripts/prove_drive_auth_failure.py:115",
+      "scripts/prove_drive_auth_failure.py:170",
+      "scripts/prove_drive_auth_failure.py:786",
+      "scripts/prove_drive_retention.py:317",
+      "scripts/prove_drive_application_readback.py:92"
+    ],
+    "private_binding_limit": "Recovery public summary omits its configuration fingerprint; binding to that private checkpoint is supported by the inspected guarded harness and ROOT attestation, not by reading the checkpoint. OAuth job observations and runtime cleanup are also recorded ROOT evidence, not independently queried by this reviewer."
+  },
+  "frozen_product": {
+    "evidence": "docs/evidence/build.json",
+    "public_build_input_hashes_compared": 98,
+    "mismatches": 0,
+    "image_id": "sha256:69d82b978c39ebed72255a554efecb59aee8b272d2966a00f9ff7d1c7a285b2f",
+    "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+    "new_image_or_runtime_inspection": false
+  },
+  "verification_limits": [
+    "Evidence review only: no new Google/provider call, test, SQL query, SSH connection, Docker operation or private log/checkpoint inspection.",
+    "Dedicated test-account status is owner-acknowledged; Google account identity was not independently verified.",
+    "Natural seven-day Google Testing-token expiry was not awaited; controlled invalid-grant/revocation recovery was proven.",
+    "Real Google quota exhaustion was not attempted; precise quota diagnosis remains unavailable on the documented restic 0.19.1 timeout path.",
+    "Retention uses isolated future fixture capture/planner times and the direct product planner/provider adapter; native controller clock/catalog timestamps and native retention-worker execution are not claimed.",
+    "Source-full drills use a systemd journal double/local helper; independent watchdog/reboot guarantees require their separate VM evidence and were not retested or combined into a simultaneous ENOSPC/crash claim.",
+    "No authenticated Vaultwarden login, decryption or client synchronization test is claimed.",
+    "Secret-scan report covers 20 known patterns, 334 artifacts/logs, 18 status API/event routes and 93 current argv vectors with zero matches; no OCR, universal derived-secret or later-process guarantee. Reviewer did not read private scan inputs.",
+    "Recorded unit result is 908 passed, 16 skipped, four warnings, 425.22 seconds; earlier 864/724 and focused counts are overlapping historical evidence, not new tests or additive totals.",
+    "Runtime idle state, original disabled policy, absent pending credentials/orphan sessions/transient configurations and no production/publication are ROOT-recorded observations, not freshly queried by this reviewer."
+  ],
+  "coordinator_follow_up": "Update final acceptance/release prose to the qualified AC14 PASS and AC26 preservation PASS after consuming this review. Retain the quota diagnostic and fixture limitations, historical failures and component-specific flags. No product code change or live rerun is requested by this review."
+}

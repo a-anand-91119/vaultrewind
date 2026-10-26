@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "recorded_at": "2026-10-26T18:33:53.196576+00:00",
+  "result": "passed",
+  "AC14_release_verified": true,
+  "synthetic_only": true,
+  "dedicated_test_account_acknowledged": true,
+  "google_account_identity_independently_verified": false,
+  "run_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "destination_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "baseline_snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+  "baseline_drive_copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+  "alternate_restore_job_id": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+  "fault_snapshot_id": "08051d84-bc6c-4fa1-af26-95e632cb586f",
+  "fault_drive_copy_id": "00af0998-946a-4aae-bc1d-d4051080177d",
+  "fault_job_id": "0279a5d7-8715-4112-88a9-04b82473610c",
+  "same_snapshot_retry_job_id": "0d12b933-3e9f-440c-a172-01682c2487cd",
+  "actual_oauth_jobs": [
+    {
+      "id": "7005ca78-9568-4a58-8145-73842c09c8e7",
+      "kind": "drive_exchange",
+      "state": "succeeded",
+      "error_code": null
+    },
+    {
+      "id": "43a34ec6-1035-4ad8-81da-962a531b69f2",
+      "kind": "drive_exchange",
+      "state": "succeeded",
+      "error_code": null
+    }
+  ],
+  "verified": {
+    "real_authorization": true,
+    "real_rclone_refresh_persisted_encrypted_sql": true,
+    "complete_local_and_drive_backups": true,
+    "full_drive_local_byte_maps_match": true,
+    "selected_drive_copy_actual_alternate_restore": true,
+    "mandatory_pinned_durable_local_safety": true,
+    "independent_application_content_image_config_and_public_readiness": true,
+    "exact_retention_boundaries_pins_newest_and_other_instance": true,
+    "post_prune_full_data_and_every_retained_point_restore": true,
+    "actual_google_revocation_and_refresh_refusal": true,
+    "actual_worker_auth_failure_preserves_source_and_local_backups": true,
+    "fresh_ui_reconnect_reads_same_historical_point": true,
+    "same_snapshot_copy_retry_succeeds_without_recapture": true,
+    "source_start_time_inventory_and_all_journals_unchanged_during_retry": true,
+    "original_disabled_policy_restored": true,
+    "known_fresh_and_historical_credentials_absent_from_scanned_public_surfaces": true
+  },
+  "components": {
+    "drive": {
+      "path": "drive.json",
+      "sha256": "dcdf77c7b6f2e6e36e7772f2e2530beb60c4c9cc7edc874b128232356f5f3050"
+    },
+    "drive-application": {
+      "path": "drive-application.json",
+      "sha256": "51509400ee2d3ac04b721c34aab50f817e96fff1d3080d5559d9b421709fe811"
+    },
+    "drive-retention": {
+      "path": "drive-retention.json",
+      "sha256": "da99c8658e83ecb86fd379269171591052c545a999b910c5813384b442a9f0b0"
+    },
+    "drive-auth-failure": {
+      "path": "drive-auth-failure.json",
+      "sha256": "6380b3526dded245130817a47e36579d6b5e1af48bb03eda2ecab79f04f652d2"
+    },
+    "drive-secret-scan": {
+      "path": "drive-secret-scan.json",
+      "sha256": "7547b200acebb6834dfb0cb316f470e73aa4591eaa3cea3071fd868cffec83f0"
+    }
+  },
+  "historical_failed_attempts_preserved": [
+    "Initial private API session expiry before mutations; private sign-in renewed.",
+    "Supplemental application probe initially required absent config.json; fixed to validate generated DOMAIN-only configuration and metadata.",
+    "Fault probe initially compared historical enrollment container ID; fixed to verify current restored generation, successful restore job and helper journal/fence before any source job."
+  ],
+  "active_jobs_at_completion": 0,
+  "source_schedule_enabled_at_completion": false,
+  "pending_credentials_at_completion": false,
+  "unrecovered_drive_sessions_at_completion": false,
+  "transient_rclone_configs_remaining": 0,
+  "no_owner_production_access": true,
+  "no_publication_or_production_deployment": true,
+  "user_login_tested": false,
+  "limits": [
+    "Structural Vaultwarden startup/data/image/configuration proof; no authenticated vault login, decryption or client synchronization claim.",
+    "Retention uses explicitly labelled future fixture times in an isolated catalog; native controller clock and snapshot timestamps were not altered.",
+    "Revocation proves invalid-grant recovery; natural seven-day Testing-token expiry was not awaited.",
+    "Real Google quota exhaustion was not attempted; S3 quota-response preservation has separate evidence and restic may expose only an ambiguous STORAGE_TIMEOUT.",
+    "Each component deliberately keeps its own aggregate AC14 flag false; this report combines only matched completed evidence."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "restore_job_id": "23f0e529-3f0d-401e-8817-0bb3d9bffce1",
+  "target_id": "b05f7958-3d3b-48d6-a8f2-8eb900533149",
+  "original_unchanged": true,
+  "source_before": {
+    "started_at": "2026-10-25T20:22:53.437781468Z",
+    "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+    "sqlite_dump_sha256": "98ab5650a05572fa930c051a93978e3e41b0aef091bda79c5be7b5455362469b",
+    "files": {
+      ".future-vaultwarden-state": "ff4c60124ae87d14284e3a645fb96a55c55a13a10d6100f2b3a8998dbfd053a6",
+      "attachments/a859c5cc-07ee-43d6-87c7-48a16019b71d/86aa33c6-56ee-4578-8852-29826d3773f3": "4b6e50960e95d6707cfd0f4c7b3be8108da9284321028a6619334a5ec2269584",
+      "hardlink": "ff4c60124ae87d14284e3a645fb96a55c55a13a10d6100f2b3a8998dbfd053a6",
+      "nested/Unicode \u03bb with spaces": "f3c714a99c06ca296e3e20755787c2c9fe064e9c8ffde260ae4d51fc84f00836",
+      "rsa_key.pem": "5e256f5c274f67aa04e62912b157e480011b81dcd55c2c061cf9011643804c7a",
+      "sends/72014708-03b2-4be3-92b1-f242f61cb26e/d6a11bf3-b072-4cff-b9f2-43ddec9c2c26": "53df5de3325685eca5f2dbd2053096b25b0261e740cecbaf1598687b8802f00d"
+    }
+  },
+  "source_after": {
+    "started_at": "2026-10-25T20:22:53.437781468Z",
+    "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+    "sqlite_dump_sha256": "98ab5650a05572fa930c051a93978e3e41b0aef091bda79c5be7b5455362469b",
+    "files": {
+      ".future-vaultwarden-state": "ff4c60124ae87d14284e3a645fb96a55c55a13a10d6100f2b3a8998dbfd053a6",
+      "attachments/a859c5cc-07ee-43d6-87c7-48a16019b71d/86aa33c6-56ee-4578-8852-29826d3773f3": "4b6e50960e95d6707cfd0f4c7b3be8108da9284321028a6619334a5ec2269584",
+      "hardlink": "ff4c60124ae87d14284e3a645fb96a55c55a13a10d6100f2b3a8998dbfd053a6",
+      "nested/Unicode \u03bb with spaces": "f3c714a99c06ca296e3e20755787c2c9fe064e9c8ffde260ae4d51fc84f00836",
+      "rsa_key.pem": "5e256f5c274f67aa04e62912b157e480011b81dcd55c2c061cf9011643804c7a",
+      "sends/72014708-03b2-4be3-92b1-f242f61cb26e/d6a11bf3-b072-4cff-b9f2-43ddec9c2c26": "53df5de3325685eca5f2dbd2053096b25b0261e740cecbaf1598687b8802f00d"
+    }
+  },
+  "public_ports_verified": true,
+  "public_endpoint_verified": true,
+  "limits": [
+    "Dedicated synthetic fixture; no authenticated client login.",
+    "Target DOMAIN substitution is verified independently; all other captured config settings match.",
+    "No DNS, external proxy or identity-provider changes performed."
+  ],
+  "independent_ssh_readback": {
+    "result": "passed",
+    "regular_file_hashes_and_metadata_checked": 6,
+    "approved_configuration_overlay_and_other_settings_match": true,
+    "sqlite_integrity": "ok",
+    "selected_table_counts_checked": 5,
+    "recorded_image_matches": true,
+    "target_and_operation_labels_match": true,
+    "published_bindings_match": true,
+    "published_alive_http": 200,
+    "published_config_http": 200,
+    "effective_public_url_matches": true
+  },
+  "snapshot_id": "66103276-4c72-40e3-8cc3-920834124115",
+  "manifest_hash": "eab09f94c5badd6e2bb539fe28d588f5252bf1f08c8361e9ed29ffc60808709d",
+  "helper_phase": "complete",
+  "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093"
+}

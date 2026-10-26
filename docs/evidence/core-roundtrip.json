@@ -1,0 +1,17 @@
+{
+  "result": "passed",
+  "scope": "real SQLite WAL + encrypted restic local backup/readback/restore/data check",
+  "application_started": false,
+  "ssh_tested": false,
+  "synthetic_only": true,
+  "nonempty_raw_wal_bytes": 103032,
+  "restored_users": 2,
+  "later_source_change_absent": true,
+  "distinct_logical_snapshots": 2,
+  "manifest_hash_verified": true,
+  "inventory_members": 21,
+  "logical_bytes": 45368,
+  "backup_seconds": 1.311,
+  "total_seconds": 7.15,
+  "restic_version": "restic 0.19.1 compiled with go1.26.4 on linux/amd64"
+}

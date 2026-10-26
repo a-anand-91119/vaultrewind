@@ -1,0 +1,430 @@
+{
+  "run_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "destination_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "planner_time": "2040-01-31T12:00:00+00:00",
+  "rounds": [
+    {
+      "phase": "rolling-boundary",
+      "planner_time": "2040-01-31T12:00:00+00:00",
+      "preview": {
+        "instance_id": "53c199b9-a417-4c73-a9d4-b12ec54126a4",
+        "policy_revision": 1,
+        "as_of": "2040-01-31T12:00:00+00:00",
+        "retention_days": 30,
+        "hypothetical": false,
+        "cutoff": "2040-01-01T12:00:00+00:00",
+        "frozen": false,
+        "freeze_reasons": [],
+        "copy_ids": [
+          "53bd8b81-810e-490b-8d0c-43bc92c0b1de"
+        ],
+        "entries": [
+          {
+            "snapshot_id": "ccd79816-830b-4cd2-8f3b-96c72cd1ecd4",
+            "copy_id": "0897dc43-166d-4b0e-89e7-087d0b73fc81",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-31T11:00:00+00:00",
+            "eligible": false,
+            "protections": [
+              "newest_complete"
+            ],
+            "expires_at": "2040-03-01T11:00:00+00:00"
+          },
+          {
+            "snapshot_id": "6c77dfaa-a093-46ac-9311-57df0f87910c",
+            "copy_id": "61982add-ca38-46e9-9c0c-e4dc059b8844",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:02+00:00",
+            "eligible": false,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:02+00:00"
+          },
+          {
+            "snapshot_id": "78205ffb-f097-4862-867b-68aa7291aaa7",
+            "copy_id": "5476d9a5-0140-4ef4-9f17-abe8f508ad16",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:01+00:00",
+            "eligible": false,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:01+00:00"
+          },
+          {
+            "snapshot_id": "be7338b3-634f-4a51-adf6-80a1b6262aec",
+            "copy_id": "337b26a9-8671-4ada-a0d1-6fc6af3902aa",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:00+00:00",
+            "eligible": false,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:00+00:00"
+          },
+          {
+            "snapshot_id": "eb766dee-bb15-4b30-aa85-6c7af8839363",
+            "copy_id": "53bd8b81-810e-490b-8d0c-43bc92c0b1de",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T11:59:59+00:00",
+            "eligible": true,
+            "protections": [],
+            "expires_at": "2040-01-31T11:59:59+00:00"
+          },
+          {
+            "snapshot_id": "1e6caa71-4cfb-4663-aec1-5a0bc7c43c3a",
+            "copy_id": "0c5d2c26-2324-45a1-bcbb-923a21fe5914",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2039-12-29T12:00:00+00:00",
+            "eligible": false,
+            "protections": [
+              "pin"
+            ],
+            "expires_at": "2040-01-28T12:00:00+00:00"
+          }
+        ]
+      },
+      "requested_exact_restic_ids": [
+        "d68d5705d4896f161c23c2c8fc1328189aa00b083405c0d3d27a38d8725e1824"
+      ],
+      "forget_attempted": true,
+      "forget": {
+        "requested": [
+          "d68d5705d4896f161c23c2c8fc1328189aa00b083405c0d3d27a38d8725e1824"
+        ],
+        "removed": [
+          "d68d5705d4896f161c23c2c8fc1328189aa00b083405c0d3d27a38d8725e1824"
+        ],
+        "already_absent": [],
+        "retained": [],
+        "complete": true,
+        "exit_code": 0,
+        "error_code": null
+      },
+      "post_forget_exact_remaining_set_verified": true,
+      "prune_attempted": true,
+      "prune": {
+        "pruned": true,
+        "started_at": "2026-10-26T17:34:00.409574Z",
+        "finished_at": "2026-10-26T17:34:30.901681Z",
+        "check": {
+          "ok": true,
+          "verification_level": "structure",
+          "data_read": false,
+          "full_data_verified": false,
+          "read_data_subset": null,
+          "num_errors": 0,
+          "broken_packs": 0,
+          "suggest_repair_index": false,
+          "suggest_prune": false,
+          "error_code": null,
+          "started_at": "2026-10-26T17:34:30.901705Z",
+          "finished_at": "2026-10-26T17:34:50.417274Z",
+          "restic_version": "0.19.1"
+        }
+      },
+      "check": {
+        "ok": true,
+        "verification_level": "full_data",
+        "data_read": true,
+        "full_data_verified": true,
+        "read_data_subset": null,
+        "num_errors": 0,
+        "broken_packs": 0,
+        "suggest_repair_index": false,
+        "suggest_prune": false,
+        "error_code": null,
+        "started_at": "2026-10-26T17:34:50.492977Z",
+        "finished_at": "2026-10-26T17:35:14.860815Z",
+        "restic_version": "0.19.1"
+      },
+      "retained_readbacks": [
+        {
+          "copy_id": "337b26a9-8671-4ada-a0d1-6fc6af3902aa",
+          "restic_snapshot_id": "6281c2f2a00a239709fbeaea1d1e9615a9a793ff7da515108bfa8b129a53b4a7",
+          "manifest_hash": "66e4250eab71cec3d6fc107002118fc5ef3052ab8c97c7af28755a89981fda07",
+          "whole_file_map_sha256": "0a9ac5f1a12eb84280cf099cce20e7a7afdc5617657b2ea38d0e0d8a68ad3953",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        },
+        {
+          "copy_id": "5476d9a5-0140-4ef4-9f17-abe8f508ad16",
+          "restic_snapshot_id": "3dd2d5fb9ffdc7edb050a9c415f1c50b74c0574c15fba127c1c4585d28c5b0f8",
+          "manifest_hash": "2c453718f4b7514f0f48af72f79c6eddd3f6756b17fc13eb3f94792d19694964",
+          "whole_file_map_sha256": "4b7d8443afe4ab2085f8c828c14a1d20cdf5bfad8995d483527b5a183634f577",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        },
+        {
+          "copy_id": "61982add-ca38-46e9-9c0c-e4dc059b8844",
+          "restic_snapshot_id": "64de7de73e3da46362348ef5bea999e62e12f281548523ff7c3e9041fbbc5a5d",
+          "manifest_hash": "ebece3c520bdefd777cc8350d7c6085306f19e5b58b90e487079eccf1c45ab3f",
+          "whole_file_map_sha256": "8ffa660426c919f10d478e75b5a26c3c38a1f6a7a18a155fd71c1569c8ed4d53",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        },
+        {
+          "copy_id": "0c5d2c26-2324-45a1-bcbb-923a21fe5914",
+          "restic_snapshot_id": "ac7cdb2bc11d8774ec491a5cc812f66d1f40f0abd9afdcd2ea999cbe11567801",
+          "manifest_hash": "37017c0a96367dac86a86367e4fffac8a64499315d080446409a5fdf2c854095",
+          "whole_file_map_sha256": "8071a277cee187b07a6e7c613e18f79c10e8b7d178d78118d1e3cd92007132db",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        },
+        {
+          "copy_id": "0897dc43-166d-4b0e-89e7-087d0b73fc81",
+          "restic_snapshot_id": "963fef8f436ed36019c796170ebdbedb3f755a7e9811b5ab06787cc3fec8e8db",
+          "manifest_hash": "b831bb506d714e607b421eaa41dae60df50dda4e61c4fca9d08ed941e70d1a46",
+          "whole_file_map_sha256": "c930f9dec6d48fb6c1f4ffeb5c5d62edab9bb2494f07c6e4dc10310c76639313",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        }
+      ],
+      "complete": true
+    },
+    {
+      "phase": "newest-and-pin",
+      "planner_time": "2040-03-02T12:00:00+00:00",
+      "preview": {
+        "instance_id": "53c199b9-a417-4c73-a9d4-b12ec54126a4",
+        "policy_revision": 1,
+        "as_of": "2040-03-02T12:00:00+00:00",
+        "retention_days": 30,
+        "hypothetical": false,
+        "cutoff": "2040-02-01T12:00:00+00:00",
+        "frozen": false,
+        "freeze_reasons": [],
+        "copy_ids": [
+          "337b26a9-8671-4ada-a0d1-6fc6af3902aa",
+          "5476d9a5-0140-4ef4-9f17-abe8f508ad16",
+          "61982add-ca38-46e9-9c0c-e4dc059b8844"
+        ],
+        "entries": [
+          {
+            "snapshot_id": "ccd79816-830b-4cd2-8f3b-96c72cd1ecd4",
+            "copy_id": "0897dc43-166d-4b0e-89e7-087d0b73fc81",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-31T11:00:00+00:00",
+            "eligible": false,
+            "protections": [
+              "newest_complete"
+            ],
+            "expires_at": "2040-03-01T11:00:00+00:00"
+          },
+          {
+            "snapshot_id": "6c77dfaa-a093-46ac-9311-57df0f87910c",
+            "copy_id": "61982add-ca38-46e9-9c0c-e4dc059b8844",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:02+00:00",
+            "eligible": true,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:02+00:00"
+          },
+          {
+            "snapshot_id": "78205ffb-f097-4862-867b-68aa7291aaa7",
+            "copy_id": "5476d9a5-0140-4ef4-9f17-abe8f508ad16",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:01+00:00",
+            "eligible": true,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:01+00:00"
+          },
+          {
+            "snapshot_id": "be7338b3-634f-4a51-adf6-80a1b6262aec",
+            "copy_id": "337b26a9-8671-4ada-a0d1-6fc6af3902aa",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2040-01-01T12:00:00+00:00",
+            "eligible": true,
+            "protections": [],
+            "expires_at": "2040-01-31T12:00:00+00:00"
+          },
+          {
+            "snapshot_id": "1e6caa71-4cfb-4663-aec1-5a0bc7c43c3a",
+            "copy_id": "0c5d2c26-2324-45a1-bcbb-923a21fe5914",
+            "repository_id": "4b08e6ca-5fa2-49b5-a7b5-d82984062c99",
+            "captured_at": "2039-12-29T12:00:00+00:00",
+            "eligible": false,
+            "protections": [
+              "pin"
+            ],
+            "expires_at": "2040-01-28T12:00:00+00:00"
+          }
+        ]
+      },
+      "requested_exact_restic_ids": [
+        "3dd2d5fb9ffdc7edb050a9c415f1c50b74c0574c15fba127c1c4585d28c5b0f8",
+        "6281c2f2a00a239709fbeaea1d1e9615a9a793ff7da515108bfa8b129a53b4a7",
+        "64de7de73e3da46362348ef5bea999e62e12f281548523ff7c3e9041fbbc5a5d"
+      ],
+      "forget_attempted": true,
+      "forget": {
+        "requested": [
+          "3dd2d5fb9ffdc7edb050a9c415f1c50b74c0574c15fba127c1c4585d28c5b0f8",
+          "6281c2f2a00a239709fbeaea1d1e9615a9a793ff7da515108bfa8b129a53b4a7",
+          "64de7de73e3da46362348ef5bea999e62e12f281548523ff7c3e9041fbbc5a5d"
+        ],
+        "removed": [
+          "3dd2d5fb9ffdc7edb050a9c415f1c50b74c0574c15fba127c1c4585d28c5b0f8",
+          "6281c2f2a00a239709fbeaea1d1e9615a9a793ff7da515108bfa8b129a53b4a7",
+          "64de7de73e3da46362348ef5bea999e62e12f281548523ff7c3e9041fbbc5a5d"
+        ],
+        "already_absent": [],
+        "retained": [],
+        "complete": true,
+        "exit_code": 0,
+        "error_code": null
+      },
+      "post_forget_exact_remaining_set_verified": true,
+      "prune_attempted": true,
+      "prune": {
+        "pruned": true,
+        "started_at": "2026-10-26T17:41:40.390078Z",
+        "finished_at": "2026-10-26T17:42:07.039250Z",
+        "check": {
+          "ok": true,
+          "verification_level": "structure",
+          "data_read": false,
+          "full_data_verified": false,
+          "read_data_subset": null,
+          "num_errors": 0,
+          "broken_packs": 0,
+          "suggest_repair_index": false,
+          "suggest_prune": false,
+          "error_code": null,
+          "started_at": "2026-10-26T17:42:07.039276Z",
+          "finished_at": "2026-10-26T17:42:26.801270Z",
+          "restic_version": "0.19.1"
+        }
+      },
+      "check": {
+        "ok": true,
+        "verification_level": "full_data",
+        "data_read": true,
+        "full_data_verified": true,
+        "read_data_subset": null,
+        "num_errors": 0,
+        "broken_packs": 0,
+        "suggest_repair_index": false,
+        "suggest_prune": false,
+        "error_code": null,
+        "started_at": "2026-10-26T17:42:29.552484Z",
+        "finished_at": "2026-10-26T17:42:53.402953Z",
+        "restic_version": "0.19.1"
+      },
+      "retained_readbacks": [
+        {
+          "copy_id": "0c5d2c26-2324-45a1-bcbb-923a21fe5914",
+          "restic_snapshot_id": "ac7cdb2bc11d8774ec491a5cc812f66d1f40f0abd9afdcd2ea999cbe11567801",
+          "manifest_hash": "37017c0a96367dac86a86367e4fffac8a64499315d080446409a5fdf2c854095",
+          "whole_file_map_sha256": "8071a277cee187b07a6e7c613e18f79c10e8b7d178d78118d1e3cd92007132db",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        },
+        {
+          "copy_id": "0897dc43-166d-4b0e-89e7-087d0b73fc81",
+          "restic_snapshot_id": "963fef8f436ed36019c796170ebdbedb3f755a7e9811b5ab06787cc3fec8e8db",
+          "manifest_hash": "b831bb506d714e607b421eaa41dae60df50dda4e61c4fca9d08ed941e70d1a46",
+          "whole_file_map_sha256": "c930f9dec6d48fb6c1f4ffeb5c5d62edab9bb2494f07c6e4dc10310c76639313",
+          "file_count": 10,
+          "complete_file_manifest_checked": true,
+          "sqlite_integrity": "ok",
+          "attachment_references_verified": true,
+          "saved_image_hash_verified": true,
+          "restored_bytes_verified": true,
+          "fresh_provider_restore": true,
+          "application_started": false,
+          "user_login_tested": false
+        }
+      ],
+      "complete": true
+    }
+  ],
+  "input_snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+  "input_manifest_hash": "cd1e60076ff62e8c415e32dabbb06c2b3299ef6986c08053e37d0fb08e4f8955",
+  "configuration_sha256": "87a9354ef418f0a44fa7bcdaf8935b26ee5e21d0055830f29ff2dc36cc1106d5",
+  "other_instance_before": {
+    "copy_id": "9c924980-7e76-4484-8067-e15dff4f0f0b",
+    "restic_snapshot_id": "e01e2a6fae81cb78eb3e22a4db274b602e5791e5a0faa23dc85c45da19e2019a",
+    "manifest_hash": "e8119fe84924ef99fb0e0c8b781b38bed54f2c84f22c60258294ede7aa90a0ad",
+    "whole_file_map_sha256": "ac542726436ad6f48287096f792fac82401a46d8686fc36ad90dee1fe7e7ed48",
+    "file_count": 10,
+    "complete_file_manifest_checked": true,
+    "sqlite_integrity": "ok",
+    "attachment_references_verified": true,
+    "saved_image_hash_verified": true,
+    "restored_bytes_verified": true,
+    "fresh_provider_restore": true,
+    "application_started": false,
+    "user_login_tested": false
+  },
+  "other_instance_after": {
+    "copy_id": "9c924980-7e76-4484-8067-e15dff4f0f0b",
+    "restic_snapshot_id": "e01e2a6fae81cb78eb3e22a4db274b602e5791e5a0faa23dc85c45da19e2019a",
+    "manifest_hash": "e8119fe84924ef99fb0e0c8b781b38bed54f2c84f22c60258294ede7aa90a0ad",
+    "whole_file_map_sha256": "ac542726436ad6f48287096f792fac82401a46d8686fc36ad90dee1fe7e7ed48",
+    "file_count": 10,
+    "complete_file_manifest_checked": true,
+    "sqlite_integrity": "ok",
+    "attachment_references_verified": true,
+    "saved_image_hash_verified": true,
+    "restored_bytes_verified": true,
+    "fresh_provider_restore": true,
+    "application_started": false,
+    "user_login_tested": false
+  },
+  "version": 1,
+  "provider": "google_drive",
+  "result": "live_retention_proven",
+  "retention_live_proven": true,
+  "AC14_release_verified": false,
+  "dedicated_test_account_acknowledged": true,
+  "synthetic_fixture_capture_times_only": true,
+  "recorded_at": "2026-10-26T17:46:35.477151+00:00",
+  "evidence_boundary": "direct_product_planner_and_provider_adapter_not_API_or_SSH_production_workflow",
+  "native_catalog_snapshots_changed": false,
+  "native_controller_clock_changed": false,
+  "actual_google_quota_tested": false,
+  "google_revocation_tested": false,
+  "application_started": false,
+  "user_login_tested": false,
+  "workspace_retained": true,
+  "automatic_resume_supported": false,
+  "note": "Separate recovery authorization/refresh/restore/reconnect/revocation evidence is required."
+}

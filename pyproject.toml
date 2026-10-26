@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vaultrewind"
+version = "0.1.0"
+description = "Complete, encrypted Vaultwarden recovery over SSH"
+requires-python = ">=3.13"
+dependencies = [
+  "fastapi", "uvicorn[standard]", "pydantic>=2", "pydantic-settings", "sqlalchemy>=2.0",
+  "alembic", "psycopg[binary]", "asyncssh", "cryptography", "argon2-cffi", "httpx",
+  "typer", "python-multipart", "tzdata", "boto3",
+]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "hypothesis", "ruff", "coverage", "build"]
+
+[project.scripts]
+vaultrewind = "vaultrewind.cli:app"
+vaultrewind-helper = "vaultrewind.remote.helper:main"
+vaultrewind-worker = "vaultrewind.server.worker:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vaultrewind"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+markers = ["integration: invokes real external tools", "systemd: disposable systemd host required", "live_drive: dedicated Google Drive credentials required", "docker: disposable Docker engine required"]
+
+[tool.ruff]
+line-length = 110
+

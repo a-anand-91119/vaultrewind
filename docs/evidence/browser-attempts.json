@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-25T20:14:51.451044+00:00",
+  "combined_runs": [
+    {
+      "passed": 3,
+      "failed": 2,
+      "log": "browser-release-all.log",
+      "backup_and_reload": "passed",
+      "login_responsive": "passed",
+      "pin_retention_protected_deletion": "passed",
+      "original_restore": {
+        "job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+        "state": "rolled_back",
+        "error_code": "DOCKER_UNAVAILABLE",
+        "operation_category": "containers_stop",
+        "transport_kind": "timeout",
+        "source_running_after_verified_rollback": true
+      },
+      "alternate_restore": {
+        "submitted": false,
+        "reason": "Ambiguous test locator matched option and strong; selector corrected"
+      }
+    },
+    {
+      "passed": 4,
+      "failed": 1,
+      "log": "browser-release-green.log",
+      "login_responsive": "passed",
+      "backup_and_reload": "passed",
+      "original_restore": {
+        "job_id": "a633622b-99c0-4d05-8d6e-786837b7fda8",
+        "state": "succeeded",
+        "public_ports_verified": true,
+        "public_endpoint_verified": true,
+        "pinned_safety_snapshot_id": "9fd83cb6-aa08-462d-8a76-e44ec87b791f"
+      },
+      "pin_retention_protected_deletion": "passed",
+      "alternate_restore": {
+        "job_id": "7fbe5b55-37f0-496c-916b-ff4dbcfcfa9e",
+        "state": "failed",
+        "phase": "planning",
+        "error_code": "TARGET_CHANGED",
+        "target_proven_empty_after_failure": true,
+        "physical_keys_unchanged": true,
+        "repair": "Approved profile activation now updates a proven empty target fingerprint while requiring identical enrolled physical roots. Re-applied through actual API job 6d7da8dc-df61-4c0b-85cf-6ecc52aa3df8."
+      }
+    }
+  ],
+  "limits": [
+    "Historical attempt retained; not a complete green suite."
+  ],
+  "harness_launch_attempts": [
+    {
+      "log": "browser-release-final.log",
+      "passed": 0,
+      "failed": 1,
+      "skipped": 4,
+      "application_job_submitted": false,
+      "reason": "Test was launched from repository root rather than frontend; private fixture lookup failed. Corrected invocation is npm run test:e2e from frontend."
+    }
+  ]
+}

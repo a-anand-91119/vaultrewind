@@ -1,0 +1,80 @@
+{
+  "fixture": "synthetic SSH Vaultwarden on disposable localhost Docker",
+  "production_access": false,
+  "backup_job_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+  "restore_job_id": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+  "backup": {
+    "state": "succeeded",
+    "phase": "finalizing",
+    "content_commit": "complete",
+    "source_service_outcome": "running",
+    "required_copy_outcome": "complete",
+    "created_at": "2026-10-25T15:37:30.572231+00:00",
+    "started_at": "2026-10-25T15:37:34.712147+00:00",
+    "completed_at": null,
+    "finished_at": "2026-10-25T15:39:25.890329+00:00"
+  },
+  "restore": {
+    "state": "succeeded",
+    "phase": "finalizing",
+    "created_at": "2026-10-25T15:44:06.009848+00:00",
+    "started_at": "2026-10-25T15:44:11.473078+00:00",
+    "completed_at": null,
+    "result": {
+      "safety_snapshot_id": "701c92b4-805a-48cb-97cb-357d2cd4ad32",
+      "candidate_validated": true,
+      "activation_started": true,
+      "active_generation": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+      "restored_bytes_verified": true,
+      "application_started": true,
+      "user_login_tested": false
+    }
+  },
+  "selected_capture_later_change_absent": true,
+  "source_running_after_restore": true,
+  "safety": {
+    "snapshot_id": "701c92b4-805a-48cb-97cb-357d2cd4ad32",
+    "pinned": true,
+    "safety": true,
+    "complete_copies": 1
+  },
+  "remote_history": [
+    {
+      "at": 1792943139.4030135,
+      "phase": "staged"
+    },
+    {
+      "at": 1792943149.1496549,
+      "phase": "quiescing_target"
+    },
+    {
+      "at": 1792943149.403623,
+      "phase": "capturing_safety"
+    },
+    {
+      "at": 1792943168.7672944,
+      "phase": "safety_ready"
+    },
+    {
+      "at": 1792943249.989147,
+      "phase": "switching"
+    },
+    {
+      "at": 1792943257.8275428,
+      "phase": "validating_candidate"
+    },
+    {
+      "at": 1792943270.5245864,
+      "phase": "candidate_validated"
+    },
+    {
+      "at": 1792943287.4497879,
+      "phase": "activation_started"
+    },
+    {
+      "at": 1792943312.7002318,
+      "phase": "complete"
+    }
+  ],
+  "old_generation_preserved": true
+}

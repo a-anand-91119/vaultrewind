@@ -1,0 +1,31 @@
+{
+  "result": "succeeded",
+  "synthetic_only": true,
+  "through_real_api_queue_worker": true,
+  "postgres_dump_included": true,
+  "catalog_independently_sealed": true,
+  "backup": {
+    "id": "8084cdcc-b48f-406b-abe6-5e839cee763c",
+    "job_id": "0a5165e9-4987-458b-b23a-3790adcd16ba",
+    "destination_id": "c59b1b7c-810e-4ebe-a7bf-d5d559891f1d",
+    "repository_id": "0ff151ef-2a6a-46f9-ac6a-62dc83dd9466",
+    "snapshot_uuid": "0e732102-3901-4ada-b282-87250467d4ba",
+    "restic_snapshot_id": "10f7afd86546c5b11c93f76105201df4e30c4d9e7c40641248c50bc862e4fda3",
+    "manifest_hash": "6b7facb7371be844073d94c70dbde2bdc2ce5750d3f514c411be0932e8a8fb21",
+    "captured_at": "2026-10-25T16:42:22.504472+00:00",
+    "state": "complete",
+    "alembic_version": "0005_controller_backup_policy",
+    "tables": 35,
+    "rows": 566,
+    "bytes": 725882,
+    "pg_dump_included": true,
+    "error_code": null
+  },
+  "first_attempt_retained_failed": true,
+  "first_failure_code": "CONTROLLER_BACKUP_READBACK_FAILED",
+  "fix": "Provider runtime/cache moved outside the captured tree",
+  "limits": [
+    "Local backend API round trip verified; cloud transport exercised separately.",
+    "Master key is excluded and must be protected separately."
+  ]
+}

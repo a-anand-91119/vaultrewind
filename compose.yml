@@ -1,0 +1,74 @@
+name: vaultrewind
+x-controller: &controller
+  image: vaultrewind:0.1.0
+  build: .
+  restart: unless-stopped
+  user: "10001:10001"
+  init: true
+  read_only: true
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: ["ALL"]
+  tmpfs: ["/tmp:rw,noexec,nosuid,size=128m,uid=10001,gid=10001,mode=0700"]
+  environment: &controller-env
+    VAULTREWIND_PUBLIC_ORIGIN: ${VAULTREWIND_PUBLIC_ORIGIN:-https://localhost}
+    VAULTREWIND_MASTER_KEY_FILE: /run/secrets/master_key
+    VAULTREWIND_BOOTSTRAP_SECRET_FILE: /run/secrets/bootstrap
+    VAULTREWIND_DATABASE_PASSWORD_FILE: /run/secrets/database_password
+    VAULTREWIND_STAGING_DIR: /var/lib/vaultrewind/staging
+    VAULTREWIND_PROVIDER_CREDENTIAL_STATE_DIR: /var/lib/vaultrewind/provider-credentials
+    VAULTREWIND_LOCAL_STORAGE_ROOT: /var/lib/vaultrewind/backups
+    VAULTREWIND_FRONTEND_DIR: /app/frontend/dist
+  secrets: [master_key, bootstrap, database_password]
+  volumes:
+    - ${VAULTREWIND_DATA_DIR:?Run scripts/prepare-install.py first}/backups:/var/lib/vaultrewind/backups
+    - ${VAULTREWIND_DATA_DIR}/staging:/var/lib/vaultrewind/staging
+    - ${VAULTREWIND_DATA_DIR}/cache:/var/lib/vaultrewind/cache
+    - ${VAULTREWIND_DATA_DIR}/provider-credentials:/var/lib/vaultrewind/provider-credentials
+  networks: [controller]
+
+services:
+  db:
+    image: postgres:17-bookworm@sha256:858bb5e98eed02eb8cafbcdc007f9a65d1b613972028944a8ec2133ccaf80d27
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vaultrewind
+      POSTGRES_DB: vaultrewind
+      POSTGRES_PASSWORD_FILE: /run/secrets/database_password
+    secrets: [database_password]
+    volumes: ["database:/var/lib/postgresql/data"]
+    networks: [controller]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "vaultrewind", "-d", "vaultrewind"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  migrate:
+    <<: *controller
+    restart: "no"
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *controller
+    ports: ["127.0.0.1:8097:8080"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health/ready',timeout=4)"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+  worker:
+    <<: *controller
+    command: ["vaultrewind-worker"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+
+networks:
+  controller: {}
+volumes:
+  database: {}
+secrets:
+  master_key: {file: .secrets/master_key}
+  bootstrap: {file: .secrets/bootstrap}
+  database_password: {file: .secrets/database_password}

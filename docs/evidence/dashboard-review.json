@@ -1,0 +1,301 @@
+{
+  "result": "passed",
+  "run_id": "7aa8703c-d287-45d3-a4ef-b606e3688e00",
+  "synthetic_only": true,
+  "origin": "http://127.0.0.1:8098",
+  "page_checks": [
+    {
+      "page": "Instances",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Activity",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Storage",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Hosts",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Recovery kit",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Integrity",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Audit trail",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Settings",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 1440,
+      "viewport_width": 1440
+    },
+    {
+      "page": "Instance snapshot detail",
+      "width": 1440,
+      "heading_visible": true,
+      "loaded": true,
+      "horizontal_overflow": false
+    },
+    {
+      "page": "Instances",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Activity",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Storage",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Hosts",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Recovery kit",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Integrity",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Audit trail",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Settings",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 768,
+      "viewport_width": 768
+    },
+    {
+      "page": "Instance snapshot detail",
+      "width": 768,
+      "heading_visible": true,
+      "loaded": true,
+      "horizontal_overflow": false
+    },
+    {
+      "page": "Instances",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Activity",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Storage",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Hosts",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Recovery kit",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Integrity",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Audit trail",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Settings",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "document_width": 390,
+      "viewport_width": 390
+    },
+    {
+      "page": "Instance snapshot detail",
+      "width": 390,
+      "heading_visible": true,
+      "loaded": true,
+      "horizontal_overflow": false
+    }
+  ],
+  "api_errors": [],
+  "blocked_mutations": [],
+  "blocked_external_requests": 0,
+  "page_exception_count": 0,
+  "console_error_count": 0,
+  "expected_login_401_count": 1,
+  "screenshots_private": true,
+  "screenshots_contain_login_credentials": false,
+  "trace": false,
+  "video": false,
+  "browser": "repository Playwright; T3 preview explicitly unavailable under root sandbox",
+  "limits": [
+    "Read-only navigation/layout/status review; session creation is the only permitted POST.",
+    "No backup, restore, policy, provider, host, account or deletion mutation is submitted.",
+    "Existing operational alerts and historical failed jobs are displayed as recorded, not cleared.",
+    "Fleet-only screenshots stay in the private runtime tree; storage/account detail screenshots are disabled."
+  ],
+  "keyboard_skip_link_focused": true,
+  "keyboard_skip_link_target_resolves": true,
+  "session_created": true,
+  "recorded_at": "2026-10-26T19:42:51.967Z",
+  "root_visual_review": {
+    "desktop_fleet": true,
+    "phone_fleet": true,
+    "observed": "Readable cards and navigation; running-source status remains distinct from backup-health status."
+  },
+  "repairs": [
+    {
+      "scope": "CSS",
+      "problem": "The absolute screen-reader table heading escaped the scrolling panel on tablet widths.",
+      "change": "Position the table wrapper so the hidden label is contained."
+    },
+    {
+      "scope": "CSS",
+      "problem": "Saved image identities widened the snapshot view on phone screens.",
+      "change": "Allow long code values to wrap."
+    }
+  ],
+  "failed_attempts": [
+    {
+      "run_id": "0cc60f53-4c81-4a6f-9423-568659bb5192",
+      "error_code": "HORIZONTAL_PAGE_OVERFLOW",
+      "error_stage": "768:Activity",
+      "page_checks": 10
+    },
+    {
+      "run_id": "1063d5f1-0696-47b5-8dc1-b4345e21ee03",
+      "error_code": "HORIZONTAL_PAGE_OVERFLOW",
+      "error_stage": "768:Activity",
+      "page_checks": 10
+    },
+    {
+      "run_id": "369aedeb-baa5-4056-8978-7126103c9503",
+      "error_code": "DASHBOARD_REVIEW_FAILED_PRIVATE_DETAILS_WITHHELD",
+      "error_stage": null,
+      "page_checks": 8
+    },
+    {
+      "run_id": "750b61a3-39ef-49af-86df-d269e0eb787b",
+      "error_code": "SNAPSHOT_DETAIL_OVERFLOW",
+      "error_stage": "390:snapshot-detail",
+      "page_checks": 26
+    },
+    {
+      "run_id": "90f582eb-460e-4c16-add4-0c21cab2bebd",
+      "error_code": "HORIZONTAL_PAGE_OVERFLOW",
+      "error_stage": "768:Activity",
+      "page_checks": 10
+    },
+    {
+      "run_id": "e5e74c4b-3f32-40ee-9ad0-3ee214879005",
+      "error_code": "SNAPSHOT_DETAIL_OVERFLOW",
+      "error_stage": "390:snapshot-detail",
+      "page_checks": 26
+    }
+  ],
+  "harness_corrections": [
+    "Initial login session probe HTTP401 is expected before authentication.",
+    "Instance cards use titled buttons rather than heading elements."
+  ]
+}

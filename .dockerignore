@@ -1,0 +1,13 @@
+.git
+.venv
+.runtime
+.secrets
+.env
+**/__pycache__
+**/node_modules
+**/.pytest_cache
+**/.hypothesis
+test-results
+docs/evidence/*.png
+.runtime/
+helper/.*-bundle/

@@ -1,0 +1,324 @@
+{
+  "format": "vaultrewind-independent-safety-review",
+  "version": 1,
+  "completed_at_utc": "2026-10-25T18:41:54.693045+00:00",
+  "workspace": "/root/vaultrewind",
+  "review_mode": "read-only source review with disposable synthetic tests",
+  "status": "findings",
+  "unresolved_counts": {
+    "P1": 0,
+    "P2": 1
+  },
+  "summary": "The six review03 findings are closed within the inspected source and isolated regression scope. One additional P2 remains: an ordinary offline session can overwrite a persisted fresh Drive grant and rotation with an older kit credential.",
+  "contract_read_completely": [
+    "AGENT-HANDOFF.md (49 lines)",
+    "VAULTREWIND-SPEC.md (576 lines)"
+  ],
+  "constraints_observed": {
+    "source_files_edited": false,
+    "native_api_or_running_worker_invoked": false,
+    "ssh_docker_vm_calls": false,
+    "shared_native_fixtures_modified": false,
+    "external_oauth_or_drive_calls": false,
+    "browser_or_helper_jobs_interrupted": false,
+    "database_use": "Fresh in-memory SQLite test engines only; no shared PostgreSQL connection or schema.",
+    "filesystem_tests": "Unique pytest basetemps below /tmp/vaultrewind-safety-final-5mtleeqm; real restic tests used private temporary repositories/cache/runtime.",
+    "test_runner_note": "Python bytecode and pytest cache writes were disabled. Selected existing Hypothesis tests retained their default example-cache configuration.",
+    "authorized_deliverable": "docs/evidence/safety-final-review.json"
+  },
+  "findings": [
+    {
+      "id": "SAFETY-FINAL-01",
+      "priority": "P2",
+      "title": "Offline recovery reopens an old kit over a persisted fresh Drive grant",
+      "path": "src/vaultrewind/recovery/offline.py",
+      "line_start": 57,
+      "line_end": 64,
+      "trigger": "Use OfflineSession/--credentials-file to reconnect a Drive destination using the existing work directory, persist a rotated token for that fresh grant, then run another offline command with the same kit and work directory but without repeating the override.",
+      "actual": "The no-override preservation condition only accepts equal grant IDs. An explicit override assigned a new grant ID, so reopening the old kit falls through to compare_and_swap and replaces the stored credential with the old kit grant and token. The successful CAS increments revision 3 to 4; generation/revision checks do not prevent this intentional stale replacement.",
+      "impact": "The encrypted store loses its newest refresh token and can reinstate a revoked/obsolete grant. Subsequent disaster-recovery reads can fail despite having previously persisted the valid credential; pending updates for the fresh grant can subsequently be rejected as stale.",
+      "expected": "Ordinary offline opens must preserve existing durable credentials, or fail closed on conflicting grant provenance. Replacing the grant requires an explicit credential override/reconnect, not merely reopening an older recovery kit.",
+      "contract": [
+        "Specification 14.4 (durable rotated credentials)",
+        "Specification 16 and 21 (independent controller-loss recovery)",
+        "docs/RECOVERY.md:128-139",
+        "docs/STORAGE-CONTRACT.md:310-315"
+      ],
+      "reproducer": "/tmp/vaultrewind-safety-final-5mtleeqm/test_independent_edges.py",
+      "test_node": "test_offline_reconnect_rotation_survives_reopening_same_kit_without_override",
+      "reproduction_command": "env -u VAULTREWIND_DATABASE_URL -u VAULTREWIND_PROVIDER_CREDENTIAL_STATE_DIR PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider --basetemp \"$(mktemp -d /tmp/vaultrewind-offline-review-XXXXXX)/pytest\" /tmp/vaultrewind-safety-final-5mtleeqm/test_independent_edges.py",
+      "reproduction_steps": [
+        "Build a synthetic Drive kit from tests.unit.test_storage_drive.seeded_store; initialize OfflineSession(kit, unique_work_dir).",
+        "Reopen OfflineSession(kit, unique_work_dir, {destination_id: token_override}); this deliberately creates a fresh grant.",
+        "Persist another synthetic refresh token to that store using its current revision and generation CAS.",
+        "Reopen OfflineSession(kit, unique_work_dir) with no override.",
+        "Compare decrypted values privately: newest token is lost, and the kit token/grant return. Only boolean results and revisions are needed in evidence."
+      ],
+      "observed": {
+        "persisted_rotation_replaced": true,
+        "old_kit_token_reinstated": true,
+        "old_grant_reinstated": true,
+        "revision_before": 3,
+        "revision_after": 4
+      },
+      "confirmations": [
+        "independent-edges.log: 1 failed in 0.40s",
+        "independent-confirm.log: 1 failed in 0.35s"
+      ],
+      "provider_calls": 0,
+      "fix_applied": false
+    }
+  ],
+  "review03_closure": [
+    {
+      "finding": 1,
+      "status": "closed_in_review_scope",
+      "evidence": "HTTP endpoint required for running/start-on-completion restore; stopped data-only and backup preflight distinctions retained; legacy complete journal with empty endpoints downgraded.",
+      "source": [
+        "src/vaultrewind/remote/docker.py:270",
+        "src/vaultrewind/remote/helper.py:104",
+        "src/vaultrewind/remote/helper.py:760"
+      ],
+      "tests": [
+        "test_running_restore_requires_public_endpoint_but_stopped_profile_does_not",
+        "test_legacy_zero_endpoint_success_is_not_trusted_even_with_boolean_proof",
+        "adapted original test_missing_public_endpoint_must_not_prove_readiness"
+      ]
+    },
+    {
+      "finding": 2,
+      "status": "closed_in_review_scope",
+      "evidence": "Activation and recovery apply and inspect the desired restart policy before completion; ineffective update stays needs_attention.",
+      "source": [
+        "src/vaultrewind/remote/helper.py:741",
+        "src/vaultrewind/remote/helper.py:806"
+      ],
+      "tests": [
+        "test_activation_recovery_repairs_and_verifies_restart_before_complete",
+        "adapted original test_activation_recovery_restores_restart_policy"
+      ]
+    },
+    {
+      "finding": 3,
+      "status": "closed_in_review_scope",
+      "evidence": "Approved DOMAIN modifies config.json only in the private generation and is rechecked before activation; captured/source bytes remain unchanged.",
+      "source": [
+        "src/vaultrewind/remote/overlays.py:51",
+        "src/vaultrewind/remote/helper.py:404"
+      ],
+      "tests": [
+        "test_overlay_updates_only_private_generation_and_checks_effective_url",
+        "adapted original test_environment_overlay_handles_config_json_precedence"
+      ]
+    },
+    {
+      "finding": 4,
+      "status": "closed_in_review_scope",
+      "evidence": "Materialization records the actual active original volume; cleanup verifies recorded Docker metadata, inode/device, absence of peer writers and active-volume distinction before deleting the precise prior volume.",
+      "source": [
+        "src/vaultrewind/remote/helper.py:489",
+        "src/vaultrewind/remote/helper.py:894"
+      ],
+      "tests": [
+        "test_repeated_named_volume_restore_cleans_exact_prior_after_grace",
+        "adapted original test_named_volume_second_restore_retires_actual_previous_volume"
+      ]
+    },
+    {
+      "finding": 5,
+      "status": "closed_in_review_scope",
+      "evidence": "Encrypted fsynced session metadata precedes config creation, with a session lease and provenance/lineage checks; orphan recovery hands off to encrypted pending state. SQL registry uses dedicated persistent provider-credentials storage. Separate new offline reseeding defect is SAFETY-FINAL-01.",
+      "source": [
+        "src/vaultrewind/storage/credentials.py",
+        "src/vaultrewind/storage/drive.py:475",
+        "src/vaultrewind/server/adapters.py:185",
+        "compose.yml:18",
+        "compose.yml:26"
+      ],
+      "tests": [
+        "test_storage_credential_recovery.py",
+        "test_storage_drive_crash.py except real-rclone refresh case",
+        "adapted original test_worker_death_before_exit_replays_rotated_config"
+      ]
+    },
+    {
+      "finding": 6,
+      "status": "closed_in_review_scope",
+      "evidence": "Local identity/root are established together; legacy local root retains a distinct local identity on foreign import, with conflicting same-identity roots rejected and foreign history available on re-export.",
+      "source": [
+        "src/vaultrewind/server/services.py:479",
+        "src/vaultrewind/server/recovery_import.py:220",
+        "src/vaultrewind/server/worker.py:1349"
+      ],
+      "tests": [
+        "test_controller_history.py (3 tests)",
+        "adapted original test_import_into_initialized_controller_keeps_export_working"
+      ]
+    }
+  ],
+  "test_runs": [
+    {
+      "name": "review03 targeted regressions",
+      "log": "review03.log",
+      "result": "59 passed, 2 failed, 1 deselected in 10.91s",
+      "selection": [
+        "tests/unit/test_remote_review03.py",
+        "tests/unit/test_controller_history.py",
+        "tests/unit/test_storage_credential_recovery.py",
+        "tests/unit/test_storage_drive_crash.py"
+      ],
+      "excluded": "test_sigkill_after_real_rclone_rotation_replays_in_a_fresh_process",
+      "failure_analysis": "Two orphan-recovery tests hit transient /proc same-UID process-environment PermissionError; the scanner failed closed with CREDENTIAL_SESSION_BUSY/CREDENTIAL_PERSIST_FAILED. Both passed unchanged in the focused rerun."
+    },
+    {
+      "name": "two credential retries",
+      "log": "credential-retry.log",
+      "result": "2 passed in 0.81s"
+    },
+    {
+      "name": "adapted original six review03 repros",
+      "log": "original-retry.log",
+      "result": "6 passed in 3.20s",
+      "adaptations": [
+        "Empty endpoint now expects PUBLIC_ENDPOINT_REQUIRED and unready target.",
+        "Local controller identity remains non-null and different from imported foreign identity.",
+        "Restart policy compares semantic defaults, treating absent MaximumRetryCount as zero."
+      ],
+      "prior_runs": [
+        "original-adapted.log: 5 passed, 1 failed due solely to absent-vs-explicit MaximumRetryCount=0 in the fixture.",
+        "original-adapted-final.log: 5 passed, 1 failed due to a transient /proc PermissionError during credential recovery."
+      ]
+    },
+    {
+      "name": "critical invariant regressions",
+      "log": "invariants.log",
+      "result": "200 passed in 23.84s",
+      "selection": [
+        "test_remote_lifecycle.py",
+        "test_remote_recovery.py",
+        "test_remote_security.py",
+        "test_remote_health.py",
+        "test_server_reconcile.py",
+        "test_server_runner_cleanup.py",
+        "test_server_import_binding.py",
+        "test_server_import_credentials.py",
+        "test_core.py",
+        "test_server.py"
+      ]
+    },
+    {
+      "name": "storage and security regressions",
+      "log": "storage.log",
+      "result": "122 passed, 1 deselected in 91.46s",
+      "selection": [
+        "test_storage_restic.py",
+        "test_storage_local.py",
+        "test_storage_secrets.py except live uvicorn access-log test",
+        "test_controller_recovery_cli.py",
+        "test_destination_updates.py",
+        "three pure controller-backup policy/seal/target-refusal tests",
+        "test_destination_quota_failure_retains_visible_failed_copy"
+      ],
+      "real_boundary": "restic local repository init/commit/readback/restore, partial capture rejection, acknowledgment-loss reconciliation, corruption detection, historical-password access, read-only recovery refusal of mutations"
+    },
+    {
+      "name": "independent offline credential edge",
+      "log": "independent-confirm.log",
+      "result": "1 reproducible failure",
+      "finding": "SAFETY-FINAL-01"
+    }
+  ],
+  "additional_invariants_reviewed": [
+    "Controlled stop, recovery arming, original-state resume before normalization/transfer, staged SQLite WAL normalization and required file completeness.",
+    "Safety acknowledgment before generation switching, isolated validation, pre-activation rollback and explicit no-rollback boundary after possible client exposure.",
+    "Physical helper locks/fences, durable unfinished-operation ownership, controller reconciliation and missing-journal refusal.",
+    "Per-copy commit/readback and error state, retained local copies on other-copy failure, destination quota evidence.",
+    "Rolling UTC retention and protection/failure freeze, exact-copy deletion, pin coordination and active restore inputs.",
+    "Imported placeholder protections, rotated import materials, per-identity sealed catalogs and recovery re-export.",
+    "Credential CAS generation/grant checks, encrypted pending/session recovery, protected cleanup and private process argument handling.",
+    "API bootstrap/authentication/CSRF/viewer restrictions, sanitized public/error views, redaction and private file/encryption tests."
+  ],
+  "limits": [
+    "This is a bounded review, not a claim that all defects are absent or every acceptance criterion is independently verified.",
+    "The checkout is live shared uncommitted work. Hashes below identify source bytes at report creation; other authorized agents may change them afterward.",
+    "No independent browser, native API/worker, SSH, Docker, systemd VM, PostgreSQL controller-loss, MinIO or live cloud acceptance run was performed.",
+    "The reported fourth native AC30 drill and helper bundle/VM proofs were not independently reassessed; no assertion is made about the currently deployed helper hash.",
+    "Google Drive live authorization/refresh/backup/restore/reconnect remains parked and AC14 remains unverified.",
+    "Credential process scans intermittently failed closed when another same-UID /proc environment was unreadable. Retries passed; this review did not establish recovery availability under persistently restricted process visibility.",
+    "Real local restic tests used synthetic content; they do not prove real Vaultwarden login/decryption or the systemd/Docker failure guarantees.",
+    "Production mounts, live credentials, real vault content, screenshots and running fixtures were not scanned for secrets. Secret conclusions are limited to inspected paths and synthetic tests."
+  ],
+  "source_sha256_at_report": {
+    "AGENT-HANDOFF.md": "0fc98006d90df11ad1019c6b530da91d23c8fb575e2fb1b3f6a84637034b2dcc",
+    "VAULTREWIND-SPEC.md": "53ef07844072a223cdd684c503e9c7da730b0b18fb79a4fb51edb9799379c594",
+    "src/vaultrewind/remote/helper.py": "23b489894d2c825fbc2c5818daf9d11c9b33bf8e89146a509f42cb4cb2fbcb48",
+    "src/vaultrewind/remote/docker.py": "7fb615fba5aa9e4f28d1a6f307551758fdf6179a5a3cb90954164ee4f128a72b",
+    "src/vaultrewind/remote/recovery.py": "e3c12ab151ac49c4072463f3f8deba68816fc2e0163606f2f8aec49ff9e6729b",
+    "src/vaultrewind/remote/journal.py": "697299f7f978aebda553d75d347979644a0354168fa71d46120441dc82a60213",
+    "src/vaultrewind/remote/overlays.py": "de50b88f5a5b26b5a6d8d8ea4a2adc881b80e15a97d52e2efe91e4ba72680d3b",
+    "src/vaultrewind/remote/cleanup.py": "2768c5f18a4fec26ee8e0140b761c66f2914611d5c420d2f04510c50536f704a",
+    "src/vaultrewind/remote/files.py": "c52e679caecc8548982f7feb3356bdbe258e45950702087025ce47c917a66564",
+    "src/vaultrewind/core/sqlite.py": "81fb5acf08a3e9e4a182e4233f5c514bda3c940af3417bcf9141f35115e58a10",
+    "src/vaultrewind/server/worker.py": "ebe7c0c88b4cec05dc288ee7d3ba0e6cbcd994c9c31468192e6d50ebc8dfc314",
+    "src/vaultrewind/server/adapters.py": "05fe4ad51358f80fbfc540f572b9724fee28897d9deefb586505d1d14349d6ba",
+    "src/vaultrewind/server/services.py": "c41a691fa4f74c6592305b2eaf3c822b3a1a3e3dd88c3e5bb4ea9da7050f299d",
+    "src/vaultrewind/server/recovery_import.py": "129d14d9ea456f9b010261e35cf5f6020958f2014e44821cbe4ddc6b72b58dd4",
+    "src/vaultrewind/server/controller_backup.py": "aeb963fcd42ee80c5033d7c23d7db88d94c28d08f1a039be3f16a8b9e4bfa5d1",
+    "src/vaultrewind/server/queue.py": "30077be8d8cdf3eba408aa480e72b9f849ef5f983fdaf529f511471c4f2fde7e",
+    "src/vaultrewind/server/policy.py": "3f5ba84c3fad11459e328093cb4069c73caf6a1e340974fcc8f1ea425956ec77",
+    "src/vaultrewind/server/app.py": "5a8384d4ca70f95feda1c39075d59d40e7f4a6970c3058f250e250a13ccae5b2",
+    "src/vaultrewind/server/auth.py": "b96c6a3be3ec38bf30bf3939768cab377ad437efdc634a3e9f5bc3e67fea7bb9",
+    "src/vaultrewind/server/destination_updates.py": "d67a04f4dddb189bc3794d4edddfdca58b8bdfe2be93b0507bd42c0fdce67df8",
+    "src/vaultrewind/server/doctor.py": "effc642fe1c22557a0c7a11df1e702ea1bd35757e3bf7995c1b17d3f78ae4f22",
+    "src/vaultrewind/storage/credentials.py": "6a12fa44f8be3914181fd519c900e07b66997b050d1672074de2a89a6fe29fc9",
+    "src/vaultrewind/storage/drive.py": "f2e9e2f750a19308755b7087da8ccafd56a6ef33ee6bff3f9a744b3ac1376bab",
+    "src/vaultrewind/storage/restic.py": "9cd8bdca63845fa52c686dfc8109f74bcac025c8eca20b66f64e17c33f4f43a1",
+    "src/vaultrewind/storage/local.py": "6202d0e50db28cef9f049106ba31f2275f253e799267ebc8a8c8a3ec4bfe9e4b",
+    "src/vaultrewind/storage/providers.py": "9a70337244dee6c7a41f45228405146b99061c9cc5a32f4bdcd3981c4926fcbf",
+    "src/vaultrewind/recovery/kit.py": "5603aca13db97fe61be12a81398fc5500400b56a2127d1891df9629806e756b8",
+    "src/vaultrewind/recovery/offline.py": "d3b7867e4ee7023ab2abd2a7285d2fb22280905293beb05e45e1eeafad78352f",
+    "src/vaultrewind/recovery/cli.py": "7234b1366476b5451c179dfc523813796eec363f3dbce94513ab7e50a7870ae1",
+    "compose.yml": "cc1a2d3b99920c6ab8922a47d5f1b85273dc9b3c378cb2d0cbfbe877ee0dd8f3",
+    "Dockerfile": "fbfa876a1f2f5499033a22d1bb95812e4c6a44684e1da56b34d9498bdc1390f9",
+    "scripts/prepare-install.py": "0a1b7ddab20909c0f6be8131e84381ef0e06cc92483e83b330fc94edb7ca19d9"
+  },
+  "artifacts": {
+    "review03.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/review03.log",
+      "sha256": "d22ba8f630c996e904a8ac874fad4a2471cc2cbeac74e036cf18763dac049d08"
+    },
+    "credential-retry.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/credential-retry.log",
+      "sha256": "e0f99c009e3f0cb266186091c50ea73692ee91d8e6be128e02c71a43032856ce"
+    },
+    "original-adapted.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/original-adapted.log",
+      "sha256": "1660d961a547b6cfbbf70f966be18e82b00e4c3ab0d1ea4e9a6911e41ac2f4e2"
+    },
+    "original-adapted-final.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/original-adapted-final.log",
+      "sha256": "b7c0789143d8b5ee7eb48ba234128b12e753dfbfbfd708b85ba0fb81de0eaaa8"
+    },
+    "original-retry.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/original-retry.log",
+      "sha256": "4a993d51adbc5346c112a436dfccb6f56570909ecb64a85aa1797320fb428162"
+    },
+    "invariants.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/invariants.log",
+      "sha256": "798b3d170f03965be3ce1380c08349cd9afceb36507b8d50b5b3b895a42cab0a"
+    },
+    "storage.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/storage.log",
+      "sha256": "28d5fa6c5dbfd8adfa7723af106ac566a499a95d2dd36157fbab9ca0cebf3e11"
+    },
+    "independent-edges.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/independent-edges.log",
+      "sha256": "876a305b9f0d2f6ff36c8a448a668af667ed97bdb3b06f6d6e5e1d81108a5989"
+    },
+    "independent-confirm.log": {
+      "path": "/tmp/vaultrewind-safety-final-5mtleeqm/independent-confirm.log",
+      "sha256": "e8ca9744967146ab8ddbfd034afe58aad7c5eb5fbe64157840695eb457c63800"
+    }
+  },
+  "reproducer_sha256": "5ab3b7ad87a6f1a9e9d9a7b607935499bbbc822c9314779741bf0d011c40413d"
+}

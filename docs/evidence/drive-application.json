@@ -1,0 +1,49 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "run_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "destination_id": "2b0d9f30-c32f-4341-9979-74cab184be23",
+  "source_id": "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2",
+  "target_id": "b05f7958-3d3b-48d6-a8f2-8eb900533149",
+  "restore_job_id": "c9d887c3-2e0c-46c0-bf79-71738e215f05",
+  "snapshot_id": "1afaa522-98e5-4875-bd7e-ee4a9ffcb26a",
+  "drive_copy_id": "7e82ee40-f76d-4787-b413-fa2f63c409f4",
+  "local_readback": {
+    "manifest_hash": "cd1e60076ff62e8c415e32dabbb06c2b3299ef6986c08053e37d0fb08e4f8955",
+    "saved_image_inventory_verified": true,
+    "whole_file_map_sha256": "4d82ebae45e2f866c9f8fd7fa070ca753fcc446409f15fba022d845d52ac4cfd",
+    "file_count": 9,
+    "logical_bytes": 320123297,
+    "configuration_origin": "generated_from_verified_absence"
+  },
+  "independent_ssh_readback": {
+    "result": "passed",
+    "regular_file_hashes_and_metadata_checked": 6,
+    "approved_configuration_overlay_and_other_settings_match": true,
+    "sqlite_integrity": "ok",
+    "selected_table_counts_checked": 5,
+    "recorded_image_matches": true,
+    "target_and_operation_labels_match": true,
+    "published_bindings_match": true,
+    "published_alive_http": 200,
+    "published_config_http": 200,
+    "effective_public_url_matches": true,
+    "current_container_and_data_mount_match": true,
+    "configuration_metadata_matches": true
+  },
+  "helper_phase": "complete",
+  "helper_current_generation_and_fence_verified": true,
+  "both_api_and_helper_public_proof_flags": true,
+  "original_unchanged": true,
+  "original_checkpoint_source_witness_matches": true,
+  "provider_calls": 0,
+  "repository_sessions": 0,
+  "target_data_or_container_mutations": 0,
+  "user_login_tested": false,
+  "vaultwarden_authenticated_login_or_decryption_tested": false,
+  "limits": [
+    "Structural content/startup proof only; no authenticated Vaultwarden login, decryption or client synchronization claim.",
+    "Only the approved target DOMAIN differs from captured configuration.",
+    "No fresh provider read: uses the existing verified Drive readback."
+  ]
+}

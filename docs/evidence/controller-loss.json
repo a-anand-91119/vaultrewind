@@ -1,0 +1,265 @@
+{
+  "acceptance": "AC30",
+  "recorded_at": "2026-10-25T18:07:37.043599+00:00",
+  "fixture": "existing synthetic SSH Vaultwarden backup in real encrypted local restic",
+  "production_access": false,
+  "source_mutations": false,
+  "overall": "passed",
+  "export": {
+    "state": "passed",
+    "authenticated_api": true,
+    "job_id": "e5cf6463-b9fd-4c81-84a9-b23c9b951c4b"
+  },
+  "fresh_controller": {
+    "state": "passed",
+    "database": "separate randomly named PostgreSQL database",
+    "original_database_connected": false,
+    "original_master_key_read": false,
+    "new_master_key": true,
+    "new_bootstrap_secret": true,
+    "new_owner_via_api": true,
+    "old_private_directory_read_guard": true,
+    "isolation_boundary": "after authenticated encrypted-kit download",
+    "original_database_url_passed_to_fresh_process": false,
+    "original_master_key_passed_to_fresh_process": false,
+    "original_controller_environment_removed": true,
+    "guard_scope": "offline CLI and worker process; HTTP subprocess receives only fresh controller settings",
+    "owner_id": "e0cbf7f1-9da4-4c20-b0fc-db00a2478d68",
+    "old_private_directory_access_attempts": 0
+  },
+  "offline_restore": {
+    "state": "passed",
+    "shipped_cli": true,
+    "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+    "instance_id": "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2",
+    "manifest_hash": "84c6e54d6dabbab26a6d83ac4417c019e4c262ccc71c1306ffcc474062b12f11",
+    "inventory_verified": true,
+    "sqlite_integrity": "ok",
+    "restored_bytes_verified": true,
+    "repository_content_verified": true,
+    "saved_image_hash_verified": true,
+    "deployment_fingerprint_verified": true,
+    "application_started": false
+  },
+  "protected_import": {
+    "state": "passed",
+    "actual_loopback_http_api": true,
+    "actual_postgresql_worker": true,
+    "plan_job_id": "31a8fb4e-e29d-49be-9e1c-54a099862a66",
+    "apply_job_id": "96753176-fd85-4ce9-b553-18e1d654f053",
+    "reviewed_plan_hash": "b4938f2a72ecc5443d850c05008cc469dd23b9a78abde36d5c9b623bc29a4ed1",
+    "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+    "instance_id": "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2",
+    "captured_at": "2026-10-25T15:37:56.808296+00:00",
+    "manifest_hash": "84c6e54d6dabbab26a6d83ac4417c019e4c262ccc71c1306ffcc474062b12f11",
+    "repository_id": "bca96f46-ee00-4d2e-9d51-776763c18c55",
+    "restic_snapshot_id": "f9b661be6d650349d4bcda1bfa9c133b0df96856b59ce115a4253c8a7f2d49ee",
+    "protections": [
+      "import_review"
+    ],
+    "historical_ids_and_metadata_preserved": true,
+    "automatic_retention_disabled": true,
+    "retention_deletion_candidates": 0,
+    "placeholder_host_id": null,
+    "placeholder_readiness": "imported",
+    "readback_counts": {
+      "repositories_by_purpose": {
+        "instance": 1,
+        "controller": 1
+      },
+      "snapshots": 2,
+      "application_placeholders": 1
+    },
+    "summary": {
+      "destinations_created": 1,
+      "destinations_existing": 0,
+      "instances_created": 1,
+      "instances_existing": 0,
+      "repositories_created": 2,
+      "repositories_existing": 0,
+      "repositories_conflicting": 0,
+      "repositories_locked": 0,
+      "snapshots_created": 2,
+      "snapshots_existing": 0,
+      "snapshots_conflicting": 0,
+      "copies_created": 2,
+      "copies_existing": 0,
+      "copies_unverified": 0,
+      "copies_skipped": 0,
+      "automatic_deletion_enabled": false
+    }
+  },
+  "application_restore": {
+    "state": "passed",
+    "user_login_tested": false,
+    "application_started": true,
+    "target_id": "02b09a69-7c5f-4695-85f5-8514364ca6f5",
+    "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+    "original_source_targeted": false,
+    "application_mutation_target": "explicitly approved disposable VM target only",
+    "private_checkpoint": "application-checkpoint-02b09a69-7c5f-4695-85f5-8514364ca6f5.json",
+    "reason": null,
+    "old_private_directory_access_attempts": 0,
+    "previously_installed_profiles_preserved": 4,
+    "host_id": "88a092ea-f394-4d9a-b392-057e89c452e5",
+    "administrative_discovery_job_id": "415be88e-ee0c-4783-ba98-f9e358baa73c",
+    "reviewed_helper_bundle_sha256": "1ba90b4a54c4d2e460fe7772877025eec55aeb5221e3446d9ed8ddf8be46bf33",
+    "policy_entries_preserved": 5,
+    "activation_job_id": "3c71a548-b200-4d6a-a206-7ae8c9ae723e",
+    "preflight_restore_ready": true,
+    "restore_job_id": "f5009ca7-402a-4ef8-ade9-b9dcc1b41964",
+    "target_discovery_job_id": "61204af9-92b1-4f07-8b2d-da90615373f6",
+    "target_readback": {
+      "regular_files_checked": 6,
+      "missing_files": 0,
+      "mismatched_files": 0,
+      "sqlite_integrity": "ok",
+      "selected_tables_checked": 5,
+      "selected_table_counts_match": true,
+      "recorded_image_matches": true,
+      "running": true,
+      "target_instance_label_matches": true,
+      "target_operation_label_matches": true,
+      "target_public_url_matches": true,
+      "public_http_alive": true,
+      "public_application_config_ready": true,
+      "public_application_url_matches": true,
+      "public_probe_errors": []
+    },
+    "restore_job_state": "succeeded",
+    "candidate_validated": true,
+    "activation_started": true,
+    "restored_bytes_verified": true,
+    "target_activation_outcome": "complete",
+    "public_ports_verified": true,
+    "public_endpoint_verified": true,
+    "public_application_verified": true,
+    "public_http_alive": true,
+    "active_generation": "f5009ca7-402a-4ef8-ade9-b9dcc1b41964",
+    "imported_review_hold_preserved": true,
+    "imported_automatic_retention_disabled": true,
+    "helper_phase": "complete",
+    "helper_source_service_outcome": "running",
+    "helper_recovery_verified": true,
+    "helper_candidate_validation": {
+      "application_started": true,
+      "attachment_references_verified": true,
+      "database_integrity": "ok",
+      "database_schema_evidence": {
+        "schema_sha256": "8eff6e6472260a1e1672123b4146be0f258590c72b3739450eab973ef0d8dfca",
+        "sqlite_version": "3.46.1",
+        "tables": [
+          "__diesel_schema_migrations",
+          "archives",
+          "attachments",
+          "auth_requests",
+          "ciphers",
+          "ciphers_collections",
+          "collections",
+          "collections_groups",
+          "devices",
+          "emergency_access",
+          "event",
+          "favorites",
+          "folders",
+          "folders_ciphers",
+          "groups",
+          "groups_users",
+          "invitations",
+          "org_policies",
+          "organization_api_key",
+          "organizations",
+          "sends",
+          "sso_auth",
+          "sso_users",
+          "twofactor",
+          "twofactor_duo_ctx",
+          "twofactor_incomplete",
+          "users",
+          "users_collections",
+          "users_organizations"
+        ],
+        "user_version": 0
+      },
+      "docker_health_status": "starting",
+      "internal_http_alive": true,
+      "user_login_tested": false
+    },
+    "empty_target_before_restore": true,
+    "existing_helper_journals_preserved": 6,
+    "new_backup_storage_probe_outcomes": [
+      {
+        "job_id": "e61cd3a9-65f6-42d4-997f-017786f160b1",
+        "state": "failed",
+        "error_code": "LOCAL_MOUNT_MISSING"
+      }
+    ],
+    "completed_at": "2026-10-25T18:07:36.828797+00:00"
+  },
+  "application_attempts": [
+    {
+      "state": "needs_attention",
+      "reason": "Container runs on an internal bridge; Docker reports no published ports and the expected public HTTP /alive connection is refused.",
+      "application_started": true,
+      "user_login_tested": false,
+      "target_id": "3269177e-9c84-4143-abc6-8658e4f0a766",
+      "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+      "host_id": "f5d977b0-b049-4559-92ef-26a3d566ee1f",
+      "administrative_discovery_job_id": "f553a33a-b295-44b9-975e-311fe4795d97",
+      "old_private_directory_access_attempts": 0,
+      "original_source_targeted": false,
+      "application_mutation_target": "third disposable VM target only",
+      "reviewed_helper_bundle_sha256": "bee7d957b90b45a605dd904097201bbf5abfe5c643de541687a4d22859d6e4f3",
+      "policy_entries_preserved": 4,
+      "activation_job_id": "1520c4b4-219d-4390-a8ee-5e9e16863334",
+      "restore_job_id": "77a9078e-2613-4b68-a613-e1ea80aa7aef",
+      "target_discovery_job_id": "7f3a77a6-af93-4049-b510-ae6ed53faef4",
+      "failure": "PUBLIC_PORT_NOT_PUBLISHED",
+      "restore_job_state": "succeeded",
+      "restore_error_code": null,
+      "target_activation_outcome": "complete",
+      "candidate_validated": true,
+      "activation_started": true,
+      "helper_phase": "complete",
+      "helper_source_service_outcome": "running",
+      "helper_activation_started": true,
+      "internal_application_started": true,
+      "public_application_verified": false,
+      "public_http_alive": false,
+      "data_preserved_after_activation": true,
+      "restore_retry_submitted": false,
+      "new_backup_storage_probe_outcomes": [
+        {
+          "job_id": "e61cd3a9-65f6-42d4-997f-017786f160b1",
+          "state": "failed",
+          "error_code": "LOCAL_MOUNT_MISSING"
+        }
+      ],
+      "observed_network": {
+        "internal": true,
+        "driver": "bridge",
+        "options": {},
+        "exposed_ports": {
+          "80/tcp": {}
+        },
+        "expected_bindings": {
+          "80/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": "18102"
+            }
+          ]
+        },
+        "published_ports": {}
+      }
+    }
+  ],
+  "regression_checks": {
+    "pytest_command": "pytest -q tests/unit/test_server_import_lifecycle.py tests/unit/test_server_import_binding.py",
+    "passed": 6,
+    "duration_seconds": 18.18,
+    "ruff": "passed",
+    "fixed_readback_program_syntax": "passed",
+    "owned_artifact_live_secret_scan": "passed"
+  }
+}

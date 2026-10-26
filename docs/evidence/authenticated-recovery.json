@@ -1,0 +1,209 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+  "instance_id": "a219284d-ccfc-4522-b5ac-e44faaea3994",
+  "native_api_worker_ssh": true,
+  "vaultwarden_version": "1.37.4",
+  "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+  "client": {
+    "version": "2026.9.0",
+    "archive_sha256": "580c1deec8345b19dbac7f8b02babb6cc4fe250c69c567e29061f727f1e40768",
+    "binary_sha256": "157f56fc052547366eccba925fe1dcaf0e836d20ffe66209cfa4c6718c630ff5",
+    "sources": [
+      {
+        "url": "https://bitwarden.com/help/cli/",
+        "sha256": "0c05c746391583cde28afb3dd68289e2eb457e013d5399dc2a50da50b6088688"
+      },
+      {
+        "url": "https://github.com/bitwarden/clients/releases/tag/cli-v2026.9.0",
+        "sha256": "77ad7ad66688e3cd179aa807a5650e73bafbd42511ef23705c4196f315c736ff"
+      },
+      {
+        "url": "https://api.github.com/repos/bitwarden/clients/releases/tags/cli-v2026.9.0",
+        "sha256": "e29f02cfa84aad5a43acf6c36cd175203de52e8eb09975b7e71880a968c1e920"
+      },
+      {
+        "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.37.4",
+        "sha256": "7b00ec4ee45cf0b1484d191fd9c6e588f80b09471407205e389e6ec2b61d265b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/bw.ts",
+        "sha256": "7e4f57fba0b1954655858efae71f094688e90e1224a97ad779dd82f56a54b279"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/vault.program.ts",
+        "sha256": "80ed05c87c57ebd34d38e631205cddd37ff85fb51ebdc5ff19e3e84f9583f7c8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/utils.ts",
+        "sha256": "781918e4c058e677df8108ecfa191c183ce1b3c261c3bd87a0079c1c049f484c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/vault/create.command.ts",
+        "sha256": "e9a1dcbb8796908d14ed9d5dbd73f5dcd8c4e880699a50bf8f2187e3113b7ef8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/commands/edit.command.ts",
+        "sha256": "f7a61213654cc9aca7a2dd2270d7d9f80c0b3c7f73472f3f93848a86f2e0d7e4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/program.ts",
+        "sha256": "3c297ca7c1209659e963ccdcdb7127f96d9a8181e6029c55472b1037f9643867"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/auth/commands/login.command.ts",
+        "sha256": "b0c3f15f627105a1231b5a676743af51106f73c32564cb2152bbc398aa75e015"
+      }
+    ]
+  },
+  "fresh_authenticated_login_and_unlock": true,
+  "fresh_client_session_count": 3,
+  "item_decrypted_and_equal": true,
+  "attachment_decrypted_and_byte_equal": true,
+  "attachment_sha256": "b0c2b08d6dd243d703f7d055fb991dd4dae98ce3100cebca4b937162b3208666",
+  "post_capture_item_change_absent": true,
+  "post_capture_attachment_deletion_absent": true,
+  "post_capture_marker_absent": true,
+  "snapshot_id": "82caebb1-3187-4da5-a058-4550f4c3e2d5",
+  "copy_id": "9536457c-906f-449f-8882-0fefb9f923c9",
+  "manifest_sha256": "df78aacb29b85cb4f1838f281bf630b2a48ec974c647f6317a6fe552d68aa6d3",
+  "safety_snapshot_id": "efadd5bd-10d4-4cef-9c5a-876b31bffff2",
+  "pinned_complete_local_safety": true,
+  "restore_plan_id": "a728fe12-f9b0-416e-9188-f607dac815cb",
+  "job_ids": {
+    "plan": "684c6a15-2d7a-445c-aa82-19b97ee7e1f1",
+    "activate": "50755f49-bfe2-4bf9-a4ff-7ee397ff6aa3",
+    "discover": "163dd859-9714-47b9-a4c8-4644189c0e85",
+    "backup": "deaa4ff0-072e-47a2-bb87-209aada0e420",
+    "restore": "bf2489cf-cef6-49fa-8627-fbb7779af475"
+  },
+  "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+  "prior_profile_ids": [
+    "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2",
+    "927a1917-9de6-4777-b28f-aedb1c6c1816"
+  ],
+  "prior_profiles_preserved": true,
+  "prior_journals_preserved": true,
+  "prior_journal_map_sha256": "171b22438252f82497138282b0f7f06f7e512b227c22adb59c8e94d03db79567",
+  "existing_resources_preserved": {
+    "instances": "0000cab09416154f43833fbd5e0b8e869aa0c23d94e311fc0ae11d3684d7f9df",
+    "policies": "317bb66d48d19abafc894adebca3081af4b7e34c016a4f14513ef92dcc812f63",
+    "instance_configurations": "bc47627b8fcf070d9a24f497286523f8fce3cdb173c8d2a31b77096b7d84b77d",
+    "controller_master": "05c03985995a926fc39cf9f70ae75424c2996d69fbd45f272e2a76deecc28013",
+    "policy_destinations": "2a9bf5310b16b7b6b23df228a1e5f978c95b61979d510d204c166b0420cf2469",
+    "snapshots": "1d170b6b774909ed0ef914644c46fa9777806884474d79be7759b4ea9d70ee13",
+    "copies": "3d388fbcd21f3ca39542998e70669b922337c5a3d9ac15b472049d51d85975b0",
+    "containers": "b8609f19f5585a9f51ba906b482d1a4fe77892da0f5ab4d67857bf582415b412"
+  },
+  "fixture_policy_disabled_local_only": true,
+  "fixture_dedicated_bridge": true,
+  "fixture_smtp_unconfigured_push_and_icon_download_disabled": true,
+  "loopback_port_only": true,
+  "screenshots_trace_video_disabled": true,
+  "private_tls_proxy_forwarded_unchanged_responses": true,
+  "tls_certificate_sha256": "3fffaaaf7a263c28b015d63b25d6bec19cfa05943a39b239944a12aecf3ee59b",
+  "plaintext_vault_export_created": false,
+  "fixture_retained_for_private_review": true,
+  "scope": "Dedicated synthetic account and one login/attachment; no production or real-user authentication claim.",
+  "native_restore_public_ready": true,
+  "native_candidate_validated": true,
+  "previous_target_generation_preserved": true,
+  "previous_target_container_preserved_stopped": true,
+  "safety_ack_durable_encrypted_pinned_verified": true,
+  "safety_copy_id": "ee64d682-3af5-4884-903e-995d8adbd3ed",
+  "safety_repository_id": "127a0470-ad6b-41b4-815f-13679f795777",
+  "safety_restic_snapshot_id": "a499088dad497c0b80b0db42e5bc81c60f9b0fc95438e79948a6be2137c918f7",
+  "selected_restic_snapshot_id": "799874897b99cb19aa2ef5b4f3ac03e2f0ff0864ff1a5ea22332021268d13756",
+  "item_id": "12da57be-6df1-4e75-90e3-e941b13eec64",
+  "attachment_id": "918ee30fb3d853078d87",
+  "post_capture_marker_id": "2335eac7-1a73-443a-b742-1163286b9bff",
+  "helper_restore_journal_sha256": "b87bb411f3a6065cddfef196a5cffca561dc21e0329628bf5c0e80d4eba68d7c",
+  "harness_failure_chronology": [
+    {
+      "run_id": "9adb414d-5eaa-40c3-aa34-e6091e1f04fc",
+      "stage": "plan",
+      "code": "CLI_STDIN_SOURCE_MUST_BE_REVIEWED",
+      "unix_time": 1793042530
+    },
+    {
+      "run_id": "9adb414d-5eaa-40c3-aa34-e6091e1f04fc",
+      "stage": "plan",
+      "code": "NEW_FIXTURE_STARTUP_FAILED",
+      "unix_time": 1793042690
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "PRIVATE_COMMAND_FAILED",
+      "unix_time": 1793043101
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "PRIVATE_COMMAND_FAILED",
+      "unix_time": 1793043188
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "CLI_LOGIN_FAILED",
+      "unix_time": 1793043586
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "PRIVATE_COMMAND_FAILED",
+      "unix_time": 1793043678
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "PRIVATE_COMMAND_FAILED",
+      "unix_time": 1793043796
+    },
+    {
+      "run_id": "473e089d-87cb-40be-8cc0-d19dbed789b3",
+      "stage": "prove",
+      "code": "PRIVATE_FAILURE",
+      "unix_time": 1793044056
+    }
+  ],
+  "prior_profiles_sha256": {
+    "46ac8eb9-1854-4fc6-924f-af14c6b7d0c2": "d8be3b7fbb36dfdde64bc9cd96270a8dc9991390ac6417bb08be59fd0d2be365",
+    "927a1917-9de6-4777-b28f-aedb1c6c1816": "d9978f79a9a9f5668a5aac294d72fd603301e50c0502e534f3376aecf13af2d6"
+  },
+  "prior_journal_count": 19,
+  "api_public_ports_verified": true,
+  "api_public_endpoint_verified": true,
+  "helper_public_ports_verified": true,
+  "helper_public_endpoint_verified": true,
+  "helper_final_health_public_verified": true,
+  "native_job_user_login_tested_annotation": false,
+  "authenticated_client_proof_is_separate_engineering_drill": true,
+  "existing_semantic_witnesses_unchanged": true,
+  "google_or_s3_operations_requested": false,
+  "active_native_jobs_after_proof": 0,
+  "safety_verification": {
+    "worker_committed_encrypted_restic_copy": true,
+    "worker_manifest_readback_verified": true,
+    "drill_rechecked_exact_helper_safety_ack": true,
+    "drill_rechecked_pinned_complete_local_catalog": true,
+    "independent_drill_full_safety_restore_performed": false,
+    "independent_drill_full_repository_data_check_performed": false,
+    "worker_stored_tree_matched_inventory": true,
+    "worker_safety_content_hashes_fully_reread": false
+  },
+  "scope_exceptions": [
+    {
+      "code": "CLI_VERSION_DEFAULT_APPDATA_METADATA_WRITE",
+      "version_metadata_only": true,
+      "credential_vault_session_content_absent": true,
+      "file_bytes": 24,
+      "file_sha256": "2ae831f873e666cd3366f6f5e2e152c338861c13d468b729be8b4195ac2dd890",
+      "write_unix_time": 1793042526,
+      "corrected_before_authenticated_operations": true,
+      "left_untouched": true
+    }
+  ]
+}

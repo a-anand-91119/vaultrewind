@@ -1,0 +1,399 @@
+{
+  "result": "measured",
+  "recorded_at": "2026-10-25T18:25:26.269873+00:00",
+  "synthetic_only": true,
+  "reference": "Local disposable SSH/Docker Vaultwarden, real MinIO on loopback and local restic; shared host load.",
+  "attachment_heavy": {
+    "fixture": {
+      "attachment_bytes": 16777216,
+      "attachment_sha256": "4b6e50960e95d6707cfd0f4c7b3be8108da9284321028a6619334a5ec2269584",
+      "attachment_mode": "0600",
+      "attachment_uid": 0,
+      "attachment_gid": 0,
+      "metadata_size_consistent": true,
+      "wal_bytes_before_capture": 4152
+    },
+    "manual_required_cloud_failure": {
+      "job_id": "f34f7cf2-8598-455f-a6f8-0a4eb681ef22",
+      "state": "partial",
+      "api_creation_seconds": 0.974566,
+      "progress_visible_seconds": 0.01831,
+      "first_named_phase_seconds": 3.879462,
+      "queue_seconds": 2.140202,
+      "worker_seconds": 445.650923,
+      "end_to_end_seconds": 447.791125,
+      "phase_seconds": {
+        "queued": 3.861152,
+        "preflight": 9.637942,
+        "preparing": 0.733966,
+        "capturing": 41.297279,
+        "resuming_source": 2.02474,
+        "transferring": 8.370133,
+        "validating": 9.939663,
+        "committing_copies": 369.26408,
+        "finalizing": 2.64386
+      }
+    },
+    "credential_repaired_copy_retry": {
+      "job_id": "a2022aeb-e4af-4c8a-9fe2-1c2a765d1016",
+      "state": "succeeded",
+      "api_creation_seconds": 1.852947,
+      "progress_visible_seconds": 0.019582,
+      "first_named_phase_seconds": 8.071407,
+      "queue_seconds": 4.027733,
+      "worker_seconds": 57.730934,
+      "end_to_end_seconds": 61.758667,
+      "phase_seconds": {
+        "queued": 8.051825,
+        "reading_snapshot": 33.33674,
+        "committing_copies": 20.35052
+      }
+    },
+    "healthy_scheduled_backup": {
+      "job_id": "0eca3bfd-ba99-4061-a135-953ad4ace451",
+      "state": "succeeded",
+      "api_creation_seconds": null,
+      "progress_visible_seconds": 0.026864,
+      "first_named_phase_seconds": 3.924847,
+      "queue_seconds": 1.769005,
+      "worker_seconds": 172.769588,
+      "end_to_end_seconds": 174.538593,
+      "phase_seconds": {
+        "queued": 3.897983,
+        "preflight": 9.919884,
+        "preparing": 12.371549,
+        "capturing": 69.891763,
+        "resuming_source": 0.320313,
+        "transferring": 9.795617,
+        "validating": 6.969437,
+        "committing_copies": 60.837031,
+        "finalizing": 0.508152
+      }
+    },
+    "manual_capture_helper": {
+      "operation_id": "f34f7cf2-8598-455f-a6f8-0a4eb681ef22",
+      "phase": "captured",
+      "history": [
+        {
+          "phase": "quiescing",
+          "at": 1792951823.93479
+        },
+        {
+          "phase": "capturing",
+          "at": 1792951834.0018706
+        },
+        {
+          "phase": "resuming_source",
+          "at": 1792951834.2270577
+        },
+        {
+          "phase": "validating",
+          "at": 1792951836.3267124
+        },
+        {
+          "phase": "captured",
+          "at": 1792951848.0217865
+        }
+      ],
+      "source_service_outcome": "running",
+      "outage_upper_bound_seconds": 12.391922,
+      "raw_copy_seconds": 0.225187,
+      "seal_validation_seconds": 11.695074,
+      "source_resumed_before_validation_transfer_cloud": true
+    },
+    "scheduled_capture_helper": {
+      "operation_id": "0eca3bfd-ba99-4061-a135-953ad4ace451",
+      "phase": "captured",
+      "history": [
+        {
+          "phase": "quiescing",
+          "at": 1792952583.0627189
+        },
+        {
+          "phase": "capturing",
+          "at": 1792952591.1913145
+        },
+        {
+          "phase": "resuming_source",
+          "at": 1792952591.5531917
+        },
+        {
+          "phase": "validating",
+          "at": 1792952616.4430087
+        },
+        {
+          "phase": "captured",
+          "at": 1792952626.6395135
+        }
+      ],
+      "source_service_outcome": "running",
+      "outage_upper_bound_seconds": 33.38029,
+      "raw_copy_seconds": 0.361877,
+      "seal_validation_seconds": 10.196505,
+      "source_resumed_before_validation_transfer_cloud": true
+    },
+    "logical_bytes": 320123297,
+    "manual_stored_bytes": [
+      {
+        "backend": "local",
+        "stored_bytes": 16804482,
+        "logical_bytes": 320123297
+      },
+      {
+        "backend": "s3",
+        "stored_bytes": 105565451,
+        "logical_bytes": 320123297
+      }
+    ],
+    "scheduled_stored_bytes": [
+      {
+        "backend": "local",
+        "stored_bytes": 17826,
+        "logical_bytes": 320123297
+      },
+      {
+        "backend": "s3",
+        "stored_bytes": 28375,
+        "logical_bytes": 320123297
+      }
+    ],
+    "local_restore": {
+      "snapshot_id": "c81b4a2d-0523-4bc3-934a-79cd4f656ad0",
+      "copy_id": "9fa565f5-61b8-40e0-8cfb-86978c1e4dbb",
+      "repository_id": "bca96f46-ee00-4d2e-9d51-776763c18c55",
+      "manifest_hash": "3e8443a74dcdd77d98f25ad0ef7abd4769c41e7a3851e72fdcb0aba536006bdd",
+      "restore_with_repository_verify_seconds": 13.600092,
+      "additional_manifest_database_verification_seconds": 2.419708,
+      "restored_bytes_verified": true,
+      "attachment_hash_matches": true,
+      "attachment_bytes": 16777216,
+      "attachment_mode": "0600",
+      "attachment_uid": 0,
+      "row_counts": {
+        "users": 2,
+        "organizations": 1,
+        "ciphers": 1,
+        "attachments": 1,
+        "sends": 1
+      },
+      "sqlite_integrity": "ok",
+      "standalone_database": true,
+      "normalization_evidence": {
+        "attachment_references_verified": true,
+        "database_integrity": "ok",
+        "database_schema_evidence": {
+          "schema_sha256": "8eff6e6472260a1e1672123b4146be0f258590c72b3739450eab973ef0d8dfca",
+          "sqlite_version": "3.46.1",
+          "tables": [
+            "__diesel_schema_migrations",
+            "archives",
+            "attachments",
+            "auth_requests",
+            "ciphers",
+            "ciphers_collections",
+            "collections",
+            "collections_groups",
+            "devices",
+            "emergency_access",
+            "event",
+            "favorites",
+            "folders",
+            "folders_ciphers",
+            "groups",
+            "groups_users",
+            "invitations",
+            "org_policies",
+            "organization_api_key",
+            "organizations",
+            "sends",
+            "sso_auth",
+            "sso_users",
+            "twofactor",
+            "twofactor_duo_ctx",
+            "twofactor_incomplete",
+            "users",
+            "users_collections",
+            "users_organizations"
+          ],
+          "user_version": 0
+        },
+        "normalization_method": "sqlite3_backup_api",
+        "wal_incorporated": true
+      },
+      "logical_bytes": 320123297,
+      "inventory_members": 20,
+      "application_started": false,
+      "authenticated_user_login_tested": false,
+      "nonempty_wal_at_quiesced_capture_proven": false,
+      "wal_scope": "Source WAL size observed before capture; this drill does not retain raw pre-normalization WAL evidence after graceful source stop."
+    },
+    "cloud_restore": {
+      "snapshot_id": "c81b4a2d-0523-4bc3-934a-79cd4f656ad0",
+      "copy_id": "f51111e8-bcbe-415c-8e02-a352e98f613b",
+      "repository_id": "2de8ff0a-e3ef-4376-9809-d710322c755e",
+      "manifest_hash": "3e8443a74dcdd77d98f25ad0ef7abd4769c41e7a3851e72fdcb0aba536006bdd",
+      "restore_with_repository_verify_seconds": 12.3342,
+      "additional_manifest_database_verification_seconds": 2.847061,
+      "restored_bytes_verified": true,
+      "attachment_hash_matches": true,
+      "attachment_bytes": 16777216,
+      "attachment_mode": "0600",
+      "attachment_uid": 0,
+      "row_counts": {
+        "users": 2,
+        "organizations": 1,
+        "ciphers": 1,
+        "attachments": 1,
+        "sends": 1
+      },
+      "sqlite_integrity": "ok",
+      "standalone_database": true,
+      "normalization_evidence": {
+        "attachment_references_verified": true,
+        "database_integrity": "ok",
+        "database_schema_evidence": {
+          "schema_sha256": "8eff6e6472260a1e1672123b4146be0f258590c72b3739450eab973ef0d8dfca",
+          "sqlite_version": "3.46.1",
+          "tables": [
+            "__diesel_schema_migrations",
+            "archives",
+            "attachments",
+            "auth_requests",
+            "ciphers",
+            "ciphers_collections",
+            "collections",
+            "collections_groups",
+            "devices",
+            "emergency_access",
+            "event",
+            "favorites",
+            "folders",
+            "folders_ciphers",
+            "groups",
+            "groups_users",
+            "invitations",
+            "org_policies",
+            "organization_api_key",
+            "organizations",
+            "sends",
+            "sso_auth",
+            "sso_users",
+            "twofactor",
+            "twofactor_duo_ctx",
+            "twofactor_incomplete",
+            "users",
+            "users_collections",
+            "users_organizations"
+          ],
+          "user_version": 0
+        },
+        "normalization_method": "sqlite3_backup_api",
+        "wal_incorporated": true
+      },
+      "logical_bytes": 320123297,
+      "inventory_members": 20,
+      "application_started": false,
+      "authenticated_user_login_tested": false,
+      "nonempty_wal_at_quiesced_capture_proven": false,
+      "wal_scope": "Source WAL size observed before capture; this drill does not retain raw pre-normalization WAL evidence after graceful source stop."
+    },
+    "outage_definition": "Upper bound from helper quiescing transition through source health recovery, restart policy restoration and validating transition.",
+    "restoration_scope": "Empty private readback directory; includes restic --verify, then manifest and SQLite integrity checks; no application startup."
+  },
+  "small_fixture": {
+    "evidence": "docs/evidence/controller-roundtrip.json",
+    "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+    "attachment_bytes": 28,
+    "attachment_uid": 0,
+    "attachment_mode": "0600",
+    "backup": {
+      "job_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+      "state": "succeeded",
+      "api_creation_seconds": null,
+      "progress_visible_seconds": null,
+      "first_named_phase_seconds": null,
+      "queue_seconds": 4.139916,
+      "worker_seconds": 111.178182,
+      "end_to_end_seconds": 115.318098,
+      "phase_seconds": {
+        "queued": 6.748185,
+        "preflight": 4.141252,
+        "preparing": 0.12394,
+        "capturing": 43.347867,
+        "resuming_source": 0.311925,
+        "transferring": 5.348523,
+        "validating": 5.498948,
+        "committing_copies": 46.256834,
+        "finalizing": 3.523447
+      }
+    },
+    "application_replacement_restore": {
+      "job_id": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+      "state": "succeeded",
+      "api_creation_seconds": null,
+      "progress_visible_seconds": null,
+      "first_named_phase_seconds": null,
+      "queue_seconds": 5.46323,
+      "worker_seconds": 282.706117,
+      "end_to_end_seconds": 288.169347,
+      "phase_seconds": {
+        "queued": 7.202562,
+        "planning": 17.925558,
+        "reading_snapshot": 20.379945,
+        "staging": 52.066507,
+        "preparing_safety": 32.029573,
+        "capturing_safety": 62.464096,
+        "switching": 39.119952,
+        "validating_candidate": 2.79666,
+        "activating": 43.226596,
+        "finalizing": 10.945016
+      }
+    },
+    "capture_helper": {
+      "operation_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+      "phase": "captured",
+      "history": [
+        {
+          "phase": "quiescing",
+          "at": 1792942665.9171438
+        },
+        {
+          "phase": "capturing",
+          "at": 1792942676.6395044
+        },
+        {
+          "phase": "resuming_source",
+          "at": 1792942676.8157108
+        },
+        {
+          "phase": "validating",
+          "at": 1792942688.93784
+        },
+        {
+          "phase": "captured",
+          "at": 1792942696.8007264
+        }
+      ],
+      "source_service_outcome": "running",
+      "outage_upper_bound_seconds": 23.020696,
+      "raw_copy_seconds": 0.176206,
+      "seal_validation_seconds": 7.862886,
+      "source_resumed_before_validation_transfer_cloud": true
+    },
+    "logical_bytes": 303345970,
+    "stored_bytes": [
+      {
+        "backend": "local",
+        "stored_bytes": 88047334,
+        "logical_bytes": 303345970
+      }
+    ],
+    "api_creation_latency": "Not recorded for this earlier run.",
+    "note": "Earlier real API/worker run, checked against persisted jobs and stored manifest; no new small capture or source mutation."
+  },
+  "targets": {
+    "api_creation_seconds": 2,
+    "progress_visible_seconds": 5
+  },
+  "universal_speed_promise": false
+}

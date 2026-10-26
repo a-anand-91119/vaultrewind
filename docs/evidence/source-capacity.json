@@ -1,0 +1,908 @@
+{
+  "schema_version": 1,
+  "acceptance_ids": [
+    "AC26"
+  ],
+  "recorded_at": "2026-10-25T20:37:58.936484+00:00",
+  "result": "passed",
+  "synthetic_disposable_only": true,
+  "cases": {
+    "full_source_staging_preflight": {
+      "result": "passed",
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "INSUFFICIENT_SPACE",
+          "errno": null
+        }
+      ],
+      "source_process_content_metadata_unchanged": true,
+      "docker_mutations": 0,
+      "source_stop_calls": 0,
+      "watchdog_arms": 0
+    },
+    "full_source_staging_capture_entry": {
+      "result": "passed",
+      "error": [
+        {
+          "type": "VaultRewindError",
+          "code": "INSUFFICIENT_SPACE",
+          "errno": null
+        }
+      ],
+      "source_process_content_metadata_unchanged": true,
+      "docker_mutations": 0,
+      "source_stop_calls": 0,
+      "watchdog_arms": 0
+    },
+    "full_source_staging_capture_dispatch_admission": {
+      "result": "passed",
+      "error": [
+        {
+          "type": "OSError",
+          "code": null,
+          "errno": 28
+        }
+      ],
+      "boundary": "physical ENOSPC during durable dispatch admission, before capture/preflight",
+      "source_process_content_metadata_unchanged": true,
+      "docker_mutations": 0,
+      "source_stop_calls": 0,
+      "watchdog_arms": 0
+    },
+    "full_live_data_filesystem": {
+      "result": "passed",
+      "outcome": "coherent_capture_and_source_resumed",
+      "full_at_operation_start": true,
+      "continuous_fullness_proven": false,
+      "logical_sqlite_and_non_database_metadata_unchanged": true,
+      "original_http_healthy": true,
+      "forced_kill_calls": 0,
+      "graceful_stops": 1,
+      "older_full_check_and_verified_restore_at_zero_free": true,
+      "evidence_ref": "live_data_filesystem_full"
+    }
+  },
+  "limitations": [
+    "Systemd recovery is a journal-writing double; no independent watchdog, reboot, or controller-loss claim.",
+    "Real frozen Helper methods run locally, without SSH, native API/controller, worker, or helper installation.",
+    "Only remote SOURCE staging is filled; the separate synthetic live-data tmpfs remains writable.",
+    "The staging filesystem initially advertises sparse capacity for a successful preflight, then is remounted at 8 MiB.",
+    "No post-preflight capture race, cloud fault, authenticated login, or production workload is tested here."
+  ],
+  "frozen_helper": {
+    "bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+    "helper_source_sha256": "fca868c9bab4852d9d189f426f5cd12290df750624d5ef14ab88f708c30eed1e",
+    "helper_source_identical_to_current": true,
+    "all_core_remote_sources_identical": true,
+    "compared_module_count": 17
+  },
+  "failed_attempts": [
+    {
+      "schema_version": 1,
+      "acceptance_ids": [
+        "AC26"
+      ],
+      "recorded_at": "2026-10-25T20:32:17.084186+00:00",
+      "result": "failed",
+      "synthetic_disposable_only": true,
+      "cases": {},
+      "limitations": [
+        "Systemd recovery is a journal-writing double; no independent watchdog, reboot, or controller-loss claim.",
+        "Real frozen Helper methods run locally, without SSH, native API/controller, worker, or helper installation.",
+        "Only remote SOURCE staging is filled; the separate synthetic live-data tmpfs remains writable.",
+        "The staging filesystem initially advertises sparse capacity for a successful preflight, then is remounted at 8 MiB.",
+        "No post-preflight capture race, cloud fault, authenticated login, or production workload is tested here."
+      ],
+      "frozen_helper": {
+        "bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+        "helper_source_sha256": "fca868c9bab4852d9d189f426f5cd12290df750624d5ef14ab88f708c30eed1e",
+        "helper_source_identical_to_current": true,
+        "all_core_remote_sources_identical": true,
+        "compared_module_count": 17
+      },
+      "failure": [
+        {
+          "type": "AssertionError",
+          "code": null,
+          "errno": null
+        }
+      ],
+      "cleanup": {
+        "containers_remaining": 0,
+        "private_mounts_remaining": 0,
+        "networks_created": 1,
+        "errors": [],
+        "no_shared_resource_cleanup": true
+      },
+      "duration_seconds": 217.776,
+      "failure_stage": "source_staging_shrink_remount_and_fill",
+      "failure_classification": "harness_remount_command",
+      "failure_assertion_code": "FIXTURE_COMMAND_FAILED:mount",
+      "diagnosis": "Path-only remount invocation failed; a separate bounded private tmpfs probe succeeded with explicit filesystem type and original source. Product capacity cases were not reached.",
+      "baseline_capture_observed": {
+        "phase": "captured",
+        "source_service_outcome": "running",
+        "watchdog_double_armed": false
+      }
+    }
+  ],
+  "stage": "complete",
+  "source_application_readiness": {
+    "application_started": true,
+    "internal_http_alive": true,
+    "docker_health_status": null,
+    "user_login_tested": false
+  },
+  "baseline_capture": {
+    "phase": "captured",
+    "source_service_outcome": "running",
+    "watchdog_double_disarmed": true,
+    "source_after_capture": {
+      "container_id": "e9158b3e0ef1baf4f3e328d36ee423fc035c207ae42ba3a9eb3f5fbc6abf7ef9",
+      "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+      "running": true,
+      "pid": 459186,
+      "started_at": "2026-10-25T20:39:09.244319119Z",
+      "restart_count": 0,
+      "restart_policy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "data_sha256": "4cec0ab83ea43b1dc5d59183ffb3c8d54a3756abc8ab5c8ee903460f69e5d2bb"
+    }
+  },
+  "older_backup": {
+    "captured_by_frozen_helper": true,
+    "exact_saved_image_verified": true,
+    "restic_snapshot_id": "5aa7be9d0632e60f21917e5e4f7c50b3f5c68f7398061577af69de357a445e4e",
+    "manifest_sha256": "7f991832b31238e05b54d9b4935623191a33a10f3a71880072392eb5812c2251",
+    "repository_bytes_sha256": "cb87eb1321bbef40ab36eb04ab7acff96c040b3bc21614e457423adff8f61ca1",
+    "repository_bytes_unchanged": true,
+    "snapshot_set_unchanged": true,
+    "full_data_verified": true,
+    "restored_bytes_verified": true,
+    "private_file_bytes_verified": true,
+    "restic_full_data_check": {
+      "ok": true,
+      "verification_level": "full_data",
+      "data_read": true,
+      "full_data_verified": true,
+      "read_data_subset": null,
+      "num_errors": 0,
+      "broken_packs": 0,
+      "suggest_repair_index": false,
+      "suggest_prune": false,
+      "error_code": null,
+      "started_at": "2026-10-25T20:40:26.259088Z",
+      "finished_at": "2026-10-25T20:40:28.883456Z",
+      "restic_version": "0.19.1"
+    },
+    "restic_verified_restore": {
+      "restic_snapshot_id": "5aa7be9d0632e60f21917e5e4f7c50b3f5c68f7398061577af69de357a445e4e",
+      "manifest_hash": "7f991832b31238e05b54d9b4935623191a33a10f3a71880072392eb5812c2251",
+      "snapshot_uuid": "371f7f9f-1f18-4058-a65c-d2f7c1c62eb0",
+      "instance_uuid": "a5a25b4d-f3a4-4577-9070-caa0a45394b1",
+      "restored_bytes_verified": true,
+      "repository_content_verified": true,
+      "inventory_members": 10,
+      "logical_bytes": 303870212,
+      "files_restored": 13,
+      "bytes_restored": 303875962,
+      "verified_at": "2026-10-25T20:40:38.013707Z"
+    },
+    "saved_image_archive_sha256": "65958ae0023951ca083d65febaffe70ce525760cd7b7628b03c28095aa884fa8",
+    "application_startup_after_restore_tested": false
+  },
+  "source_before_fault": {
+    "container_id": "e9158b3e0ef1baf4f3e328d36ee423fc035c207ae42ba3a9eb3f5fbc6abf7ef9",
+    "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+    "running": true,
+    "pid": 459186,
+    "started_at": "2026-10-25T20:39:09.244319119Z",
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "data_sha256": "4cec0ab83ea43b1dc5d59183ffb3c8d54a3756abc8ab5c8ee903460f69e5d2bb"
+  },
+  "positive_control": {
+    "preflight_passed_before_fault": true,
+    "free_space_reserve_bytes": 0,
+    "advertised_tmpfs_limit_bytes": 1205907152,
+    "estimated_staging_bytes": 1201712848
+  },
+  "physical_source_staging": {
+    "errno": 28,
+    "filler_bytes": 8384512,
+    "write_bound_bytes": 8388609,
+    "mount_id": "2622",
+    "device": "0:310",
+    "mount_point": "/root/vrw-source-capacity-79p1acbf/source-staging",
+    "fs_type": "tmpfs",
+    "source": "vrw-source-capacity-79p1acbf",
+    "limit_bytes": 8388608,
+    "free_bytes": 0,
+    "source_live_data_same_filesystem": false
+  },
+  "source_after_fault": {
+    "container_id": "e9158b3e0ef1baf4f3e328d36ee423fc035c207ae42ba3a9eb3f5fbc6abf7ef9",
+    "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+    "running": true,
+    "pid": 459186,
+    "started_at": "2026-10-25T20:39:09.244319119Z",
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "data_sha256": "4cec0ab83ea43b1dc5d59183ffb3c8d54a3756abc8ab5c8ee903460f69e5d2bb"
+  },
+  "source_filesystem": {
+    "mount_id": "837",
+    "device": "0:205",
+    "mount_point": "/root/vrw-source-capacity-79p1acbf/source-filesystem",
+    "fs_type": "tmpfs",
+    "source": "vrw-source-capacity-79p1acbf"
+  },
+  "source_preservation": {
+    "source_process_content_metadata_unchanged": true,
+    "docker_mutations": 0,
+    "source_stop_calls": 0,
+    "watchdog_arms": 0
+  },
+  "restic_version": "0.19.1",
+  "optional_post_preflight_race": {
+    "executed": false,
+    "reason": "Scope limited to pre-downtime physical staging-full proof."
+  },
+  "fixture_network_id": "7b0848bc88e6340a2db2d0c1b12b158a677c4d239eaec7f4ee48e4b3d8bda06d",
+  "physical_source_staging_enospc_proven": true,
+  "source_final_before_cleanup": {
+    "container_id": "e9158b3e0ef1baf4f3e328d36ee423fc035c207ae42ba3a9eb3f5fbc6abf7ef9",
+    "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+    "running": true,
+    "pid": 459186,
+    "started_at": "2026-10-25T20:39:09.244319119Z",
+    "restart_count": 0,
+    "restart_policy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "data_sha256": "4cec0ab83ea43b1dc5d59183ffb3c8d54a3756abc8ab5c8ee903460f69e5d2bb"
+  },
+  "cleanup": {
+    "containers_remaining": 0,
+    "private_mounts_remaining": 0,
+    "networks_created": 1,
+    "networks_remaining": 0,
+    "containers_removed": 1,
+    "errors": [],
+    "no_shared_resource_cleanup": true
+  },
+  "duration_seconds": 165.664,
+  "focused_validation": {
+    "unit_test_command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider tests/unit/test_source_capacity.py",
+    "unit_tests_passed": 33,
+    "unit_tests_failed": 0,
+    "unit_tests_skipped": 0,
+    "ruff": "passed",
+    "python_files_compiled_in_memory": 2,
+    "evidence_consistency_validation": "passed",
+    "physical_integration_cases_passed": 3
+  },
+  "live_data_filesystem_full": {
+    "schema_version": 1,
+    "acceptance_ids": [
+      "AC26"
+    ],
+    "recorded_at": "2026-10-25T21:06:20.796232+00:00",
+    "result": "passed",
+    "synthetic_disposable_only": true,
+    "cases": {
+      "full_live_data_filesystem": {
+        "result": "passed",
+        "outcome": "coherent_capture_and_source_resumed",
+        "full_at_operation_start": true,
+        "continuous_fullness_proven": false,
+        "logical_sqlite_and_non_database_metadata_unchanged": true,
+        "original_http_healthy": true,
+        "forced_kill_calls": 0,
+        "graceful_stops": 1,
+        "older_full_check_and_verified_restore_at_zero_free": true
+      }
+    },
+    "limitations": [
+      "Systemd recovery is a journal-writing double; no independent watchdog, reboot, or controller-loss claim.",
+      "Real frozen Helper methods run locally, without SSH, native API/controller, worker, or helper installation.",
+      "Only the dedicated 16 MiB live-data tmpfs is filled, outside the enrolled data tree.",
+      "Source stop/restart can free WAL blocks; zero free at operation start is the tested boundary.",
+      "No continuous-fullness, independent watchdog/reboot, login, or new application restore claim."
+    ],
+    "frozen_helper": {
+      "bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+      "helper_source_sha256": "fca868c9bab4852d9d189f426f5cd12290df750624d5ef14ab88f708c30eed1e",
+      "helper_source_identical_to_current": true,
+      "all_core_remote_sources_identical": true,
+      "compared_module_count": 17
+    },
+    "failed_attempts": [],
+    "preparation_checks": {
+      "unit_tests_passed": 44,
+      "unit_tests_failed": 0,
+      "unit_tests_skipped": 0,
+      "python_files_compiled_in_memory": 2,
+      "ruff": "passed"
+    },
+    "stage": "complete",
+    "source_application_readiness": {
+      "application_started": true,
+      "internal_http_alive": true,
+      "docker_health_status": null,
+      "user_login_tested": false
+    },
+    "baseline_capture": {
+      "phase": "captured",
+      "source_service_outcome": "running",
+      "watchdog_double_disarmed": true,
+      "source_after_capture": {
+        "container_id": "81ea602b96eaadca26049d0b4bd45890f6a0149f3cf94b18b1a4f7a17705ab30",
+        "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+        "running": true,
+        "pid": 507120,
+        "started_at": "2026-10-25T21:08:02.479297561Z",
+        "restart_count": 0,
+        "restart_policy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "data_sha256": "475f3fe4cfc57943c2f3cc8b4b1a96c2f0af411f0832d619a07c4898726a718b"
+      }
+    },
+    "older_backup": {
+      "captured_by_frozen_helper": true,
+      "restic_snapshot_id": "a86935838544376f6091e5a848dcd46992796f9704840d0ebd41b64c15bbebb3",
+      "manifest_sha256": "76616a180264d9359dadf7e242854fa1430f2a32ad35645f53f3a3e9cb14b4ee",
+      "repository_bytes_sha256": "a259e21589b13e40641e48c50bcf6223cefa11c70d7cbab65d774a2c20fb0d7c",
+      "full_data_verified": true,
+      "restored_bytes_verified": true,
+      "application_startup_after_restore_tested": false,
+      "restic_full_data_check": {
+        "ok": true,
+        "verification_level": "full_data",
+        "data_read": true,
+        "full_data_verified": true,
+        "read_data_subset": null,
+        "num_errors": 0,
+        "broken_packs": 0,
+        "suggest_repair_index": false,
+        "suggest_prune": false,
+        "error_code": null,
+        "started_at": "2026-10-25T21:09:07.846104Z",
+        "finished_at": "2026-10-25T21:09:11.158801Z",
+        "restic_version": "0.19.1"
+      },
+      "restic_verified_restore": {
+        "restic_snapshot_id": "a86935838544376f6091e5a848dcd46992796f9704840d0ebd41b64c15bbebb3",
+        "manifest_hash": "76616a180264d9359dadf7e242854fa1430f2a32ad35645f53f3a3e9cb14b4ee",
+        "snapshot_uuid": "f982db4f-bf42-414f-adbe-229c51a44656",
+        "instance_uuid": "68415b85-6c4e-4014-811b-3033b7a2ba67",
+        "restored_bytes_verified": true,
+        "repository_content_verified": true,
+        "inventory_members": 10,
+        "logical_bytes": 303870208,
+        "files_restored": 13,
+        "bytes_restored": 303875959,
+        "verified_at": "2026-10-25T21:09:22.377271Z"
+      },
+      "repository_bytes_unchanged": true,
+      "snapshot_set_unchanged": true,
+      "exact_saved_image_verified": true,
+      "verified_at_zero_free_before_and_after": true,
+      "verification_timing": "After live filesystem fill, before fault capture; zero free sampled immediately before and after repository verification."
+    },
+    "source_before_fault": {
+      "container_id": "81ea602b96eaadca26049d0b4bd45890f6a0149f3cf94b18b1a4f7a17705ab30",
+      "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+      "running": true,
+      "pid": 507120,
+      "started_at": "2026-10-25T21:08:02.479297561Z",
+      "restart_count": 0,
+      "restart_policy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "data_sha256": "475f3fe4cfc57943c2f3cc8b4b1a96c2f0af411f0832d619a07c4898726a718b"
+    },
+    "logical_content_before_fault": {
+      "sqlite": {
+        "logical_sha256": "3274f9dd18d109151904244fc66ba0d7e2adcc8433866c22f9be37723e75d4a6",
+        "schema_sha256": "3b69e70795156820aca8efb613e267d8c7f9e06561292ec84d61d6ecd0e7959f",
+        "row_counts": {
+          "__diesel_schema_migrations": 57,
+          "archives": 0,
+          "attachments": 0,
+          "auth_requests": 0,
+          "ciphers": 0,
+          "ciphers_collections": 0,
+          "collections": 0,
+          "collections_groups": 0,
+          "devices": 0,
+          "emergency_access": 0,
+          "event": 0,
+          "favorites": 0,
+          "folders": 0,
+          "folders_ciphers": 0,
+          "groups": 0,
+          "groups_users": 0,
+          "invitations": 0,
+          "org_policies": 0,
+          "organization_api_key": 0,
+          "organizations": 0,
+          "sends": 0,
+          "sso_auth": 0,
+          "sso_users": 0,
+          "twofactor": 0,
+          "twofactor_duo_ctx": 0,
+          "twofactor_incomplete": 0,
+          "users": 0,
+          "users_collections": 0,
+          "users_organizations": 0
+        },
+        "integrity": "ok",
+        "user_version": 0
+      },
+      "sqlite_file_metadata": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0
+      },
+      "non_database_tree_sha256": "c8815fbc00f9b6cd9d85b764cb9da52078d25894853629b6d18328277e6efa99"
+    },
+    "source_filesystem": {
+      "mount_id": "2589",
+      "device": "0:295",
+      "mount_point": "/root/vrw-source-capacity-0no6v885/source-filesystem",
+      "fs_type": "tmpfs",
+      "source": "vrw-source-capacity-0no6v885"
+    },
+    "free_space_timeline": [
+      {
+        "boundary": "before_fill",
+        "utc": "2026-10-25T21:09:03.350322+00:00",
+        "elapsed_seconds": 0.138686,
+        "free_bytes": 15933440,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_fill",
+        "utc": "2026-10-25T21:09:03.359004+00:00",
+        "elapsed_seconds": 0.147363,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_older_repository_verification",
+        "utc": "2026-10-25T21:09:03.359778+00:00",
+        "elapsed_seconds": 0.148129,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_older_repository_verification",
+        "utc": "2026-10-25T21:09:22.742603+00:00",
+        "elapsed_seconds": 19.530962,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "operation_start",
+        "utc": "2026-10-25T21:09:22.869380+00:00",
+        "elapsed_seconds": 19.657738,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_preflight",
+        "utc": "2026-10-25T21:09:22.931981+00:00",
+        "elapsed_seconds": 19.720338,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "capture_entry",
+        "utc": "2026-10-25T21:09:22.932700+00:00",
+        "elapsed_seconds": 19.721054,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_container_stop",
+        "utc": "2026-10-25T21:09:43.896933+00:00",
+        "elapsed_seconds": 40.685292,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 507120,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_container_stop",
+        "utc": "2026-10-25T21:09:50.084423+00:00",
+        "elapsed_seconds": 46.872792,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": false,
+        "pid": 0,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_container_start",
+        "utc": "2026-10-25T21:09:50.338706+00:00",
+        "elapsed_seconds": 47.127064,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": false,
+        "pid": 0,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_container_start",
+        "utc": "2026-10-25T21:09:50.859635+00:00",
+        "elapsed_seconds": 47.647994,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_http_health",
+        "utc": "2026-10-25T21:09:50.860364+00:00",
+        "elapsed_seconds": 47.648716,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_http_health",
+        "utc": "2026-10-25T21:09:50.975557+00:00",
+        "elapsed_seconds": 47.763916,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "capture_terminal",
+        "utc": "2026-10-25T21:10:11.178240+00:00",
+        "elapsed_seconds": 67.966596,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_http_health",
+        "utc": "2026-10-25T21:10:11.178937+00:00",
+        "elapsed_seconds": 67.967288,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_http_health",
+        "utc": "2026-10-25T21:10:11.305412+00:00",
+        "elapsed_seconds": 68.09377,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "before_filler_release",
+        "utc": "2026-10-25T21:10:11.321429+00:00",
+        "elapsed_seconds": 68.109795,
+        "free_bytes": 0,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_filler_release",
+        "utc": "2026-10-25T21:10:11.324833+00:00",
+        "elapsed_seconds": 68.113185,
+        "free_bytes": 15933440,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "boundary": "after_space_release_http_health",
+        "utc": "2026-10-25T21:10:11.447567+00:00",
+        "elapsed_seconds": 68.235931,
+        "free_bytes": 15933440,
+        "total_bytes": 16777216,
+        "source_running": true,
+        "pid": 508674,
+        "exit_code": 0,
+        "oom_killed": false
+      }
+    ],
+    "healthy_before_fault": {
+      "application_started": true,
+      "internal_http_alive": true,
+      "docker_health_status": null,
+      "user_login_tested": false
+    },
+    "physical_live_data_filesystem": {
+      "errno": 28,
+      "filler_bytes": 15933440,
+      "write_bound_bytes": 16777217,
+      "mount_id": "2589",
+      "device": "0:295",
+      "mount_point": "/root/vrw-source-capacity-0no6v885/source-filesystem",
+      "fs_type": "tmpfs",
+      "source": "vrw-source-capacity-0no6v885",
+      "limit_bytes": 16777216,
+      "free_bytes": 0,
+      "filler_path": "/root/vrw-source-capacity-0no6v885/source-filesystem/outside-data-filler",
+      "filler_inode": 15,
+      "filler_outside_enrolled_data": true,
+      "same_filesystem_as_live_data": true
+    },
+    "independent_helper_staging_free_bytes": 112324378624,
+    "healthy_at_zero_free": {
+      "application_started": true,
+      "internal_http_alive": true,
+      "docker_health_status": null,
+      "user_login_tested": false
+    },
+    "preflight": {
+      "helper_version": "0.1.0",
+      "protocol_version": 1,
+      "restore_ready": false,
+      "restore_error_code": "PUBLIC_ENDPOINT_REQUIRED",
+      "current_public_ports_ready": true,
+      "current_public_error_code": null,
+      "fingerprint": "77b3b36408cbc9adffe957b98fbf1ff0682a974921920270cb5a6b9451f0eff1",
+      "source_state": "running",
+      "empty_target": false,
+      "estimated_data_bytes": 837504,
+      "resource_keys": [
+        "b3155149ff02025969d1c727648a84385c732b11c797cd61a7443b05a9da0e39",
+        "d4e5247779fe5894adae73baf0749bb444c383366606c2fd35263c6b11f43ee5"
+      ],
+      "clock_offset_seconds": 0.06181836128234863,
+      "recovery_verified": true,
+      "staging_bytes": 910842923,
+      "source_staging_bytes": 607778679,
+      "image_cache_bytes": 303064244,
+      "staging_quota_bytes": 107374182400,
+      "estimated_staging_bytes": 1201712836
+    },
+    "fault_capture": {
+      "exists": true,
+      "operation_id": "3df698e2-0d94-490a-ada9-78cec4bee51b",
+      "instance_id": "68415b85-6c4e-4014-811b-3033b7a2ba67",
+      "fencing_token": 2,
+      "phase": "captured",
+      "created_at": 1792962566.9683926,
+      "kind": "capture",
+      "source_state": "running",
+      "snapshot_uuid": "14ed18a5-063b-4680-afe2-aaaf35235318",
+      "deadline": 1792962880.9226034,
+      "updated_at": 1792962604.7923577,
+      "source_service_outcome": "running",
+      "manifest_hash": "3fa1e9ed6ce51599800077d2bb1879132ada01be3e5f88fb096f2a1f237bc49a",
+      "persistent_bytes": 804516,
+      "bytes": 303902720
+    },
+    "http_health_after_operation": {
+      "application_started": true,
+      "internal_http_alive": true,
+      "docker_health_status": null,
+      "user_login_tested": false
+    },
+    "logical_content_after_operation": {
+      "sqlite": {
+        "logical_sha256": "3274f9dd18d109151904244fc66ba0d7e2adcc8433866c22f9be37723e75d4a6",
+        "schema_sha256": "3b69e70795156820aca8efb613e267d8c7f9e06561292ec84d61d6ecd0e7959f",
+        "row_counts": {
+          "__diesel_schema_migrations": 57,
+          "archives": 0,
+          "attachments": 0,
+          "auth_requests": 0,
+          "ciphers": 0,
+          "ciphers_collections": 0,
+          "collections": 0,
+          "collections_groups": 0,
+          "devices": 0,
+          "emergency_access": 0,
+          "event": 0,
+          "favorites": 0,
+          "folders": 0,
+          "folders_ciphers": 0,
+          "groups": 0,
+          "groups_users": 0,
+          "invitations": 0,
+          "org_policies": 0,
+          "organization_api_key": 0,
+          "organizations": 0,
+          "sends": 0,
+          "sso_auth": 0,
+          "sso_users": 0,
+          "twofactor": 0,
+          "twofactor_duo_ctx": 0,
+          "twofactor_incomplete": 0,
+          "users": 0,
+          "users_collections": 0,
+          "users_organizations": 0
+        },
+        "integrity": "ok",
+        "user_version": 0
+      },
+      "sqlite_file_metadata": {
+        "mode": 420,
+        "uid": 0,
+        "gid": 0
+      },
+      "non_database_tree_sha256": "c8815fbc00f9b6cd9d85b764cb9da52078d25894853629b6d18328277e6efa99"
+    },
+    "source_after_fault": {
+      "container_id": "81ea602b96eaadca26049d0b4bd45890f6a0149f3cf94b18b1a4f7a17705ab30",
+      "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+      "running": true,
+      "pid": 508674,
+      "started_at": "2026-10-25T21:09:50.655420228Z",
+      "restart_count": 0,
+      "restart_policy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "data_sha256": "82b76d31ba636cc618f2dd4f12a474d5cda8a17c384576d498b63fdb8b5bf800"
+    },
+    "physical_live_data_full_at_operation_start": true,
+    "fullness_scope": "Zero free at operation/capture entry; stop/restart may free WAL blocks. See sampled boundaries.",
+    "after_filler_release": {
+      "only_own_outside_data_filler_removed": true,
+      "http_health": {
+        "application_started": true,
+        "internal_http_alive": true,
+        "docker_health_status": null,
+        "user_login_tested": false
+      },
+      "persistent_fingerprint": {
+        "sqlite": {
+          "logical_sha256": "3274f9dd18d109151904244fc66ba0d7e2adcc8433866c22f9be37723e75d4a6",
+          "schema_sha256": "3b69e70795156820aca8efb613e267d8c7f9e06561292ec84d61d6ecd0e7959f",
+          "row_counts": {
+            "__diesel_schema_migrations": 57,
+            "archives": 0,
+            "attachments": 0,
+            "auth_requests": 0,
+            "ciphers": 0,
+            "ciphers_collections": 0,
+            "collections": 0,
+            "collections_groups": 0,
+            "devices": 0,
+            "emergency_access": 0,
+            "event": 0,
+            "favorites": 0,
+            "folders": 0,
+            "folders_ciphers": 0,
+            "groups": 0,
+            "groups_users": 0,
+            "invitations": 0,
+            "org_policies": 0,
+            "organization_api_key": 0,
+            "organizations": 0,
+            "sends": 0,
+            "sso_auth": 0,
+            "sso_users": 0,
+            "twofactor": 0,
+            "twofactor_duo_ctx": 0,
+            "twofactor_incomplete": 0,
+            "users": 0,
+            "users_collections": 0,
+            "users_organizations": 0
+          },
+          "integrity": "ok",
+          "user_version": 0
+        },
+        "sqlite_file_metadata": {
+          "mode": 420,
+          "uid": 0,
+          "gid": 0
+        },
+        "non_database_tree_sha256": "c8815fbc00f9b6cd9d85b764cb9da52078d25894853629b6d18328277e6efa99"
+      },
+      "logical_content_and_metadata_unchanged": true
+    },
+    "safe_original_recovery_verified": true,
+    "source_final_before_cleanup": {
+      "container_id": "81ea602b96eaadca26049d0b4bd45890f6a0149f3cf94b18b1a4f7a17705ab30",
+      "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+      "running": true,
+      "pid": 508674,
+      "started_at": "2026-10-25T21:09:50.655420228Z",
+      "restart_count": 0,
+      "restart_policy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "data_sha256": "82b76d31ba636cc618f2dd4f12a474d5cda8a17c384576d498b63fdb8b5bf800"
+    },
+    "cleanup": {
+      "containers_remaining": 0,
+      "private_mounts_remaining": 0,
+      "networks_created": 1,
+      "networks_remaining": 0,
+      "containers_removed": 1,
+      "errors": [],
+      "no_shared_resource_cleanup": true
+    },
+    "duration_seconds": 231.942,
+    "focused_validation": {
+      "unit_tests_passed": 44,
+      "unit_tests_failed": 0,
+      "unit_tests_skipped": 0,
+      "ruff": "passed",
+      "python_files_compiled_in_memory": 2,
+      "evidence_consistency": "passed"
+    },
+    "zero_free_sample_count_before_filler_release": 16
+  },
+  "overall_source_capacity_result": "passed",
+  "result_scope": "physical source staging and live-data filesystem cases",
+  "total_physical_cases_passed": 4
+}

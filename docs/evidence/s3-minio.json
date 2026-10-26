@@ -1,0 +1,13 @@
+{
+  "result": "passed",
+  "real_minio": true,
+  "synthetic_only": true,
+  "source_release": "RELEASE.2025-10-15T17-29-55Z (official source build)",
+  "backup": true,
+  "restore": true,
+  "full_data_verification": true,
+  "exact_id_expiration": true,
+  "delete_permission_failure_retained": true,
+  "delete_error_code": "STORAGE_DELETE_DENIED",
+  "total_seconds": 38.889
+}

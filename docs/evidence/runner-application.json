@@ -1,0 +1,34 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "actual_api_worker_ssh_helper": true,
+  "snapshot_id": "8890bba2-42f0-4ebc-b38c-b33d0d2d8875",
+  "captured_at": "2026-10-25T15:37:56.808296+00:00",
+  "runner_id": "7902cb54-9b17-4e59-ace0-143236c03c87",
+  "job_id": "eadeba49-c514-4f31-a1f2-7e30680d999b",
+  "verification": {
+    "verification_id": "807457a1-2bed-4e83-ba77-0977f0fbf760",
+    "user_login_tested": false,
+    "restored_bytes_verified": true,
+    "application_started": true,
+    "isolated": true,
+    "outbound_access": false,
+    "production_mounts": false,
+    "public_ports": false,
+    "cleanup_result": "complete"
+  },
+  "helper": {
+    "phase": "rolled_back",
+    "candidate_cleanup_outcome": "complete",
+    "candidate_cleanup_remaining": 0,
+    "staging_cleaned": true,
+    "discarded_candidate_bytes": 313134
+  },
+  "runner_empty_after_cleanup": true,
+  "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+  "old_snapshot_after_helper_bundle_update": true,
+  "limits": [
+    "Synthetic Vaultwarden structural startup; no authenticated client login.",
+    "Helper bundle/protocol update rehearsal; does not upgrade the recorded Vaultwarden image."
+  ]
+}

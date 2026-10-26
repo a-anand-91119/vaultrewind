@@ -1,0 +1,10 @@
+# Generated bundles and disposable plaintext/encrypted drill artifacts.
+.vm-bundle/
+.vm-drill/
+.api-bundle/
+.final-bundle/
+.daemon-bundle/
+
+.frozen-1ba/
+.review03-tested/
+.frozen-8e/

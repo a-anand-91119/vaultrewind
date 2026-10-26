@@ -1,0 +1,83 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "restore_job_id": "4ebb0745-a268-4c41-ab90-c6b5a49289c8",
+  "restore": {
+    "state": "succeeded",
+    "content_commit": "complete",
+    "source_service_outcome": "running",
+    "target_activation_outcome": "complete",
+    "result": {
+      "safety_snapshot_id": "66103276-4c72-40e3-8cc3-920834124115",
+      "candidate_validated": true,
+      "activation_started": true,
+      "active_generation": "4ebb0745-a268-4c41-ab90-c6b5a49289c8",
+      "restored_bytes_verified": true,
+      "application_started": true,
+      "user_login_tested": false,
+      "public_ports_verified": true,
+      "public_endpoint_verified": true
+    }
+  },
+  "helper": {
+    "phase": "complete",
+    "candidate_validated": {
+      "application_started": true,
+      "attachment_references_verified": true,
+      "database_integrity": "ok",
+      "database_schema_evidence": {
+        "schema_sha256": "8eff6e6472260a1e1672123b4146be0f258590c72b3739450eab973ef0d8dfca",
+        "sqlite_version": "3.46.1",
+        "tables": [
+          "__diesel_schema_migrations",
+          "archives",
+          "attachments",
+          "auth_requests",
+          "ciphers",
+          "ciphers_collections",
+          "collections",
+          "collections_groups",
+          "devices",
+          "emergency_access",
+          "event",
+          "favorites",
+          "folders",
+          "folders_ciphers",
+          "groups",
+          "groups_users",
+          "invitations",
+          "org_policies",
+          "organization_api_key",
+          "organizations",
+          "sends",
+          "sso_auth",
+          "sso_users",
+          "twofactor",
+          "twofactor_duo_ctx",
+          "twofactor_incomplete",
+          "users",
+          "users_collections",
+          "users_organizations"
+        ],
+        "user_version": 0
+      },
+      "docker_health_status": "starting",
+      "internal_http_alive": true,
+      "user_login_tested": false
+    },
+    "public_ports_verified": true,
+    "public_endpoint_verified": true,
+    "active_generation": "4ebb0745-a268-4c41-ab90-c6b5a49289c8"
+  },
+  "published_alive_http": 200,
+  "published_config_http": 200,
+  "sqlite_integrity": "ok",
+  "safety_snapshot_pinned": true,
+  "safety_copy_complete": true,
+  "image_id": "sha256:b4312ccf9634e3b5e7044a90ca13169c78b2627c648b81092f0523a5d07fd7f6",
+  "network": "vaultrewind-fixture-public",
+  "limits": [
+    "Synthetic content; no authenticated client login.",
+    "Selected-point later-change insertion/absence is proved by controller-roundtrip.json. This rerun adds public readiness."
+  ]
+}

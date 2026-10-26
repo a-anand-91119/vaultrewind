@@ -1,0 +1,37 @@
+{
+  "recorded_at": "2026-10-25T18:53:04.766130+00:00",
+  "scope": "Root repair regression evidence after independent review04",
+  "review_report": "safety-final-review.json",
+  "unresolved_review04_P2": "offline_kit_reseeding",
+  "repair": "Offline persisted credentials are authoritative after first seed; only explicit changed override may replace authorization.",
+  "verification": {
+    "original_review_reproducer": "passed unchanged",
+    "tests": 3,
+    "log": ".runtime/offline-grant-repro-passed.log"
+  },
+  "other_availability_fix": {
+    "operation": "Docker.stop acknowledgement loss",
+    "verification": "108 focused health/lifecycle/recovery tests passed",
+    "rule": "One inspection reconciles exact container clean stop; no repeated POST; running/unknown/OOM/137 remains failure."
+  },
+  "remaining_integration_work": [
+    "Dedicated live Drive authorization/refresh/restore/retention/revocation/reconnect"
+  ],
+  "historical_status_repair": {
+    "result": "passed",
+    "evidence": "historical-migration.json",
+    "manual_journal_edits": false,
+    "source_data_and_started_at_unchanged": true,
+    "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+    "regression_tests": 82
+  },
+  "review04_offline_reseeding_status": "closed by unchanged reproducer plus 68 focused recovery/credential/crash tests",
+  "final_browser": {
+    "result": "passed",
+    "workflows": 5,
+    "evidence": "browser-results.json",
+    "alternate_independent_readback": "alternate-browser.json",
+    "original_independent_readback": "original-public.json"
+  },
+  "runner_evidence": "runner-application.json"
+}

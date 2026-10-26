@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "review_id": "vaultrewind-overnight-scoped-release-evidence-review-01",
+  "recorded_at_utc": "2026-10-26T20:07:49.321780+00:00",
+  "status": "pass",
+  "result": "passed_with_documented_limits",
+  "summary": "No new actionable findings in the frozen authenticated-recovery evidence, dashboard CSS and read-only review harness, or current public build/Compose provenance inspected in this round.",
+  "review_mode": "New independent read-only source/evidence review with only the expressly permitted pure test file.",
+  "round_prior_findings": [],
+  "findings": [],
+  "new_severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "contract_read_completely": {
+    "AGENT-HANDOFF.md": 49,
+    "VAULTREWIND-SPEC.md": 576
+  },
+  "scope": [
+    "The four supplied frozen authenticated-recovery files, their test guards, reported real official-client procedure and public native restore/safety interfaces.",
+    "Only the declared product delta in frontend/src/style.css, plus scripts/review_dashboard.mjs and its public documentation/evidence.",
+    "Current build and Compose evidence cross-binding, historical baseline separation and preservation of failure/verification qualifications."
+  ],
+  "constraints_observed": {
+    "delegation": false,
+    "implementation_edits": false,
+    "central_document_edits": false,
+    "private_or_runtime_reads": false,
+    "secret_access": false,
+    "native_api_or_provider_calls": 0,
+    "sql_calls": 0,
+    "ssh_calls": 0,
+    "docker_calls": 0,
+    "browser_sessions": 0,
+    "official_cli_executions": 0,
+    "server_or_worker_changes": false,
+    "git_mutations": false,
+    "production_access": false,
+    "deploy_publish_push": false,
+    "network_use": "Public official Bitwarden documentation and pinned GitHub release/source pages only.",
+    "only_repository_write": "docs/evidence/overnight-review.json",
+    "test_scope": "Only tests/unit/test_authenticated_recovery_drill.py; bytecode and pytest cache writes disabled. Test-owned temporary files contain synthetic values."
+  },
+  "frozen_files": {
+    "scripts/prove_authenticated_recovery.py": {
+      "expected_sha256": "db8f9c9e7ff7abaa8c7775716296c3cef2fc5deb58b5887eb3492f1f9534c6f7",
+      "reviewed_sha256": "db8f9c9e7ff7abaa8c7775716296c3cef2fc5deb58b5887eb3492f1f9534c6f7",
+      "matches": true
+    },
+    "tests/unit/test_authenticated_recovery_drill.py": {
+      "expected_sha256": "16aca49b22aab8c3acaf67156cb86bfd8f97789134ccd5577ddb6c3083bd165e",
+      "reviewed_sha256": "16aca49b22aab8c3acaf67156cb86bfd8f97789134ccd5577ddb6c3083bd165e",
+      "matches": true
+    },
+    "docs/AUTHENTICATED-RECOVERY-DRILL.md": {
+      "expected_sha256": "85641133763bcf00de9b2443389132726e42675d82b6d70c25edc60119152f3f",
+      "reviewed_sha256": "85641133763bcf00de9b2443389132726e42675d82b6d70c25edc60119152f3f",
+      "matches": true
+    },
+    "docs/evidence/authenticated-recovery.json": {
+      "expected_sha256": "e58bf9c38821bc29e5b1f90e7dc6b977a6024c900935619a5622708805271bf1",
+      "reviewed_sha256": "e58bf9c38821bc29e5b1f90e7dc6b977a6024c900935619a5622708805271bf1",
+      "matches": true
+    }
+  },
+  "checks": [
+    {
+      "id": "fixture-and-private-channel-boundaries",
+      "result": "pass",
+      "assessment": "Preparation bypasses Drill construction and external I/O. Executed stages use new canonical UUID4 identities, fixed loopback endpoints, exact owned labels/mount/image/network/port guards, private files, unchanged-helper checks and an explicitly reviewed activation plan. CLI environments exclude inherited credentials/default appdata; passwords and sessions use environment channels and item payloads use stdin. Public evidence is allowlisted and rejects exact credential values.",
+      "refs": [
+        "scripts/prove_authenticated_recovery.py:68",
+        "scripts/prove_authenticated_recovery.py:83",
+        "scripts/prove_authenticated_recovery.py:114",
+        "scripts/prove_authenticated_recovery.py:131",
+        "scripts/prove_authenticated_recovery.py:256",
+        "scripts/prove_authenticated_recovery.py:433",
+        "scripts/prove_authenticated_recovery.py:563",
+        "scripts/prove_authenticated_recovery.py:603",
+        "scripts/prove_authenticated_recovery.py:830",
+        "scripts/prove_authenticated_recovery.py:943"
+      ],
+      "qualification": "These are guarded harness/source checks, not a new scan of private artifacts or an independently observed runtime isolation claim. The dedicated ordinary bridge is explicitly not an egress firewall."
+    },
+    {
+      "id": "real-client-recovery-quality",
+      "result": "pass",
+      "assessment": "The real bundled Web Vault performs registration and client key generation; the driver waits for the successful registration-finish response. The unmodified pinned official CLI logs in, locks, unlocks and syncs in distinct new appdata contexts. It creates and subsequently changes the item through the client, deletes the attachment and creates a marker. A new post-restore client compares the original decrypted item fields, attachment identity, exact 65536-byte attachment/hash and marker absence. There are no fabricated account rows, custom cryptography or intercepted success responses in this harness.",
+      "refs": [
+        "scripts/prove_authenticated_recovery.py:175",
+        "scripts/prove_authenticated_recovery.py:400",
+        "scripts/prove_authenticated_recovery.py:629",
+        "scripts/prove_authenticated_recovery.py:655",
+        "scripts/prove_authenticated_recovery.py:721",
+        "scripts/prove_authenticated_recovery.py:763",
+        "scripts/prove_authenticated_recovery.py:892"
+      ],
+      "reported_fresh_sessions": 3,
+      "official_archive_digest_independently_matches_public_release": true,
+      "qualification": "Reviewer checked the public release digest and pinned stdin/password/session interfaces, not the private downloaded archive/binary or actual authenticated sessions. Runtime success remains recorded engineering evidence. The fixed local TLS adapter has documented request/response bounds and is not production TLS validation."
+    },
+    {
+      "id": "exact-snapshot-target-and-idempotency",
+      "result": "pass",
+      "assessment": "The capture selects one complete LOCAL copy and checks snapshot/copy/repository/instance/destination identity and matching manifest hashes. Restore uses that snapshot/copy and exact new instance. The public plan implementation binds the manifest, target fingerprint/revisions, policy, actor and single-use token. Stable per-run stage keys reconcile an exact existing job before another POST; an unresolved issued operation stops. A failed restore is not replaced by a new restore.",
+      "refs": [
+        "scripts/prove_authenticated_recovery.py:320",
+        "scripts/prove_authenticated_recovery.py:697",
+        "scripts/prove_authenticated_recovery.py:743",
+        "src/vaultrewind/server/services.py:288",
+        "src/vaultrewind/server/services.py:299",
+        "src/vaultrewind/server/services.py:347",
+        "src/vaultrewind/server/worker.py:760"
+      ],
+      "snapshot_id": "82caebb1-3187-4da5-a058-4550f4c3e2d5",
+      "copy_id": "9536457c-906f-449f-8882-0fefb9f923c9",
+      "target_id": "a219284d-ccfc-4522-b5ac-e44faaea3994",
+      "backup_job_id": "deaa4ff0-072e-47a2-bb87-209aada0e420",
+      "restore_job_id": "bf2489cf-cef6-49fa-8627-fbb7779af475"
+    },
+    {
+      "id": "mandatory-safety-old-generation-and-activation",
+      "result": "pass",
+      "assessment": "Native restore stores and pins safety before switching, verifies stored manifest and structural inventory, and sends the exact acknowledgment to the helper. Helper persists acknowledgment before journaled switching, validates an isolated candidate, records activation_started before public exposure, and preserves the active generation after possible exposure. The drill checks the same safety transaction, complete LOCAL catalog copy, prior generation device/inode and stopped rollback container. Native success requires public-port and endpoint evidence. Product user_login_tested remains false and separate from this engineering proof.",
+      "refs": [
+        "scripts/prove_authenticated_recovery.py:754",
+        "scripts/prove_authenticated_recovery.py:838",
+        "src/vaultrewind/server/worker.py:545",
+        "src/vaultrewind/server/worker.py:551",
+        "src/vaultrewind/server/worker.py:604",
+        "src/vaultrewind/server/worker.py:831",
+        "src/vaultrewind/server/worker.py:876",
+        "src/vaultrewind/server/worker.py:905",
+        "src/vaultrewind/remote/helper.py:569",
+        "src/vaultrewind/remote/helper.py:597",
+        "src/vaultrewind/remote/helper.py:695",
+        "src/vaultrewind/remote/helper.py:1008",
+        "src/vaultrewind/remote/journal.py:25",
+        "src/vaultrewind/storage/restic.py:497",
+        "src/vaultrewind/storage/restic.py:638"
+      ],
+      "safety_snapshot_id": "efadd5bd-10d4-4cef-9c5a-876b31bffff2",
+      "qualification": "Stored-copy verification here is manifest readback and tree/inventory structure/size comparison. The worker does not reread every safety file hash at commit; this drill performs no independent full safety restore or repository data check. Supplemental API/helper/final-health flags in the public report are recorded terminal observations, not freshly queried by this reviewer."
+    },
+    {
+      "id": "prior-resource-preservation-and-failure-history",
+      "result": "pass",
+      "assessment": "The harness compares prior helper profile entries, old journal hashes and semantic instance/configuration/policy/destination/snapshot/copy/master/container witnesses; legitimate revision/timestamp/resealing changes are excluded expressly. Settlement requires the new policy disabled and LOCAL only, no active native jobs, and distinct client sessions. Eight recovery failures and the initial 24-byte version-only default-appdata write remain disclosed. The default-appdata exception is corrected before authenticated operations and has a regression test.",
+      "refs": [
+        "scripts/prove_authenticated_recovery.py:148",
+        "scripts/prove_authenticated_recovery.py:163",
+        "scripts/prove_authenticated_recovery.py:497",
+        "scripts/prove_authenticated_recovery.py:783",
+        "docs/AUTHENTICATED-RECOVERY-DRILL.md:228",
+        "docs/evidence/authenticated-recovery.json"
+      ],
+      "reported_prior_profiles": 2,
+      "reported_prior_journals": 19,
+      "recovery_failure_entries": 8,
+      "qualification": "No private baseline/checkpoint, current job query or whole live-vault inventory was inspected. These preserved-resource and settlement facts are bounded recorded witnesses, not an independent live replay or a universal no-write guarantee."
+    },
+    {
+      "id": "dashboard-delta-and-navigation-evidence",
+      "result": "pass",
+      "assessment": "Only relative positioning of .table-wrap and overflow-wrap:anywhere on code differ from the previous 98-input build. Their removal reproduces the historical CSS hash exactly. The harness permits only its explicit synthetic-admin session POST, blocks browser API mutations/external HTTP origins, checks loading/expected headings/document overflow for eight navigation pages plus source snapshot detail at three widths, and checks the skip link. The report records zero post-authentication API/page/console errors, blocked mutations or external requests, plus six failed attempts and the two harness corrections.",
+      "refs": [
+        "frontend/src/style.css:101",
+        "frontend/src/style.css:602",
+        "frontend/src/main.tsx:728",
+        "frontend/src/main.tsx:1080",
+        "scripts/review_dashboard.mjs:59",
+        "scripts/review_dashboard.mjs:91",
+        "scripts/review_dashboard.mjs:100",
+        "scripts/review_dashboard.mjs:115",
+        "scripts/review_dashboard.mjs:163",
+        "docs/DASHBOARD-REVIEW.md",
+        "docs/evidence/dashboard-review.json"
+      ],
+      "page_checks": 27,
+      "checks_by_width": {
+        "1440": 9,
+        "768": 9,
+        "390": 9
+      },
+      "failed_attempts_retained": 6,
+      "qualification": "No browser or private screenshots were opened by this reviewer. Desktop/phone visual review and T3-preview unsupported status are ROOT-recorded observations. This is navigation/layout evidence, not a full accessibility audit, keyboard-workflow audit, rerun of the five mutating browser workflows or owner UI acceptance."
+    },
+    {
+      "id": "current-build-and-compose-provenance",
+      "result": "pass",
+      "assessment": "All 98 public input hashes match current files, their compact sorted-map fingerprint reproduces the build report, and all three public frontend artifacts match the recorded asset map. Historical and current build input sets are identical, with only style.css changed. Current build/Compose image IDs match. Previous image evidence is retained in separate before-dashboard files. The guarded Compose harness covers a disposable project, recreation and encrypted repository/provider-state marker persistence; it makes no application replacement or production claim.",
+      "refs": [
+        "docs/evidence/build.json",
+        "docs/evidence/build-before-dashboard.json",
+        "docs/evidence/compose.json",
+        "docs/evidence/compose-before-dashboard.json",
+        "scripts/prove_compose.py",
+        "Dockerfile"
+      ],
+      "input_count": 98,
+      "input_mismatches": 0,
+      "input_fingerprint": "c264c8aa9cb26209313d48878257099fdf68eeab5516c130b449b88346400415",
+      "changed_inputs_from_prior_build": [
+        "frontend/src/style.css"
+      ],
+      "public_frontend_asset_count": 3,
+      "asset_mismatches": 0,
+      "current_controller_image_id": "sha256:a1eb72ff5a0eee83e53cbef9ac5e692999a6b8f8a32ac1cf420a85b1c5f1125a",
+      "prior_controller_image_id": "sha256:69d82b978c39ebed72255a554efecb59aee8b272d2966a00f9ff7d1c7a285b2f",
+      "helper_bundle_sha256": "cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093",
+      "helper_digest_unchanged": true,
+      "reported_compose_seconds": 248.805,
+      "qualification": "Inside-image helper/asset inspection, fresh keys/database/project and actual Compose execution are recorded ROOT evidence. Reviewer performed only public-file comparisons; no image, runtime or deployment was inspected. The Vaultwarden image identity in the client drill is distinct from the controller image."
+    }
+  ],
+  "permitted_test_run": {
+    "command": "env -u VAULTREWIND_DATABASE_URL -u VAULTREWIND_PROVIDER_CREDENTIAL_STATE_DIR PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider tests/unit/test_authenticated_recovery_drill.py",
+    "passed": 19,
+    "failed": 0,
+    "seconds": 0.82,
+    "exit_code": 0,
+    "qualification": "Pure guard tests with synthetic temporary files and test doubles; no API, SQL connection, Docker, browser, SSH, provider or official CLI execution. This result does not establish the recorded live recovery by itself."
+  },
+  "historical_review_qualifications": {
+    "scope": "This round starts with no prior findings and does not repeat the earlier complete product/Drive reviews.",
+    "safety": "The original safety-final-review.json retains its historical SAFETY-FINAL-01 finding. Subsequent safety-repairs.json records its closure by the unchanged reproducer and focused recovery/credential/crash tests. This round does not reopen or independently rerun that closure, and does not rewrite the historical artifact.",
+    "drive": "drive-final-review.json is a bounded public-source/evidence review supporting qualified AC14 and AC26 preservation judgments. Its no-live-retest/private-checkpoint qualifications, conservative quota/auth timeout diagnosis, process-visibility refusal, natural-expiry/real-quota limits, separate systemd substitutes/VM evidence, owner-acknowledged account and unsupported shared drives remain intact. Its 69d image comparison is historical.",
+    "unit_and_browser": "The 908 passed / 16 skipped / 4 warnings / 425.22-second unit result and five passing browser workflows are historical baselines. The intentionally interrupted overnight run retains 622 passes / 8 skips / 1 warning / 116.64 seconds / exit 2 without an observed product assertion failure. ROOT owns the newer frozen whole-unit run; no terminal result or new whole-suite count is claimed here."
+  },
+  "verification_limits": [
+    "Read-only scoped review, not independent live replay, whole-system review, unconditional release guarantee, production readiness approval or authorization to access/deploy/publish/push.",
+    "No owner environment, runtime keys/data, private client state, private logs/checkpoints, raw vault content, process arguments or current remote resources were read.",
+    "Authenticated coverage is one synthetic user/login/64 KiB attachment, one pinned CLI/server combination and LOCAL original-target recovery. It does not extend authenticated claims to older Drive/VM evidence, real users, organizations, 2FA, passkeys, external identities or all clients.",
+    "The ordinary fixture bridge is not an egress firewall. Test-only TLS uses local trust/SPKI configuration and explicit size bounds; it is not a production proxy validation.",
+    "No independent full safety restore/data check, new systemd/reboot/failure-injection run, provider replay, broad secret scan, visual screenshot review or full accessibility audit was performed.",
+    "Public input hash comparison verifies provenance of all 98 files, not a fresh semantic review of every file. Interface code was inspected only where relevant to this scoped evidence.",
+    "ROOT and its document agent own central documentation and production planning; those evolving documents are outside this frozen review verdict. The pending whole-unit run remains a separate completion item."
+  ],
+  "official_primary_sources_checked": [
+    {
+      "url": "https://github.com/bitwarden/clients/releases/expanded_assets/cli-v2026.9.0",
+      "supports": "Pinned Linux archive name and SHA-256 match the frozen harness/report."
+    },
+    {
+      "url": "https://bitwarden.com/help/cli/",
+      "supports": "Password environment and BW_SESSION channels; login/unlock/sync and attachment workflow concepts."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/utils.ts",
+      "supports": "Pinned stdin reader and password source handling."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/vault/create.command.ts",
+      "supports": "Omitted item JSON is read from stdin and decoded from base64."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/bitwarden/clients/cli-v2026.9.0/apps/cli/src/commands/edit.command.ts",
+      "supports": "Omitted edit JSON is read from stdin and decoded from base64."
+    }
+  ],
+  "source_sha256_at_review": {
+    "scripts/prove_authenticated_recovery.py": "db8f9c9e7ff7abaa8c7775716296c3cef2fc5deb58b5887eb3492f1f9534c6f7",
+    "tests/unit/test_authenticated_recovery_drill.py": "16aca49b22aab8c3acaf67156cb86bfd8f97789134ccd5577ddb6c3083bd165e",
+    "docs/AUTHENTICATED-RECOVERY-DRILL.md": "85641133763bcf00de9b2443389132726e42675d82b6d70c25edc60119152f3f",
+    "docs/evidence/authenticated-recovery.json": "e58bf9c38821bc29e5b1f90e7dc6b977a6024c900935619a5622708805271bf1",
+    "AGENT-HANDOFF.md": "0fc98006d90df11ad1019c6b530da91d23c8fb575e2fb1b3f6a84637034b2dcc",
+    "VAULTREWIND-SPEC.md": "53ef07844072a223cdd684c503e9c7da730b0b18fb79a4fb51edb9799379c594",
+    "scripts/review_dashboard.mjs": "2f4604efee02c65af6dab678254911df37ffc989694807ebf5834536f98c1845",
+    "docs/DASHBOARD-REVIEW.md": "33dab6688d56bbfa10906a5ff48d2a00e876908317fd1d418dad6e40ecab1772",
+    "docs/evidence/dashboard-review.json": "d7bd99ce87cd54089c902ba0f24918dd70c250fd0f918442f9999a369f79a525",
+    "frontend/src/style.css": "fd65231ec8b09a2b2a6a9026fbf03a2606721e012848c901511d4c25834dfa57",
+    "frontend/src/main.tsx": "f34c5928b8a623a4c8b856ba89536dc3f2f7e283b7b2a15f45367cf111994ea1",
+    "src/vaultrewind/server/app.py": "5a8384d4ca70f95feda1c39075d59d40e7f4a6970c3058f250e250a13ccae5b2",
+    "src/vaultrewind/server/services.py": "9b9f926ded3657fa5279cd1701adb37951b405fcdcc7a0087b521a43333e4eff",
+    "src/vaultrewind/server/worker.py": "88d6e6a4c348aa7691e77023be4820fb8c12b052baf87582164b0dc98ef0df57",
+    "src/vaultrewind/remote/helper.py": "fca868c9bab4852d9d189f426f5cd12290df750624d5ef14ab88f708c30eed1e",
+    "src/vaultrewind/remote/docker.py": "89a43fab8a9ff6fd909ea8effa3ff81dc07b0c7c3e055406f89db26f9ffa7caf",
+    "src/vaultrewind/remote/journal.py": "fba900060935eaafa70b9df40274aee29c3d5827773f1aeac04f4555a44de39b",
+    "src/vaultrewind/storage/restic.py": "9cd8bdca63845fa52c686dfc8109f74bcac025c8eca20b66f64e17c33f4f43a1",
+    "scripts/prove_compose.py": "48e15f37e454e22a71c69f2eaf30ba739dfebfefc2fe6ab0943000a831980cf6",
+    "Dockerfile": "fbfa876a1f2f5499033a22d1bb95812e4c6a44684e1da56b34d9498bdc1390f9",
+    ".dockerignore": "4b728537ca011cf1d1e95f75e735bb06c7ce0de9e813057438f949dee66758df",
+    "pyproject.toml": "021fae034f0bf9c15e06b3eb8f610b13d525f02b6ff597f340a920489307bc54",
+    "docs/evidence/build.json": "ee037c090540ee7c318b931e2377bf4fa859f9956c0c7b6a0320146f9c38654b",
+    "docs/evidence/build-before-dashboard.json": "4a1d845d63e5fa0d0aa529e94a4ed2f32a72a256ab109ad533946b8efa7575f5",
+    "docs/evidence/compose.json": "32487499980fdd2c5b74d2d628e8b76c7d75bb67d6f7195e37c9ec5347fcc466",
+    "docs/evidence/compose-before-dashboard.json": "ba1082c8eec14a235aa1acd1cf3df0e44a9ea7576f39dbb67ede235590abed42",
+    "docs/evidence/browser-results.json": "5a06713a6aa904d36a94a0129f8f13dfe40349edd717c2fb79d7ee8cf9f9ed11",
+    "docs/evidence/safety-final-review.json": "bb6a45a56f9aea1fe8bb0184d7925c2ce1f2dbffcbc779dcf51f0655ded787f1",
+    "docs/evidence/safety-repairs.json": "4488330a3877b3568f5013e184ae7a6d53b23c56f0c0ada1a876769de2a6db9c",
+    "docs/evidence/drive-final-review.json": "1c286285068fd45eb73573304e1b35642a69e5e881b924e571b22dc09cc5ea20"
+  },
+  "coordinator_follow_up": "No implementation fix or live rerun requested by this review. ROOT should consume this bounded pass, retain all qualifications/failure histories, and record the pending frozen whole-unit outcome separately before its local checkpoint/release planning."
+}

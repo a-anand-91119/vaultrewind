@@ -1,0 +1,691 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "actual_api_worker_helper": true,
+  "inventory_job_id": "698e30dd-a733-4767-83ee-09bdd2301575",
+  "cleanup_job_id": "c1c607bc-ab42-4d83-8855-b73bfa77c73c",
+  "historical_restore_job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+  "before": {
+    "as_of": "2026-10-25T18:44:59.802183+00:00",
+    "source_staging_bytes": 3741235577,
+    "image_cache_bytes": 303064244,
+    "staging_bytes": 4044299821,
+    "quota_bytes": 107374182400,
+    "accounting_error": null,
+    "scope": "shared_host_staging",
+    "operations": [
+      {
+        "job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+        "kind": "restore",
+        "state": "rolled_back",
+        "remote_phase": "rolled_back",
+        "generation_bytes": 17057507,
+        "retained_generation_bytes": 17057507,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "discard_candidate",
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "e8c52d5a-278f-4832-b73c-dafc7b0005fb",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "0eca3bfd-ba99-4061-a135-953ad4ace451",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "f34f7cf2-8598-455f-a6f8-0a4eb681ef22",
+        "kind": "backup",
+        "state": "partial",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "aa238d2f-ca5c-4f64-96cb-c50becc81009",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "complete",
+        "generation_bytes": 280319,
+        "retained_generation_bytes": 280319,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T18:08:05.152656+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_GRACE_PERIOD"
+        }
+      },
+      {
+        "job_id": "fa32b71e-fed0-4953-b15f-35e0da68211e",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "needs_attention",
+        "generation_bytes": 280319,
+        "retained_generation_bytes": 280319,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T17:25:42.534939+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "c16bc1b1-0c74-427b-b992-90ded9a95b74",
+        "kind": "restore",
+        "state": "rolled_back",
+        "remote_phase": "rolled_back",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "discard_candidate",
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "generations": "CLEANUP_UNSAFE"
+        },
+        "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+      },
+      {
+        "job_id": "5e2993b3-60b2-4797-9add-f33c5dfb68f6",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "196e08c7-9c5e-48f6-8193-94bde134ab0c",
+        "kind": "backup",
+        "state": "failed",
+        "remote_phase": "unknown",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE",
+          "staging": "CLEANUP_UNSAFE"
+        },
+        "accounting_error": "REMOTE_JOURNAL_MISSING"
+      },
+      {
+        "job_id": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "needs_attention",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T15:48:32.700224+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        },
+        "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+      },
+      {
+        "job_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "3811d969-b717-458b-b33e-c23937b5efd0",
+        "kind": "backup",
+        "state": "failed",
+        "remote_phase": "failed_safe",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      }
+    ],
+    "operations_truncated": false
+  },
+  "cleanup": {
+    "cleanup_result": "complete",
+    "historical_job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+    "cleanup_kind": "discard_candidate",
+    "remote_storage": {
+      "as_of": "2026-10-25T19:32:52.776858+00:00",
+      "source_staging_bytes": 2460622190,
+      "image_cache_bytes": 303064244,
+      "staging_bytes": 2763686434,
+      "quota_bytes": 107374182400,
+      "accounting_error": null,
+      "scope": "shared_host_staging",
+      "operations": [
+        {
+          "job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+          "kind": "restore",
+          "state": "rolled_back",
+          "remote_phase": "rolled_back",
+          "generation_bytes": 17057507,
+          "retained_generation_bytes": 17057507,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "complete",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "e8c52d5a-278f-4832-b73c-dafc7b0005fb",
+          "kind": "backup",
+          "state": "succeeded",
+          "remote_phase": "captured",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "0eca3bfd-ba99-4061-a135-953ad4ace451",
+          "kind": "backup",
+          "state": "succeeded",
+          "remote_phase": "captured",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "f34f7cf2-8598-455f-a6f8-0a4eb681ef22",
+          "kind": "backup",
+          "state": "partial",
+          "remote_phase": "captured",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": false,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [
+            "staging"
+          ],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "aa238d2f-ca5c-4f64-96cb-c50becc81009",
+          "kind": "restore",
+          "state": "succeeded",
+          "remote_phase": "complete",
+          "generation_bytes": 280319,
+          "retained_generation_bytes": 280319,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": "2026-11-01T18:08:05.152656+00:00",
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_GRACE_PERIOD"
+          }
+        },
+        {
+          "job_id": "fa32b71e-fed0-4953-b15f-35e0da68211e",
+          "kind": "restore",
+          "state": "succeeded",
+          "remote_phase": "complete",
+          "generation_bytes": 280319,
+          "retained_generation_bytes": 280319,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": "2026-11-01T17:25:42.534939+00:00",
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_GRACE_PERIOD"
+          }
+        },
+        {
+          "job_id": "c16bc1b1-0c74-427b-b992-90ded9a95b74",
+          "kind": "restore",
+          "state": "rolled_back",
+          "remote_phase": "rolled_back",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": false,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [
+            "discard_candidate",
+            "staging"
+          ],
+          "cleanup_blocked": {
+            "generations": "CLEANUP_UNSAFE"
+          },
+          "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+        },
+        {
+          "job_id": "5e2993b3-60b2-4797-9add-f33c5dfb68f6",
+          "kind": "backup",
+          "state": "succeeded",
+          "remote_phase": "captured",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "196e08c7-9c5e-48f6-8193-94bde134ab0c",
+          "kind": "backup",
+          "state": "failed",
+          "remote_phase": "unknown",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": false,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE",
+            "staging": "CLEANUP_UNSAFE"
+          },
+          "accounting_error": "REMOTE_JOURNAL_MISSING"
+        },
+        {
+          "job_id": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+          "kind": "restore",
+          "state": "succeeded",
+          "remote_phase": "complete",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": "2026-11-01T15:48:32.700224+00:00",
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_GRACE_PERIOD"
+          },
+          "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+        },
+        {
+          "job_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+          "kind": "backup",
+          "state": "succeeded",
+          "remote_phase": "captured",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": true,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        },
+        {
+          "job_id": "3811d969-b717-458b-b33e-c23937b5efd0",
+          "kind": "backup",
+          "state": "failed",
+          "remote_phase": "failed_safe",
+          "generation_bytes": null,
+          "retained_generation_bytes": null,
+          "staging_cleaned": false,
+          "generations_cleaned": false,
+          "candidate_cleanup_outcome": "unknown",
+          "cleanup_after": null,
+          "eligible_cleanup": [
+            "staging"
+          ],
+          "cleanup_blocked": {
+            "discard_candidate": "CLEANUP_UNSAFE",
+            "generations": "CLEANUP_UNSAFE"
+          }
+        }
+      ],
+      "operations_truncated": false
+    }
+  },
+  "after": {
+    "as_of": "2026-10-25T19:32:52.776858+00:00",
+    "source_staging_bytes": 2460622190,
+    "image_cache_bytes": 303064244,
+    "staging_bytes": 2763686434,
+    "quota_bytes": 107374182400,
+    "accounting_error": null,
+    "scope": "shared_host_staging",
+    "operations": [
+      {
+        "job_id": "3baaff5e-6b9a-4293-af93-d6f5c1c03462",
+        "kind": "restore",
+        "state": "rolled_back",
+        "remote_phase": "rolled_back",
+        "generation_bytes": 17057507,
+        "retained_generation_bytes": 17057507,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "complete",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "e8c52d5a-278f-4832-b73c-dafc7b0005fb",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "0eca3bfd-ba99-4061-a135-953ad4ace451",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "f34f7cf2-8598-455f-a6f8-0a4eb681ef22",
+        "kind": "backup",
+        "state": "partial",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "aa238d2f-ca5c-4f64-96cb-c50becc81009",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "complete",
+        "generation_bytes": 280319,
+        "retained_generation_bytes": 280319,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T18:08:05.152656+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_GRACE_PERIOD"
+        }
+      },
+      {
+        "job_id": "fa32b71e-fed0-4953-b15f-35e0da68211e",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "complete",
+        "generation_bytes": 280319,
+        "retained_generation_bytes": 280319,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T17:25:42.534939+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_GRACE_PERIOD"
+        }
+      },
+      {
+        "job_id": "c16bc1b1-0c74-427b-b992-90ded9a95b74",
+        "kind": "restore",
+        "state": "rolled_back",
+        "remote_phase": "rolled_back",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "discard_candidate",
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "generations": "CLEANUP_UNSAFE"
+        },
+        "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+      },
+      {
+        "job_id": "5e2993b3-60b2-4797-9add-f33c5dfb68f6",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "196e08c7-9c5e-48f6-8193-94bde134ab0c",
+        "kind": "backup",
+        "state": "failed",
+        "remote_phase": "unknown",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE",
+          "staging": "CLEANUP_UNSAFE"
+        },
+        "accounting_error": "REMOTE_JOURNAL_MISSING"
+      },
+      {
+        "job_id": "c57d3c4a-4e22-4296-a876-87c2c6db57a8",
+        "kind": "restore",
+        "state": "succeeded",
+        "remote_phase": "complete",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": "2026-11-01T15:48:32.700224+00:00",
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_GRACE_PERIOD"
+        },
+        "accounting_error": "REMOTE_ACCOUNTING_UNAVAILABLE"
+      },
+      {
+        "job_id": "b0db2ab8-75ef-4813-8646-be1e3e977eb1",
+        "kind": "backup",
+        "state": "succeeded",
+        "remote_phase": "captured",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": true,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      },
+      {
+        "job_id": "3811d969-b717-458b-b33e-c23937b5efd0",
+        "kind": "backup",
+        "state": "failed",
+        "remote_phase": "failed_safe",
+        "generation_bytes": null,
+        "retained_generation_bytes": null,
+        "staging_cleaned": false,
+        "generations_cleaned": false,
+        "candidate_cleanup_outcome": "unknown",
+        "cleanup_after": null,
+        "eligible_cleanup": [
+          "staging"
+        ],
+        "cleanup_blocked": {
+          "discard_candidate": "CLEANUP_UNSAFE",
+          "generations": "CLEANUP_UNSAFE"
+        }
+      }
+    ],
+    "operations_truncated": false
+  }
+}

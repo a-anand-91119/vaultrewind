@@ -1,0 +1,11 @@
+# Apply after compose.yml. Loopback development is the only insecure-cookie exception.
+services:
+  api:
+    ports: !override ["127.0.0.1:8000:8080"]
+    environment:
+      VAULTREWIND_PUBLIC_ORIGIN: http://127.0.0.1:8000
+      VAULTREWIND_SECURE_COOKIES: "false"
+  worker:
+    environment:
+      VAULTREWIND_PUBLIC_ORIGIN: http://127.0.0.1:8000
+      VAULTREWIND_SECURE_COOKIES: "false"

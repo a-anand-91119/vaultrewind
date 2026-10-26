@@ -1,0 +1,26 @@
+[Unit]
+Description=VaultRewind independent recovery watchdog for %i
+After=docker.service
+# The recovery process must survive an explicit Docker stop/restart. Ordering
+# alone does not propagate Docker's stop job to this independently armed unit.
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+ExecStart=/usr/local/libexec/vaultrewind-helper --watchdog %i
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=10
+UMask=0077
+User=root
+Group=root
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/vaultrewind-helper /run /var/lib/docker
+# Enrolled bind generation parents are added by the installer in a root-owned drop-in.
+NoNewPrivileges=true
+ProtectHome=read-only
+RestrictAddressFamilies=AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

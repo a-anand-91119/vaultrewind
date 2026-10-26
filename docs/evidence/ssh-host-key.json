@@ -1,0 +1,8 @@
+{
+  "result": "passed",
+  "synthetic_only": true,
+  "real_ssh": true,
+  "changed_host_key_blocked": true,
+  "code": "SSH_HOST_KEY_CHANGED",
+  "remote_journals_unchanged": true
+}

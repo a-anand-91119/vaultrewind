@@ -1,0 +1,11 @@
+{
+  "module": "github.com/minio/minio",
+  "module_version": "v0.0.0-20251015172955-9e49d5e7a648",
+  "module_sum": "h1:6TdolSCLSs2nwm8i0PpWDqf9iX2Ty9WQK8wmr7dCnUM=",
+  "source_release": "RELEASE.2025-10-15T17-29-55Z",
+  "go": {
+    "version": "go1.27.3",
+    "url": "https://go.dev/dl/go1.27.3.linux-amd64.tar.gz",
+    "sha256": "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40"
+  }
+}

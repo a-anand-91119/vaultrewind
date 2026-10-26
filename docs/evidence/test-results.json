@@ -1,0 +1,263 @@
+{
+  "recorded_at": "2026-10-26T20:08:57.245337+00:00",
+  "status": "implemented_verified_with_documented_limits",
+  "synthetic_only": true,
+  "runs": [
+    {
+      "name": "unit-release-before-final-repairs",
+      "scope": "Broad unit suite before the final offline grant and Docker stop/historical-journal repairs",
+      "passed": 500,
+      "failed": 0,
+      "skipped": 15,
+      "seconds": 306.37,
+      "command_log": "unit-release.log"
+    },
+    {
+      "name": "offline-grant-and-recovery",
+      "scope": "Offline recovery, credential persistence, crash windows and unchanged independent review reproducer",
+      "passed": 68,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 76.56,
+      "command_log": "offline-grant-final-passed.log"
+    },
+    {
+      "name": "docker-stop-reconciliation",
+      "scope": "Health, lifecycle and remote recovery including lost stop acknowledgement",
+      "passed": 108,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 2.44,
+      "command_log": "stop-reconcile-regression.log"
+    },
+    {
+      "name": "controller-identity",
+      "scope": "Local/foreign controller root identity and import/reexport",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 4.26,
+      "command_log": "root-identity-conflict-tests.log"
+    },
+    {
+      "name": "server-provider-regression",
+      "scope": "SQL credential persistence, destination updates, imports and durable worker",
+      "passed": 47,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 35.42,
+      "command_log": "final-server-provider-regression.log"
+    },
+    {
+      "name": "credential-cleanup",
+      "scope": "Server authorization, worker cleanup and reconciliation",
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 56.14,
+      "command_log": "credential-cleanup-regression.log"
+    },
+    {
+      "name": "unit-ultimate",
+      "scope": "All unit tests after final historical helper/provisioning, credential and UI-drill source changes; subsequent Compose health check change covered by fresh installation proof",
+      "passed": 624,
+      "failed": 0,
+      "skipped": 16,
+      "seconds": 385.24,
+      "command_log": "unit-ultimate.log"
+    },
+    {
+      "name": "activation-and-confirmation-binding",
+      "scope": "Reviewed empty target profile adoption, unchanged physical roots, existing application drift rejection, public substitutions, authenticated API confirmations and historical admission",
+      "passed": 54,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 22.14,
+      "command_log": "activation-confirmation-tests.log"
+    },
+    {
+      "name": "real-browser-five-workflows",
+      "scope": "Real API/worker/SSH login/responsive/keyboard, backup with reload, original replacement plus pinned safety, retention/pin/protected deletion, separate VM alternate with exact start-mode confirmation",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 921.85,
+      "command_log": "browser-release-final-correct.log"
+    },
+    {
+      "name": "loopback-notifications",
+      "scope": "Real private-CA SMTP STARTTLS/HTTPS HMAC, relational queue retry/recreation/dedupe/recovery/trust rejection; seeded complete backup witness, no external mailbox",
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 2.99,
+      "evidence": "notifications.json"
+    },
+    {
+      "name": "unit-delivery-first-attempt",
+      "scope": "All unit tests; new capacity test assumed initial file mode despite process-private umask from earlier tests",
+      "passed": 723,
+      "failed": 1,
+      "skipped": 16,
+      "seconds": 353.64,
+      "command_log": "unit-delivery.log",
+      "failure": "test_content_digest_covers_empty_directories_modes_and_bytes",
+      "repair": "Explicitly set synthetic initial file mode to 0644 before testing chmod-to-0600 digest change. Product source/image unchanged."
+    },
+    {
+      "name": "unit-delivery-second-attempt",
+      "scope": "All unit tests; fresh-process SIGKILL test encountered a transient /proc visibility failure that product correctly blocks",
+      "passed": 723,
+      "failed": 1,
+      "skipped": 16,
+      "seconds": 388.87,
+      "command_log": "unit-delivery-green.log",
+      "failure": "test_sigkill_after_real_rclone_rotation_replays_in_a_fresh_process",
+      "code": "CREDENTIAL_PERSIST_FAILED",
+      "persistence_error_code": "CREDENTIAL_SESSION_BUSY",
+      "repair": "Test retries only the explicit transient visibility result for at most five seconds, asserting retained orphan credential bytes, registered session and unchanged stored revision before each retry. Product source/image unchanged."
+    },
+    {
+      "name": "unit-delivery-final",
+      "scope": "Entire unit suite after explicit file-mode fixture setup and bounded retry of conservative credential process-visibility refusal; product source/image unchanged",
+      "passed": 724,
+      "failed": 0,
+      "skipped": 16,
+      "warnings": 4,
+      "seconds": 375.19,
+      "command_log": "unit-delivery-final.log"
+    },
+    {
+      "name": "drive-process-visibility-regression",
+      "scope": "Real rclone SIGKILL recovery, process-visibility refusal and encrypted credential restart/lineage invariants",
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 7.51,
+      "command_log": "drive-visibility-regression.log"
+    },
+    {
+      "name": "source-capacity-final-focused",
+      "scope": "Source staging ENOSPC plus live-data filesystem ENOSPC harness/guards; actual four physical cases in source-capacity.json. Adds eleven drill tests after the broad run; overlapping counts are not summed.",
+      "passed": 44,
+      "failed": 0,
+      "skipped": 0,
+      "evidence": "source-capacity.json"
+    },
+    {
+      "name": "unit-live-drive-final",
+      "scope": "Entire unit suite including new independent Drive application and credential-fault proof guard tests, and the capacity extensions; no live Google provider execution in this unit run. Product source and final image unchanged.",
+      "passed": 864,
+      "failed": 0,
+      "skipped": 16,
+      "warnings": 4,
+      "seconds": 427.75,
+      "command_log": "unit-drive-final.log"
+    },
+    {
+      "name": "unit-live-drive-generation-final",
+      "scope": "Entire unit suite after current-generation source identity, journal/fence guards and narrowly guarded unissued-checkpoint migration in the Drive fault harness; product source and final image unchanged.",
+      "passed": 908,
+      "failed": 0,
+      "skipped": 16,
+      "warnings": 4,
+      "seconds": 425.22,
+      "command_log": "unit-drive-generation-final.log"
+    },
+    {
+      "name": "unit-overnight-before-freeze",
+      "scope": "Interrupted intentionally after authenticated-drill source/tests changed after collection; superseded by frozen rerun, no product assertion failure observed.",
+      "passed": 622,
+      "failed": 0,
+      "skipped": 8,
+      "warnings": 1,
+      "seconds": 116.64,
+      "exit_code": 2,
+      "interrupted": true,
+      "command_log": "unit-overnight-before-freeze.log"
+    },
+    {
+      "name": "unit-overnight-frozen-final",
+      "scope": "All unit tests after the frozen authenticated-recovery harness/guards and CSS-era rebuild; exact observed terminal count, distinct from earlier runs.",
+      "passed": 927,
+      "failed": 0,
+      "skipped": 16,
+      "warnings": 4,
+      "seconds": 395.83,
+      "exit_code": 0,
+      "command_log": "unit-overnight-final.log"
+    }
+  ],
+  "counts_overlap": true,
+  "pending": [],
+  "frontend_build": {
+    "result": "passed",
+    "command": "npm run build --prefix frontend",
+    "evidence": "build.json",
+    "scope": "Current CSS rebuild; three asset hashes verified inside current local image."
+  },
+  "independent_alternate_readback": "passed: alternate-browser.json",
+  "final_compose": {
+    "result": "passed",
+    "evidence": "compose.json",
+    "image_id": "sha256:a1eb72ff5a0eee83e53cbef9ac5e692999a6b8f8a32ac1cf420a85b1c5f1125a",
+    "seconds": 248.805
+  },
+  "source_capacity_mode_regression": {
+    "passed": 33,
+    "failed": 0,
+    "seconds": 0.29,
+    "log": "source-capacity-mode-regression.log"
+  },
+  "source_capacity_evidence": "source-capacity.json",
+  "build_evidence": "build.json",
+  "remaining_limitations": [
+    "Some S3 authentication/quota HTTP403 responses are conservatively reported as STORAGE_TIMEOUT with retryability and outcome_ambiguous because restic omits explicit provider codes.",
+    "Credential orphan recovery requires Linux process visibility and fails closed when uncertain.",
+    "Google natural seven-day Testing-grant expiry and real Google quota exhaustion were not exercised; actual revocation/invalid-grant recovery passed.",
+    "Source capacity fault drills use a systemd substitute; watchdog/reboot guarantees have separate real systemd VM evidence.",
+    "Authenticated recovery proof covers one dedicated synthetic LOCAL item/attachment and the pinned official CLI; older Drive/VM application reports retain their structural-only scopes."
+  ],
+  "live_drive": {
+    "result": "passed",
+    "aggregate_evidence": "drive-release.json",
+    "authorization_and_refresh": "drive.json",
+    "application_readback": "drive-application.json",
+    "retention": "drive-retention.json",
+    "credential_failure_same_snapshot_retry": "drive-auth-failure.json",
+    "fresh_grant_secret_scan": "drive-secret-scan.json",
+    "source_policy_restored": true,
+    "source_recaptured_on_copy_retry": false,
+    "user_login_tested": false,
+    "independent_final_review": "drive-final-review.json"
+  },
+  "acceptance": {
+    "passed": 36,
+    "partial": 0,
+    "pending": 0,
+    "scope": "Passing judgments apply to the recorded synthetic/disposable preservation and workflow boundaries, not unconditional whole-spec or production readiness.",
+    "ledger": "../ACCEPTANCE.md",
+    "AC14": "passed real dedicated Google Drive",
+    "AC26": "passed recorded preservation fault categories; precise quota diagnosis remains limited",
+    "independent_drive_review": "drive-final-review.json"
+  },
+  "previous_compose": {
+    "result": "passed",
+    "evidence": "compose-before-dashboard.json",
+    "image_id": "sha256:69d82b978c39ebed72255a554efecb59aee8b272d2966a00f9ff7d1c7a285b2f",
+    "seconds": 156.892
+  },
+  "dashboard_review": "dashboard-review.json",
+  "authenticated_recovery": "authenticated-recovery.json",
+  "latest_full_unit": {
+    "name": "unit-overnight-frozen-final",
+    "passed": 927,
+    "failed": 0,
+    "skipped": 16,
+    "warnings": 4,
+    "seconds": 395.83,
+    "exit_code": 0
+  },
+  "independent_overnight_review": "overnight-review.json",
+  "release_secret_scan": "release-secret-scan.json"
+}

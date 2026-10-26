@@ -1,0 +1,24 @@
+[Unit]
+Description=Reconcile interrupted VaultRewind captures and restores after boot
+After=docker.service local-fs.target
+Wants=docker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/libexec/vaultrewind-helper --reconcile-all
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=900
+UMask=0077
+User=root
+Group=root
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/vaultrewind-helper /run /var/lib/docker
+NoNewPrivileges=true
+ProtectHome=read-only
+RestrictAddressFamilies=AF_UNIX
+
+[Install]
+WantedBy=multi-user.target
