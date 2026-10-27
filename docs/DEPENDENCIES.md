@@ -2,6 +2,15 @@
 
 Versions were resolved from official registries on 2026-10-25. `uv.lock` pins the Python dependency graph and hashes; `frontend/package-lock.json` pins npm packages. `tools/images.lock.json` records resolved controller/build image digests. `tools/binaries.lock.json` records the official restic/rclone release asset hashes checked by `tools/install_binaries.py`.
 
+Tag CI adds Linux arm64 archives alongside the unchanged amd64 pins. Official
+release API digests pin restic arm64 to `a5f64aaab53d51e311fa3829124c5b703f2d14cf187d8640b6be3b2b49376465`
+and rclone arm64 to `7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10`.
+The installer checks archive hashes and executable ELF architecture. The pinned
+Python/Node/PostgreSQL indexes contain both architectures. Native-builder `uv`
+installs target wheels with source builds disabled, followed by ELF checks and
+unprivileged runtime smoke checks. See [GitLab CI](GITLAB-CI.md). Earlier build and
+application acceptance reports remain bound to their historical inputs/images.
+
 Test host: Debian 13, Python 3.13.5, PostgreSQL 17.11, Docker Engine 26.1.5. Application fixture: Vaultwarden 1.37.4 at registry digest `sha256:efb3cde962015fcc036b2ea625242248611943b27212ebf4392841fb30fad055`; local image ID and archive hash are separate evidence fields. MinIO fixture uses an official source build of release `RELEASE.2025-10-15T17-29-55Z`, built with checksum-verified Go 1.27.3 because old public image/binary download endpoints are unavailable. This fixture is not a production MinIO recommendation or a bundled storage service.
 
 Primary implementation references:

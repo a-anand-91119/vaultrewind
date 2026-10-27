@@ -8,7 +8,7 @@ stages:
   - build
 
 variables:
-  IMAGE_RUNNER_TAG: linux-amd64
+  IMAGE_RUNNER_TAG: arm-native
 
 build-image:
   stage: build

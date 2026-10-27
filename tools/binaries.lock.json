@@ -1,14 +1,32 @@
 {
   "restic": {
     "version": "0.19.1",
-    "linux_amd64_asset": "restic_0.19.1_linux_amd64.bz2",
-    "sha256": "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c",
-    "url": "https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_amd64.bz2"
+    "assets": {
+      "amd64": {
+        "asset": "restic_0.19.1_linux_amd64.bz2",
+        "sha256": "f415415624dcc452f2a02b8c33641791a8c6d6d3b65bbb3543fcf9a25151585c",
+        "url": "https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_amd64.bz2"
+      },
+      "arm64": {
+        "asset": "restic_0.19.1_linux_arm64.bz2",
+        "sha256": "a5f64aaab53d51e311fa3829124c5b703f2d14cf187d8640b6be3b2b49376465",
+        "url": "https://github.com/restic/restic/releases/download/v0.19.1/restic_0.19.1_linux_arm64.bz2"
+      }
+    }
   },
   "rclone": {
     "version": "1.75.2",
-    "linux_amd64_asset": "rclone-v1.75.2-linux-amd64.zip",
-    "sha256": "349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702",
-    "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-linux-amd64.zip"
+    "assets": {
+      "amd64": {
+        "asset": "rclone-v1.75.2-linux-amd64.zip",
+        "sha256": "349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702",
+        "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-linux-amd64.zip"
+      },
+      "arm64": {
+        "asset": "rclone-v1.75.2-linux-arm64.zip",
+        "sha256": "7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10",
+        "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-linux-arm64.zip"
+      }
+    }
   }
 }

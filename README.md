@@ -10,7 +10,7 @@ For an owner-reviewed installation, use the [production plan](docs/PRODUCTION-PL
 
 ## Local installation
 
-Supported controller build: Linux amd64, Docker Engine with Compose v2.24+ (the development override uses `!override`), persistent storage and HTTPS behind an existing reverse proxy. The controller does not mount the Docker socket. Source/target hosts require Linux, Docker, Python 3.13+ and functioning systemd recovery units. Other controller architectures require reviewed binary checksums before building.
+Controller images target Linux amd64 and arm64, with Docker Engine and Compose v2.24+ (the development override uses `!override`), persistent storage and HTTPS behind an existing reverse proxy. Both architectures use reviewed tool checksums and image smoke checks; the full application acceptance reports retain their recorded fixture scope. The controller does not mount the Docker socket. Source/target hosts require Linux, Docker, Python 3.13+ and functioning systemd recovery units.
 
 The supported Vaultwarden health profile uses container HTTP port 80; the published host port is configurable. Running restores require approved fixed host bindings on a compatible non-internal bridge. Custom internal ports, host/shared networking and unsupported dependencies fail during discovery/preflight. See the [operator boundary](docs/OPERATIONS.md).
 
@@ -50,7 +50,7 @@ After onboarding, **Backup now** queues the complete job in one action. **Restor
 
 ## Development and verification
 
-GitLab CI builds and publishes `linux/amd64` images when a Git tag is pushed.
+GitLab CI builds and publishes multi-platform `linux/amd64` and `linux/arm64` images when a Git tag is pushed.
 Images use the exact tag and a full-commit SHA tag in the project's Container
 Registry, authenticated with GitLab's built-in job credentials. See the
 [tag publishing guide](docs/GITLAB-CI.md) for release commands and runner requirements.

@@ -9,10 +9,10 @@ pipeline; its old branch images remain untouched. There is no deployment job.
 The job uses checksum-pinned **BuildKit 0.34.1 rootless**, GitLab's short-lived
 `CI_REGISTRY_USER` / `CI_REGISTRY_PASSWORD`, and the predefined registry address.
 No personal access token or manually configured registry password is required.
-The registry must be enabled and a native Linux amd64 Docker/Kubernetes runner
-must be available with the **`linux-amd64` runner tag**. Set the project CI/CD
+The registry must be enabled and an ARM Docker/Kubernetes runner
+must be available with the **`arm-native` runner tag**. Set the project CI/CD
 variable **`IMAGE_RUNNER_TAG`** to a different existing runner tag if needed.
-The runner must allow the user namespaces/mount operations required
+The runner must provide amd64 emulation for target-image setup and allow the user namespaces/mount operations required
 by rootless BuildKit. A plain shell executor without BuildKit is unsupported.
 No runner or host security policy is changed by the pipeline.
 
@@ -40,9 +40,11 @@ registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:sha-<full-commit-id
 ```
 
 The exact Git tag is retained. There is no automatic `latest` promotion or
-version-prefix stripping. Builds target **linux/amd64**, matching the supported
-controller and pinned restic/rclone binaries. Both the runner tag and an early
-architecture check require native amd64; unsupported emulation is rejected.
+version-prefix stripping. Every tag publishes a multi-platform manifest containing
+**linux/amd64 and linux/arm64**; Docker selects the image matching the host CPU.
+The publisher accepts amd64 or arm64 builders. The supplied `arm-native` tag is
+the default; `arm-privileged` is an explicit `IMAGE_RUNNER_TAG` override if the
+administrator selects that runner policy.
 Images carry OCI source, revision and version labels. Registry tags identify
 builds; use the published digest for immutable deployment references. Rebuilding
 the same commit can produce a different digest as external package repositories
@@ -50,8 +52,30 @@ change.
 
 The job's `build-metadata.json` artifact records the resulting image digest and
 is retained for one year. The shared BuildKit cache lives separately at
-`$CI_REGISTRY_IMAGE/buildcache:amd64`; release jobs are serialized to avoid cache
+`$CI_REGISTRY_IMAGE/buildcache:multiarch`; release jobs are serialized to avoid cache
 export races. Cache is disposable and contains no application runtime data.
+
+## Architecture and smoke checks
+
+Frontend compilation and `uv` dependency installation run on `$BUILDPLATFORM`,
+the builder's native CPU. `uv sync --frozen --no-dev --no-build --python-platform`
+selects wheels for each target CPU; dependency source compilation is disabled.
+The existing pure-Python project remains editable with `/app/src` copied into
+the runtime image. Every native artifact in the installed target environment
+is checked for the expected ELF machine before the environment is copied.
+
+The [binary lock](../tools/binaries.lock.json) separately pins official restic and
+rclone archives for amd64 and arm64. The installer verifies SHA-256 and ELF CPU
+type. Target-image setup still uses BuildKit emulation when needed, but the Rust
+`uv` binary is never executed under emulation. Pinned Python, Node and PostgreSQL
+image digests are multi-platform indexes.
+
+Each final image, as UID 10001, must pass application/worker/recovery imports,
+in-memory SQLite integrity, AES-GCM and Argon2 operations, tool version checks
+and CLI help before publication. These checks establish image packaging and
+runtime prerequisites; they do not rerun every application/provider/watchdog
+acceptance scenario on ARM64. Existing full application evidence retains its
+recorded fixture architecture and image scope.
 
 ## Credentials and build context
 
@@ -85,7 +109,7 @@ sh -n .gitlab/build-image.sh
 .venv/bin/ruff check tests/unit/test_gitlab_ci.py
 ```
 
-If a job is stuck, check that an online native Linux amd64 runner has the tag
+If a job is stuck, check that an online runner has the tag
 selected by `IMAGE_RUNNER_TAG` and is eligible for the Git tag's protection level. Rootless
 namespace/mount errors require the runner administrator to review its policy;
 do not disable TLS or grant broader host access to hide errors. Registry 401/403
@@ -103,6 +127,8 @@ The first real tag pipeline, [4369](https://gitlab.notyouraverage.dev/a.anand.91
 for `v0.1.0-rc.2`, accepted the configuration but was assigned to the ARM64 MacBook
 runner. The amd64 build reached `uv sync --frozen --no-dev`, which crashed under
 emulation with exit 139. No release image was published. That failed pipeline/tag
-is retained; the subsequent configuration selects a native amd64 runner and
-fails before authentication if its architecture is wrong. Runner selection is
-required before claiming a successful GitLab image build.
+is retained. An intermediate configuration required a native amd64 runner; the
+owner then requested both platforms using the ARM runners. The current Dockerfile
+runs `uv` natively, installs checked target wheels and exports both platforms.
+A subsequent successful pipeline and registry manifest inspection are required
+before claiming publication.

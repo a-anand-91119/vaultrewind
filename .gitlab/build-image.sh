@@ -13,8 +13,8 @@ case "$CI_COMMIT_TAG" in
 esac
 [ "${#CI_COMMIT_TAG}" -le 128 ] || fail 'Docker image tags cannot exceed 128 characters.'
 case "$(uname -m)" in
-    x86_64|amd64) ;;
-    *) fail 'Use a native Linux amd64 runner for the supported image; cross-architecture emulation is not validated.' ;;
+    x86_64|amd64|aarch64|arm64) ;;
+    *) fail 'Use a Linux amd64 or arm64 runner for the multi-platform image build.' ;;
 esac
 
 : "${CI_COMMIT_SHA:?GitLab must provide CI_COMMIT_SHA}"
@@ -51,7 +51,7 @@ unset registry_auth
 
 version_image="$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
 commit_image="$CI_REGISTRY_IMAGE:sha-$CI_COMMIT_SHA"
-cache_image="$CI_REGISTRY_IMAGE/buildcache:amd64"
+cache_image="$CI_REGISTRY_IMAGE/buildcache:multiarch"
 
 # Export both names together. The quoted CSV field is required for multiple names.
 # Registry credentials are not build arguments and are never inside the context.
@@ -59,7 +59,7 @@ buildctl-daemonless.sh build \
     --frontend dockerfile.v0 \
     --local "context=$CI_PROJECT_DIR" \
     --local "dockerfile=$CI_PROJECT_DIR" \
-    --opt platform=linux/amd64 \
+    --opt platform=linux/amd64,linux/arm64 \
     --opt "label:org.opencontainers.image.source=$CI_PROJECT_URL" \
     --opt "label:org.opencontainers.image.revision=$CI_COMMIT_SHA" \
     --opt "label:org.opencontainers.image.version=$CI_COMMIT_TAG" \

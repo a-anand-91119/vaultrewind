@@ -77,7 +77,7 @@ def test_publishes_exact_tag_and_commit_without_leaking_credentials(publishing_j
     output = next(csv.reader([arguments[arguments.index("--output") + 1]]))
     assert output == ["type=image", (f"name={environment['CI_REGISTRY_IMAGE']}:{tag},"
                                     f"{environment['CI_REGISTRY_IMAGE']}:sha-{SHA}"), "push=true"]
-    assert "platform=linux/amd64" in arguments
+    assert "platform=linux/amd64,linux/arm64" in arguments
     assert f"label:org.opencontainers.image.revision={SHA}" in arguments
     assert f"label:org.opencontainers.image.version={tag}" in arguments
     assert not any(":latest" in value for value in arguments)
@@ -116,15 +116,27 @@ def test_build_failure_stays_failed_and_private_auth_is_removed(publishing_job):
     assert not Path(json.loads(capture.read_text())["auth_directory"]).exists()
 
 
-def test_arm_runner_is_rejected_before_registry_authentication(publishing_job):
+@pytest.mark.parametrize("machine", ["aarch64", "arm64", "x86_64"])
+def test_supported_runner_can_publish_both_platforms(publishing_job, machine):
     _, capture, environment = publishing_job
     binaries = Path(environment["PATH"].split(os.pathsep)[0])
     uname = binaries / "uname"
-    uname.write_text("#!/bin/sh\nprintf 'aarch64\\n'\n")
+    uname.write_text(f"#!/bin/sh\nprintf '{machine}\\n'\n")
+    uname.chmod(0o700)
+    result = invoke(publishing_job)
+    assert result.returncode == 0
+    assert "platform=linux/amd64,linux/arm64" in json.loads(capture.read_text())["arguments"]
+
+
+def test_unsupported_runner_is_rejected_before_registry_authentication(publishing_job):
+    _, capture, environment = publishing_job
+    binaries = Path(environment["PATH"].split(os.pathsep)[0])
+    uname = binaries / "uname"
+    uname.write_text("#!/bin/sh\nprintf 'riscv64\\n'\n")
     uname.chmod(0o700)
     result = invoke(publishing_job)
     assert result.returncode != 0
-    assert "native Linux amd64 runner" in result.stderr
+    assert "amd64 or arm64 runner" in result.stderr
     assert not capture.exists()
 
 
@@ -139,7 +151,7 @@ def test_pipeline_is_tag_only_with_pinned_rootless_builder_and_digest_artifact()
     assert job["script"] == ["sh .gitlab/build-image.sh"]
     assert job["artifacts"]["paths"] == ["build-metadata.json"]
     assert job["resource_group"] == "tagged-container-images"
-    assert config["variables"]["IMAGE_RUNNER_TAG"] == "linux-amd64"
+    assert config["variables"]["IMAGE_RUNNER_TAG"] == "arm-native"
     assert job["tags"] == ["$IMAGE_RUNNER_TAG"]
     assert not job["interruptible"]
     assert stat.S_IMODE(SCRIPT.stat().st_mode) & stat.S_IXUSR
