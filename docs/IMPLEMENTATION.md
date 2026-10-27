@@ -2,9 +2,16 @@
 
 VaultRewind provides a FastAPI API/worker, PostgreSQL jobs/leases, React UI, constrained SSH helper, staged SQLite normalization, encrypted restic repositories, storage adapters and recovery-kit/offline tooling. [ACCEPTANCE.md](ACCEPTANCE.md) records all 36 specification criteria as passed within their saved evidence scopes. Those scoped results do not establish unconditional whole-spec completion or production readiness.
 
-## Current release candidate
+## Verified local baseline and subsequent image packaging
 
-[build](evidence/build.json) identifies local image `sha256:a1eb72ff5a0eee83e53cbef9ac5e692999a6b8f8a32ac1cf420a85b1c5f1125a`, 98 implementation/build inputs and fingerprint `c264c8aa9cb26209313d48878257099fdf68eeab5516c130b449b88346400415`. Since the earlier `69d82b…85b2f` proof, the only product change is in `frontend/src/style.css`: `.table-wrap { position: relative; }` contains the hidden table heading, and `code { overflow-wrap: anywhere; }` prevents phone overflow. Backend/helper behavior is unchanged. Helper bundle `cbf84b…0093` and current frontend assets are verified inside the isolated image.
+The local build/Compose reports below describe the pre-CI candidate. Subsequent
+[tag CI](GITLAB-CI.md) publishes AMD64 and ARM64 images from a changed Dockerfile
+and architecture-aware tool installer; [gitlab-ci](evidence/gitlab-ci.json) binds
+that packaging revision to its commit, image digest, two platform manifests and
+runtime smoke checks. The old 98-file fingerprint is historical, not a hash of
+the newer packaging inputs. Runtime application/helper source remains unchanged.
+
+[build](evidence/build.json) identifies local image `sha256:a1eb72ff5a0eee83e53cbef9ac5e692999a6b8f8a32ac1cf420a85b1c5f1125a`, 98 implementation/build inputs and fingerprint `c264c8aa9cb26209313d48878257099fdf68eeab5516c130b449b88346400415`. At that recorded baseline, the only product change since the earlier `69d82b…85b2f` proof was `frontend/src/style.css`: `.table-wrap { position: relative; }` contains the hidden table heading, and `code { overflow-wrap: anywhere; }` prevents phone overflow. Backend/helper behavior was unchanged. Helper bundle `cbf84b…0093` and frontend assets were verified inside that isolated image.
 
 Current [Compose evidence](evidence/compose.json) passes in **248.805 seconds** using a separate project/database/keys, readiness/frontend HTTP 200, UID 10001, read-only root, dropped capabilities and no Docker socket. API recreation preserves the encrypted repository and provider state with full-data readback. This loopback installation is not production deployment. Historical [build-before-dashboard](evidence/build-before-dashboard.json) and [compose-before-dashboard](evidence/compose-before-dashboard.json) preserve the `69d` image and 156.892-second proof.
 

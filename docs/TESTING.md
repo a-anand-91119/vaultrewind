@@ -1,5 +1,12 @@
 # Testing and evidence procedures
 
+The later [GitLab CI build](GITLAB-CI.md) / [saved report](evidence/gitlab-ci.json)
+adds 32 focused publishing/installer checks, real AMD64+ARM64 registry publication
+and per-image runtime smoke checks. Those checks are separate from the 927-test
+application baseline below and are not added to it. They do not repeat all
+application/provider/watchdog acceptance on ARM64; the earlier build/Compose
+fingerprints retain their original image and source-input scope.
+
 Use generated synthetic vault contents and disposable infrastructure only. These procedures do not authorize connecting to the owner's Vaultwarden server. Keep credentials, raw inspection/environment dumps and private checkpoints out of reports. [ACCEPTANCE.md](ACCEPTANCE.md) contains all 36 acceptance rows; [evidence/README.md](evidence/README.md) indexes the saved reports.
 
 ## Current candidate and recorded verification

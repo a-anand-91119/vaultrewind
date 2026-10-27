@@ -22,8 +22,8 @@ Create a new tag on a commit containing the CI configuration, then push that
 specific tag:
 
 ```sh
-git tag -a v0.1.0-rc.3 -m "VaultRewind 0.1.0 release candidate 3"
-git push origin refs/tags/v0.1.0-rc.3
+git tag -a v0.1.0-rc.4 -m "VaultRewind 0.1.0 release candidate 4"
+git push origin refs/tags/v0.1.0-rc.4
 ```
 
 The tag must be a valid Docker tag: 1–128 letters, digits, underscores, dots or
@@ -32,10 +32,10 @@ SemVer `+build` metadata fail before registry authentication. Keep published tag
 at their reviewed commits; do not move or force-push old release tags. The older
 local `v0.1.0-rc.1` checkpoint predates the CI configuration and is preserved.
 
-For tag `v0.1.0-rc.3`, the job publishes:
+For a new tag `v0.1.0-rc.4`, the job publishes:
 
 ```text
-registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:v0.1.0-rc.3
+registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:v0.1.0-rc.4
 registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:sha-<full-commit-id>
 ```
 
@@ -130,5 +130,37 @@ emulation with exit 139. No release image was published. That failed pipeline/ta
 is retained. An intermediate configuration required a native amd64 runner; the
 owner then requested both platforms using the ARM runners. The current Dockerfile
 runs `uv` natively, installs checked target wheels and exports both platforms.
-A subsequent successful pipeline and registry manifest inspection are required
-before claiming publication.
+The subsequent successful pipeline and registry inspection below establish
+publication for the newer multi-platform implementation.
+
+## Verified multi-platform publication
+
+[Pipeline 4370](https://gitlab.notyouraverage.dev/a.anand.91119/vaultrewind/-/pipelines/4370)
+passed in **369 seconds** for tag **`v0.1.0-rc.3`**, commit
+`f6a5fa9f475ae5f525aa9912d8170be33f6728b4`, using `arm-native` on the ARM64 runner.
+The [saved evidence](evidence/gitlab-ci.json) records the real build and registry
+readback. Both image names resolve to the same verified multi-platform index:
+
+```text
+registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:v0.1.0-rc.3
+registry.gitlab.notyouraverage.dev/a.anand.91119/vaultrewind:sha-f6a5fa9f475ae5f525aa9912d8170be33f6728b4
+sha256:330eeb27feaea54c24fcfdd7ea8880c68bc2a648b6a1d846b1cb562a94b26095
+```
+
+Both child manifests/configurations were independently read from the registry:
+Linux amd64 and Linux arm64, UID/GID 10001, correct source/revision/version labels
+and matching content digests. The job's downloadable metadata artifact matches
+the index digest. Native dependency artifacts verified: **36 amd64 / 37 arm64**.
+Both final images passed application imports, SQLite, AES-GCM, Argon2, tool
+versions and CLI checks. Both published images were pulled by child digest;
+the published amd64 image passed another native run with network disabled,
+read-only root and capabilities dropped. Both shipped helper bundles match
+`cbf84b999eab462a6ad08b86ef06c631c148e796d242459f227c79df2a0a0093`.
+The ARM64 helper was extracted without starting another ARM64 container.
+
+**32 focused tooling checks passed**. The first local smoke-checker attempt
+mistakenly referenced `recovery.cli.app`; it was corrected to the existing
+`main` / `build_parser` entrypoints before this verified tag, with a regression
+check. The earlier failed GitLab tag remains recorded. No host runner policy,
+production application or existing Vaultwarden data was changed. Full ARM64
+backup/restore/provider/watchdog acceptance was not repeated by this build.

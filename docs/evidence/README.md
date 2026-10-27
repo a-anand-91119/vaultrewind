@@ -1,5 +1,13 @@
 # Evidence index
 
+[gitlab-ci.json](gitlab-ci.json) records the later real tag-driven multi-platform
+publication: pipeline 4370, tag `v0.1.0-rc.3`, matching version/commit image names,
+AMD64+ARM64 manifests/configurations, job metadata digest, native-extension checks,
+runtime smoke checks and helper hashes. Its 32 focused tooling tests are separate
+from the earlier 927-test application baseline. Older build/Compose fingerprints
+describe their saved images, not this newer Docker packaging revision. See the
+[CI guide](../GITLAB-CI.md) for scope and retained failed attempts.
+
 [ACCEPTANCE.md](../ACCEPTANCE.md) records all 36 criteria as passed within their named scopes; [TESTING.md](../TESTING.md) gives procedures, exact counts and failed histories. Reports use synthetic data/disposable infrastructure. Keep credentials, raw dumps, checkpoints and vault content private. Current packaging/dashboard proof, historical workflow baselines and the separate authenticated LOCAL recovery proof retain distinct scopes.
 
 ## Current packaging and dashboard

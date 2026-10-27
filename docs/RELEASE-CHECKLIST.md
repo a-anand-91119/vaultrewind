@@ -29,7 +29,7 @@
 ## 3. Separate approval: controller installation
 
 - [ ] Record owner authorization naming host, checkout/image, project, paths, origin, permitted downloads/egress and installation scope. No source-host permission implied.
-- [ ] Confirm Linux amd64, Docker/Compose v2.24+, persistent supported filesystem, PostgreSQL 17, disk reserves and supported source/target Linux/Docker/Python 3.13+/systemd boundary. Reject unsupported application DB/network/volume profiles.
+- [ ] Confirm Linux amd64 or arm64 with the matching [published image](GITLAB-CI.md), Docker/Compose v2.24+, persistent supported filesystem, PostgreSQL 17, disk reserves and supported source/target Linux/Docker/Python 3.13+/systemd boundary. ARM64 has CI packaging/runtime smoke evidence; complete application acceptance in the selected environment before production. Reject unsupported application DB/network/volume profiles.
 - [ ] Use existing verified image, or explicitly authorize the plan's local-context build and any dependency downloads. No implicit Git fetch/image push. `--pull=false` alone does not make a build offline.
 - [ ] Review installer `--data-dir` / `--origin`, existing `.env`/secrets behavior, canonical non-overlapping host paths, 0700 directories, 0600 secrets and UID/GID 10001 access. Preserve keys off-host independently.
 - [ ] Confirm actual mounts: backups, staging, cache, **provider-credentials**; named PostgreSQL `database` volume; installer `metadata` directory is not a mounted database. Preserve stable project identity; prohibit `down --volumes`/volume prune.
