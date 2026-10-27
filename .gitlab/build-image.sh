@@ -12,6 +12,10 @@ case "$CI_COMMIT_TAG" in
     [.-]*|*[!a-zA-Z0-9_.-]*) fail 'Git tag must be a valid Docker tag: letters, digits, underscores, dots and hyphens; no leading dot or hyphen.' ;;
 esac
 [ "${#CI_COMMIT_TAG}" -le 128 ] || fail 'Docker image tags cannot exceed 128 characters.'
+case "$(uname -m)" in
+    x86_64|amd64) ;;
+    *) fail 'Use a native Linux amd64 runner for the supported image; cross-architecture emulation is not validated.' ;;
+esac
 
 : "${CI_COMMIT_SHA:?GitLab must provide CI_COMMIT_SHA}"
 case "$CI_COMMIT_SHA" in

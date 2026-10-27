@@ -116,6 +116,18 @@ def test_build_failure_stays_failed_and_private_auth_is_removed(publishing_job):
     assert not Path(json.loads(capture.read_text())["auth_directory"]).exists()
 
 
+def test_arm_runner_is_rejected_before_registry_authentication(publishing_job):
+    _, capture, environment = publishing_job
+    binaries = Path(environment["PATH"].split(os.pathsep)[0])
+    uname = binaries / "uname"
+    uname.write_text("#!/bin/sh\nprintf 'aarch64\\n'\n")
+    uname.chmod(0o700)
+    result = invoke(publishing_job)
+    assert result.returncode != 0
+    assert "native Linux amd64 runner" in result.stderr
+    assert not capture.exists()
+
+
 def test_pipeline_is_tag_only_with_pinned_rootless_builder_and_digest_artifact():
     config = yaml.safe_load((ROOT / ".gitlab-ci.yml").read_text())
     assert config["workflow"]["rules"] == [{"if": "$CI_COMMIT_TAG"}, {"when": "never"}]
@@ -127,5 +139,7 @@ def test_pipeline_is_tag_only_with_pinned_rootless_builder_and_digest_artifact()
     assert job["script"] == ["sh .gitlab/build-image.sh"]
     assert job["artifacts"]["paths"] == ["build-metadata.json"]
     assert job["resource_group"] == "tagged-container-images"
+    assert config["variables"]["IMAGE_RUNNER_TAG"] == "linux-amd64"
+    assert job["tags"] == ["$IMAGE_RUNNER_TAG"]
     assert not job["interruptible"]
     assert stat.S_IMODE(SCRIPT.stat().st_mode) & stat.S_IXUSR

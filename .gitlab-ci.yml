@@ -7,6 +7,9 @@ workflow:
 stages:
   - build
 
+variables:
+  IMAGE_RUNNER_TAG: linux-amd64
+
 build-image:
   stage: build
   image:
@@ -14,6 +17,8 @@ build-image:
     entrypoint: [""]
   variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
+  tags:
+    - $IMAGE_RUNNER_TAG
   resource_group: tagged-container-images
   interruptible: false
   timeout: 45 minutes
