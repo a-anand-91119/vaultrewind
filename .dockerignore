@@ -3,6 +3,11 @@
 .runtime
 .secrets
 .env
+.env.*
+!.env.example
+.gitlab-ci.yml
+.gitlab/
+build-metadata.json
 **/__pycache__
 **/node_modules
 **/.pytest_cache

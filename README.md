@@ -50,6 +50,11 @@ After onboarding, **Backup now** queues the complete job in one action. **Restor
 
 ## Development and verification
 
+GitLab CI builds and publishes `linux/amd64` images when a Git tag is pushed.
+Images use the exact tag and a full-commit SHA tag in the project's Container
+Registry, authenticated with GitLab's built-in job credentials. See the
+[tag publishing guide](docs/GITLAB-CI.md) for release commands and runner requirements.
+
 Dependencies are pinned in `uv.lock`, `frontend/package-lock.json` and `tools/*lock.json`. Official release tool archives are checksum checked during image build.
 
 ```sh

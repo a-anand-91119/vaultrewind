@@ -20,3 +20,4 @@ build/
 .hypothesis/
 tests/unit/vrw-*/
 helper/.*-bundle/
+/build-metadata.json

@@ -1,0 +1,26 @@
+# Branch pushes do not publish images. A Git tag must name a valid Docker tag.
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG
+    - when: never
+
+stages:
+  - build
+
+build-image:
+  stage: build
+  image:
+    name: moby/buildkit:v0.34.1-rootless@sha256:f68752a5a94acfcdad2d07867b7075601a421638e17fc5f28efc1c814d0c4f89
+    entrypoint: [""]
+  variables:
+    BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
+  resource_group: tagged-container-images
+  interruptible: false
+  timeout: 45 minutes
+  script:
+    - sh .gitlab/build-image.sh
+  artifacts:
+    name: image-$CI_COMMIT_TAG
+    paths:
+      - build-metadata.json
+    expire_in: 1 year
